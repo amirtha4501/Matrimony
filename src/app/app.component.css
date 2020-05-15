@@ -22,3 +22,24 @@
         color: white;
     }
 }
+
+nav li a:hover {
+    background-color: orange;
+    border-radius: 5px;
+}
+
+.navbar-default{
+    background:transparent;
+    background-image:none;
+    border-color:transparent;
+    box-shadow:none;
+}
+
+
+.navbar {
+    background-image:
+    /* linear-gradient(rgba(255,255,255,0.3),rgba(255,255,255,0.3)),  */
+    url('src/assets/images/placeholder.jpg');
+    background-attachment: fixed;
+    background-position: auto,center top;
+  }

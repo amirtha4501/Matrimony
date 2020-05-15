@@ -1,0 +1,276 @@
+<form action="" autocomplete="off">
+    <div class="form-group">
+        <input type="text" name="name" class="form-control" required>
+        <label for="name">Full name</label>
+    </div>
+    
+    <div class="form-group">
+        <input type="email" name="email" class="form-control" required>
+        <label for="email">email</label>
+    </div>
+    
+    <div class="form-group">
+        <input type="password" name="password" class="form-control" required>
+        <label for="password">New password</label>
+    </div>
+    
+    <div class="form-group">
+        <input type="tel" name="mobile" class="form-control" required>
+        <label for="mobile">Mobile number</label>
+    </div>
+    
+    <div class="form-group">
+        <input type="date" name="dob" class="form-control"  required>
+        <label for="dob">DOB</label>
+    </div>
+    
+    <div class="form-group">
+        <input type="time" name="birth_time" class="form-control" required>
+        <label for="birth_time">Birth time</label>
+    </div>
+    
+    <div class="form-group">
+        <input type="text" name="birth_place" class="form-control" required>
+        <label for="birth_place">Birth Place</label>
+    </div>
+    
+    <div class="form-group">
+        <input type="text" name="sect" class="form-control" list="sect">
+        <label for="sect">Sect</label>
+        <datalist name="sect" id="sect">
+            <option value="brahmin">Brahmin</option>
+            <option value="chettiyar">Chettiyar</option>
+            <option value="gounder">Gounder</option>
+            <option value="mudhaliyar">Mudhaliyar</option>
+        </datalist>
+    </div>
+    
+    <div class="form-group">
+        <input type="text" name="subsect" class="form-control" list="subsect">
+        <label for="sect">SubSect</label>
+        <datalist name="subsect" id="subsect">
+            <optgroup label="Brahmin">
+                <option value="iyer">Iyer</option>
+                <option value="iyengar">Iyengar</option>
+            </optgroup>
+            <optgroup label="Gounder">
+                <option value="vellalar">Vellalar</option>
+                <option value="gaura">Gaura</option>
+            </optgroup>
+        </datalist>        
+    </div>
+    
+    <div class="form-group">
+        <input type="text" name="gothram" class="form-control" list="gothram">
+        <label for="gothram">Gothram</label>
+        <datalist name="gothram" id="gothram">
+            <option value="brahacharanam">Bracharanam</option>
+            <option value="vadamal">Vadamal</option>
+            <option value="srivathsa">Srivathsa</option>
+        </datalist>
+    </div>
+    
+    <div class="form-group">
+        <input type="text" name="star" class="form-control" list="star">
+        <label for="star">Star</label>
+        <datalist name="star" id="star">
+            <option value="uthiram"></option>
+            <option value="hastham"></option>
+            <option value="barani"></option>
+        </datalist>
+    </div>
+
+    <div class="form-group">
+        <input type="text" name="qualification" class="form-control">
+        <label for="qualification">Qualification</label>
+    </div>
+
+    <div class="form-group">
+        <input type="text" name="job" class="form-control">
+        <label for="job">Job</label>        
+    </div>
+
+    <div class="form-group">
+        <input type="text" name="work_place" class="form-control">
+        <label for="work_place">Work place</label>
+    </div>
+
+    <div class="form-group">
+        <input type="number" name="income" class="form-control">
+        <label for="income">Income</label>
+    </div>
+
+    <div class="form-group">
+        <input type="number" name="height" class="form-control">
+        <label for="height">Height(ft)</label>
+
+        <input type="number" name="weight" class="form-control">
+        <label for="weight">Weight(kg)</label>
+    </div>
+
+    <div class="form-group">
+        <input type="text" name="mother_tongue" class="form-control" list="mother_tongue">
+        <label for="mother_tongue">Mother Tongue</label>
+        <datalist name="mother_tongue" id="mother_tongue">
+            <option value="Tamil"></option>
+            <option value="Telugu"></option>
+            <option value="Malayalam"></option>
+            <option value="Hindi"></option>
+            <option value="Kannada"></option>
+        </datalist>
+    </div>
+
+    <div class="form-group">
+        <input type="text" name="known_language" class="form-control" list="known_language" multiple value="" placeholder="Language known...">
+        <label for="known_language">Known language</label>
+        <datalist name="known_language[]" multiple id="known_language">
+            <option value="Tamil"></option>
+            <option value="English"></option>
+            <option value="Telugu"></option>
+            <option value="Malayalam"></option>
+            <option value="Hindi"></option>
+            <option value="Kannada"></option>
+            <option value="Thulu"></option>
+            <option value="Marati"></option>
+        </datalist>
+    </div>
+
+    <div class="form-group">
+        <input type="text" name="nativity" class="form-control" list="nativity">
+        <label for="nativity">Nativity</label>
+        <datalist name="nativity" id="nativity">
+            <option value="trichy"></option>
+            <option value="coimbatore"></option>
+            <option value="salem"></option>
+            <option value="tirupur"></option>
+            <option value="chennai"></option>
+        </datalist>
+    </div>
+
+    <div class="header">
+        <h2>Family details</h2>
+    </div><br>
+
+    <div class="form-group">
+        <input type="text" name="father_name" class="form-control">
+        <label for="father_name">Father name</label>
+    </div>
+
+    <div class="form-group">
+        <input type="text" name="father_occupation" class="form-control">
+        <label for="father_occupation">Father occupation</label>
+    </div>
+
+    <div class="form-group">
+        <input type="text" name="mother_name" class="form-control">
+        <label for="mother_name">Mother name</label>
+    </div>
+    
+    <div class="form-group">
+        <input type="text" name="mother_occupation" class="form-control">
+        <label for="mother_occupation">Mother occupation</label>
+    </div>
+    
+    <div class="form-group">
+        <input type="number" name="sibiling_count" class="form-control">
+        <label for="sibiling_count">Sibiling Count</label>
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+            <legend class="col-form-label col-sm-2 pt-0">Family Status</legend>
+            
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio">
+                <label class="form-check-label">Middle Class</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio">
+                <label class="form-check-label">Upper Middle Class</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio">
+                <label class="form-check-label">Rich</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio">
+                <label class="form-check-label">Affluent</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="property">Property</label>
+        <textarea name="property" cols="52" rows="5" placeholder="e.g. 1 flat in Bangalore..."></textarea>
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+            <legend class="col-form-label col-sm-2">Marital status</legend>
+            
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" >
+                <label class="form-check-label">Unmarried</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio">
+                <label class="form-check-label">Married</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <textarea name="talents" cols="30" rows="3" class="form-control"></textarea>
+        <label for="talents">Talents</label>
+    </div>
+    
+    <div class="form-group">
+        <textarea name="hobbies" cols="30" rows="3" class="form-control"></textarea>
+        <label for="hobbies">Hobbies</label>
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+            <legend class="col-form-label col-sm-2">Vehicle driving</legend>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" >
+                <label class="form-check-label">Two wheeler</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox">
+                <label class="form-check-label">Four wheeler</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+            <legend class="col-form-label col-sm-2">Disabilities</legend>
+            
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" >
+                <label class="form-check-label">Normal</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio">
+                <label class="form-check-label">Physically challenged</label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <textarea name="anydetails" cols="40" rows="4" placeholder="Write something about you..."></textarea>
+    </div>
+
+</form>
+
+expected qualification
+expected place
+expected income
+expected sect
+expected subsect
+expected marital-status
+expected age difference
+expected height 
+expected weight
+other expectations
+horoscope

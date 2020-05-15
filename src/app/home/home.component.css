@@ -1,3 +1,11 @@
 .img-responsive {
-    max-height: 65vh; /* or to whatever you want here */
+    max-height: 65vh;
+  }
+
+  
+  .bgimg {
+    height: 600px;
+    background-image: url('src/assets/images/placeholder.jpg');
+    background-attachment: fixed;
+    background-position: center top;
   }
