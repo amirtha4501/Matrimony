@@ -1,0 +1,18 @@
+td textarea {
+    resize: none;
+
+}
+td textarea.box {
+    border: none;
+}
+
+td textarea.box:focus {
+    margin-top: -13px;
+}
+
+td textarea:focus {
+    margin-top: -10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19),
+    inset 1px 1px 18px aquamarine,
+    inset -5px -5px 10px snow;
+}
