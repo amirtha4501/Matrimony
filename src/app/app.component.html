@@ -1,11 +1,11 @@
-<nav class="navbar navbar-expand-md navbar-default">
+<nav class="navbar bg-dark navbar-expand-md navbar-dark">
     <!-- Brand -->
     <a class="navbar-brand" href="#">
         <img src="assets/images/logo.png" width="75" class="img-responsive rounded" alt="">
     </a>
   
     <!-- Toggler/collapsibe Button -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
   
@@ -16,15 +16,50 @@
             
             <li class="nav-item"><a class="nav-link" href="#">About us</a></li>
 
-            <li class="nav-item"><a class="nav-link" href="#">Language</a></li> 
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Language</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item text-dark" href="#">தமிழ்</a>
+                    <a class="dropdown-item text-dark" href="#">English</a>
+                </div>
+            </li> 
         </ul>
 
         <ul class="navbar-nav ml-auto">    
             <li class="nav-item"><a class="nav-link" routerLink='/register'>Register</a></li>
 
-            <li class="nav-item"><a class="nav-link" href="#">Login</a></li>
+            <li class="nav-item"><a class="nav-link" data-target="#login-modal" data-toggle="modal">Login</a></li>
         </ul>
-
+ 
+        <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Login</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="id" class="col-form-label">Member Id</label>
+                                <input type="number" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="col-form-label">Password</label>
+                                <input type="password" class="form-control">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+          
     </div>
 </nav>
 <router-outlet></router-outlet>

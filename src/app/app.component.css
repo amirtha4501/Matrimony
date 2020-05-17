@@ -36,10 +36,15 @@ nav li a:hover {
 }
 
 
-.navbar {
-    background-image:
+/* .navbar { */
+    /* background-image: */
     /* linear-gradient(rgba(255,255,255,0.3),rgba(255,255,255,0.3)),  */
-    url('src/assets/images/placeholder.jpg');
-    background-attachment: fixed;
-    background-position: auto,center top;
-  }
+    /* url('src/assets/images/placeholder.jpg'); */
+    /* background-attachment: fixed; */
+    /* background-position: auto,center top; */
+  /* } */
+  /* .custom-toggler.navbar-toggler { 
+    border-color: lightgreen; 
+    color: white !important;
+    background-color: orangered;
+}  */

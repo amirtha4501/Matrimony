@@ -1,10 +1,10 @@
 <form action="" autocomplete="off">
     <div class="container">
-        <div class="card mt-5">
+        <fieldset class="scheduler-border card border-custom mt-5">
+            <legend class="header scheduler-border mb-5 text-center">
+                <h2>Personal details</h2>
+            </legend>
             <div class="container">
-                <div class="header mt-4 mb-4 text-center">
-                    <h2>Personal details</h2>
-                </div>
     
                 <div class="form-group">
                     <input type="text" name="name" class="form-control" required>
@@ -128,7 +128,7 @@
                 </div>
     
                 <div class="form-group">
-                    <input type="text" name="known_language" class="form-control" list="known_language" multiple value="" placeholder="Language known...">
+                    <input type="text" name="known_language" class="form-control" list="known_language">
                     <label for="known_language">Known language</label>
                     <datalist name="known_language[]" multiple id="known_language">
                         <option value="Tamil"></option>
@@ -208,60 +208,79 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </fieldset>
     </div>
 
     <div class="container">
-        <div class="card mt-5">
-            <div class="header mt-4 mb-4 text-center">
+        <fieldset class="scheduler-border border-custom card mt-5">
+            <legend class="header scheduler-border mb-4 text-center">
                 <h2>
                     Horoscope
                 </h2>
-            </div>
-            <div class="container ">
-                <table class="text-center mr-1 table-borderless">
+            </legend>
+            <div class="container row mt-4 mb-3">
+                <table class="form-group mx-auto">
                     <tbody>
                         <tr>
-                            <!-- <div class="col-xs-4"> -->
-                                <td> <textarea type="text" cols="12" rows="5" name="1" class="form-control"></textarea> </td>
-                                <td> <textarea type="text" cols="12" rows="5" name="1" class="form-control"></textarea> </td>
-                                <td> <textarea type="text" cols="12" rows="5" name="1" class="form-control"></textarea> </td>
-                                <td> <textarea type="text" cols="12" rows="5" name="1" class="form-control"></textarea> </td>
-                            <!-- </div> -->
+                            <td> <textarea type="text" cols="12" rows="5" name="1" class="form-control"></textarea> </td>
+                            <td> <textarea type="text" cols="12" rows="5" name="1" class="form-control"></textarea> </td>
+                            <td> <textarea type="text" cols="12" rows="5" name="1" class="form-control"></textarea> </td>
+                            <td> <textarea type="text" cols="12" rows="5" name="1" class="form-control"></textarea> </td>
                         </tr>
                         <tr>
-                            <!-- <div class="col-xs-4"> -->
-                                <td> <textarea type="text" cols="12" rows="5" name="1" class="form-control"></textarea> </td>
-                                <td rowspan="2" colspan="2"> <textarea type="text" cols="10" rows="10" name="1" class="form-control box"></textarea> </td>
-                                <td> <textarea type="text" cols="12" rows="5" name="1" class="form-control"></textarea> </td>
-                            <!-- </div> -->
+                            <td> <textarea type="text" cols="12" rows="5" name="1" class="form-control"></textarea> </td>
+                            <td rowspan="2" colspan="2"> <textarea type="text" cols="10" rows="10" name="1" class="form-control box"></textarea> </td>
+                            <td> <textarea type="text" cols="12" rows="5" name="1" class="form-control"></textarea> </td>
                         </tr>
                         <tr>
-                            <!-- <div class="col-xs-4"> -->
-                                <td> <textarea type="text" cols="12" rows="5" name="1" class="form-control"></textarea> </td>
-                                <td> <textarea type="text" cols="12" rows="5" name="1" class="form-control"></textarea> </td>
-                            <!-- </div> -->
+                            <td> <textarea type="text" cols="12" rows="5" name="1" class="form-control"></textarea> </td>
+                            <td> <textarea type="text" cols="12" rows="5" name="1" class="form-control"></textarea> </td>
                         </tr>
                         <tr>
-                            <!-- <div class="col-xs-4"> -->
-                                <td> <textarea type="text" cols="12" rows="5" name="1" class="form-control"></textarea> </td>
-                                <td> <textarea type="text" cols="12" rows="5" name="1" class="form-control"></textarea> </td>
-                                <td> <textarea type="text" cols="12" rows="5" name="1" class="form-control"></textarea> </td>
-                                <td> <textarea type="text" cols="12" rows="5" name="1" class="form-control"></textarea> </td>
-                            <!-- </div> -->
+                            <td> <textarea type="text" cols="12" rows="5" name="1" class="form-control"></textarea> </td>
+                            <td> <textarea type="text" cols="12" rows="5" name="1" class="form-control"></textarea> </td>
+                            <td> <textarea type="text" cols="12" rows="5" name="1" class="form-control"></textarea> </td>
+                            <td> <textarea type="text" cols="12" rows="5" name="1" class="form-control"></textarea> </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-        </div>
+            <div class="container row mt-5 mb-5">
+                <table class="form-group mx-auto">
+                    <tbody>
+                        <tr>
+                            <td> <textarea type="text" cols="12" rows="5" name="1" class="form-control"></textarea> </td>
+                            <td> <textarea type="text" cols="12" rows="5" name="1" class="form-control"></textarea> </td>
+                            <td> <textarea type="text" cols="12" rows="5" name="1" class="form-control"></textarea> </td>
+                            <td> <textarea type="text" cols="12" rows="5" name="1" class="form-control"></textarea> </td>
+                        </tr>
+                        <tr>
+                            <td> <textarea type="text" cols="12" rows="5" name="1" class="form-control"></textarea> </td>
+                            <td rowspan="2" colspan="2"> <textarea type="text" cols="10" rows="10" name="1" class="form-control box"></textarea> </td>
+                            <td> <textarea type="text" cols="12" rows="5" name="1" class="form-control"></textarea> </td>
+                        </tr>
+                        <tr>
+                            <td> <textarea type="text" cols="12" rows="5" name="1" class="form-control"></textarea> </td>
+                            <td> <textarea type="text" cols="12" rows="5" name="1" class="form-control"></textarea> </td>
+                        </tr>
+                        <tr>
+                            <td> <textarea type="text" cols="12" rows="5" name="1" class="form-control"></textarea> </td>
+                            <td> <textarea type="text" cols="12" rows="5" name="1" class="form-control"></textarea> </td>
+                            <td> <textarea type="text" cols="12" rows="5" name="1" class="form-control"></textarea> </td>
+                            <td> <textarea type="text" cols="12" rows="5" name="1" class="form-control"></textarea> </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </fieldset>
     </div>
 
     <div class="container">
-        <div class="card mt-5">       
+        <fieldset class="scheduler-border border-custom card mt-5">       
+            <legend class="header scheduler-border mb-5 text-center">
+                <h2>Family details</h2>
+            </legend>
             <div class="container">
-                <div class="header mt-4 mb-4 text-center">
-                    <h2>Family details</h2>
-                </div>
 
                 <div class="form-group">
                     <input type="text" name="father_name" class="form-control">
@@ -326,15 +345,15 @@
                     <label for="anydetails">Other details</label>
                 </div>
             </div>
-        </div>
+        </fieldset>
     </div>
 
-    <div class="container">
-        <div class="card mt-5">
+    <div class="container mb-5">
+        <fieldset class="scheduler-border border-custom card mt-5">
+            <legend class="header scheduler-border mb-5 text-center">
+                <h2>Partner expectations</h2>
+            </legend>
             <div class="container">
-                <div class="header mt-4 mb-4 text-center">
-                    <h2>Partner expectations</h2>
-                </div>
                 
                 <div class="form-group">
                      <input type="text" name="expected_qualification" class="form-control">
@@ -415,7 +434,7 @@
                 </div>
     
                 <div class="form-group">
-                    <input type="number" name="expected_height" class="form-control">
+                    <input type="number" name="expected_height" class="form-control border-bottom-2">
                     <label for="expected_height">Height(ft)</label>
     
                     <input type="number" name="expected_weight" class="form-control">
@@ -427,6 +446,6 @@
                     <label for="expectations">Other expectations</label>
                 </div>
             </div>
-        </div>
+        </fieldset>
     </div>
 </form>

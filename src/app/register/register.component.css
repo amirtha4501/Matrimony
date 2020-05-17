@@ -1,18 +1,47 @@
 td textarea {
     resize: none;
-
 }
 td textarea.box {
     border: none;
 }
-
 td textarea.box:focus {
-    margin-top: -13px;
+    margin-top: -10px;
+    height: 260px;
 }
-
+td textarea:hover {
+    margin-top: -10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19),
+    inset 1px 1px 18px palevioletred,
+    inset -5px -5px 10px snow;
+}
 td textarea:focus {
     margin-top: -10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19),
     inset 1px 1px 18px aquamarine,
     inset -5px -5px 10px snow;
+}
+/* ==================================================================================== */
+legend.scheduler-border {
+    width:inherit; 
+    padding:0 10px;
+    border-bottom:none;
+}
+
+.border-custom {
+    border-radius: 15px;
+    border: 2px solid rgb(252, 98, 157);
+}
+/* ==================================================================================== */
+
+div.form-group > textarea {
+    border-radius: 10px 35px;
+    text-decoration: none;
+    font-size: 15px;
+    outline: none;
+    resize: none;
+}
+input {
+    outline: 0;
+    border-width: 0 0 1.5px;
+    border-color: lightgray;
 }
