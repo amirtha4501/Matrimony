@@ -55,3 +55,16 @@ input, select {
     border-width: 0 0 1.5px;
     border-color: lightgray;
 }
+
+/* ==================================================================================== */
+
+.submit-btn {
+    background-image: linear-gradient(to right, rgb(23, 201, 23), rgb(135, 250, 41),  rgb(23, 201, 23));
+    color: white;
+}
+
+.cancel-btn {
+    background-image: linear-gradient(to right, rgb(228, 2, 2), rgb(245, 79, 67), rgb(228, 2, 2));
+    color: white;
+}
+/* ====================================================================================== */

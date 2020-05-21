@@ -2,10 +2,18 @@
     max-height: 65vh;
   }
 
-  
-  .bgimg {
-    height: 600px;
-    background-image: url('src/assets/images/placeholder.jpg');
-    background-attachment: fixed;
-    background-position: center top;
-  }
+.carousel-item {
+  	height: 100vh;
+  	background-size: cover;
+  	background-position: center center;
+}
+
+.carousel-item h1 {
+    margin: 0;
+    position: absolute;
+    color: white;
+    font-family: "trajan-color";
+    font-size: 100px;
+    line-height: 1.3;
+    font-weight: 400;
+}
