@@ -7,9 +7,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileDetailComponent implements OnInit {
 
+  imgUrls = []
+
   constructor() { }
 
   ngOnInit(): void {
+    this.imgUrls = [
+      './assets/images/placeholder.jpg',
+      './assets/images/placeholder.jpg',
+      './assets/images/placeholder.jpg',
+      './assets/images/placeholder.jpg',
+      './assets/images/placeholder.jpg',
+      './assets/images/placeholder.jpg',
+      './assets/images/placeholder.jpg',
+      './assets/images/placeholder.jpg',
+      './assets/images/placeholder.jpg',
+      './assets/images/placeholder.jpg',
+      './assets/images/placeholder.jpg',
+      './assets/images/placeholder.jpg'
+    ]
   }
 
 }
