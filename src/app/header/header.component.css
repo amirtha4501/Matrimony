@@ -23,9 +23,28 @@
     }
 }
 
-nav li a:hover {
+nav ul li a:hover {
     background-color: orange;
     border-radius: 5px;
+}
+
+.contact {
+    background-color: black;
+    font-size: 12px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.contact a {
+    text-decoration: none;
+}
+
+.main {
+    background-image: linear-gradient(to right, rgb(1, 107, 1) , rgb(23, 240, 23));
+}
+
+nav h5 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .navbar-default{
@@ -35,16 +54,3 @@ nav li a:hover {
     box-shadow:none;
 }
 
-
-/* .navbar { */
-    /* background-image: */
-    /* linear-gradient(rgba(255,255,255,0.3),rgba(255,255,255,0.3)),  */
-    /* url('src/assets/images/placeholder.jpg'); */
-    /* background-attachment: fixed; */
-    /* background-position: auto,center top; */
-  /* } */
-  /* .custom-toggler.navbar-toggler { 
-    border-color: lightgreen; 
-    color: white !important;
-    background-color: orangered;
-}  */

@@ -1,0 +1,9 @@
+.classic {
+    background-image: linear-gradient(to right, rgb(23, 201, 23), rgb(135, 250, 41),  rgb(23, 201, 23));
+}
+.premium {
+    background-image: linear-gradient(to right, rgb(2, 55, 228), rgb(67, 180, 245), rgb(2, 55, 228));
+}
+.advanced {
+    background-image: linear-gradient(to right, rgb(228, 2, 2), rgb(245, 79, 67), rgb(228, 2, 2));
+}
