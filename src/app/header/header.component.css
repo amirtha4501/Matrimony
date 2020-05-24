@@ -41,7 +41,7 @@ nav ul li a:hover {
 }
 
 .main {
-    background-image: linear-gradient(to right, rgb(1, 107, 1) , rgb(23, 240, 23));
+    background-image: linear-gradient(to right, rgb(1, 107, 1) , rgb(106, 231, 4));
 }
 
 nav h5 {
@@ -55,3 +55,21 @@ nav h5 {
     box-shadow:none;
 }
 
+.navbar-toggler {
+    outline: none;
+}
+
+.navbar-toggler {
+    font-size: 30px;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.navbar-toggler:hover {
+    background-image: linear-gradient( rgb(1, 2, 70), rgb(23, 63, 240),  rgb(1, 2, 70));
+}
+
+.navbar-toggler:focus {
+    outline: 3px solid orange;
+}
