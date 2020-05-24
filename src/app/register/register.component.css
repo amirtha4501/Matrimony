@@ -31,16 +31,15 @@ td textarea:hover::-webkit-scrollbar {
 
 /* ==================================================================================== */
 
-legend.scheduler-border {
-    width:inherit; 
-    padding:0 10px;
-    border-bottom:none;
+.border-custom {
+    border: none;
 }
 
-.border-custom {
-    border-radius: 15px;
-    border: 2px solid rgb(252, 98, 157);
+.border-custom .card-header {
+    /* background-image: linear-gradient(to right, rgb(211, 6, 160), rgb(235, 113, 198), rgb(211, 6, 160)); */
+    background-image: linear-gradient(to right, rgb(2, 55, 228), rgb(67, 180, 245), rgb(2, 55, 228));
 }
+
 /* ==================================================================================== */
 
 div.form-group > textarea {
