@@ -29,7 +29,8 @@ nav ul li a:hover {
 }
 
 .contact {
-    background-color: black;
+    background-image: linear-gradient(to right, rgb(1, 2, 70), rgb(23, 63, 240),  rgb(1, 2, 70));
+
     font-size: 12px;
     padding-top: 4px;
     padding-bottom: 4px;
