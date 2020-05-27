@@ -1,0 +1,31 @@
+@media screen and (max-height: 570px) {
+    .card img {
+        height: 240px;
+    }
+}
+
+@media screen and (min-height: 571px) and (max-height: 670px) {
+    .card img {
+        height: 270px;
+    }
+}
+@media screen and (min-height: 671px) and (max-height: 840px) {
+    .card img {
+        height: 290px;
+    }
+}
+@media screen and (min-height: 841px) and (max-height: 1025px) {
+    .card img {
+        height: 200px;
+    }
+}
+@media screen and (min-height: 1026px) and (max-height: 1400px) {
+    .card img {
+        height: 250px;
+    }
+}
+@media screen and (min-width:1025px) {
+    .card img {
+        height:510px;
+    }
+}

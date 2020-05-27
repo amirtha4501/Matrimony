@@ -1,13 +1,13 @@
 <div class="container-fluid">
-    <div class="row card-column">
-        <div *ngFor="let img of imgUrls; index as i" class="card col-3 p-0 mt-4">
+    <div class="mt-5 mb-5 col-10 mx-auto text-center card-columns rounded">
+        <div *ngFor="let img of imgUrls; index as i" class="card mt-5 mb-5 text-center">
             <img class="card-img-top img-fluid" src={{img}} alt="Card image">
-            <div class="card-body">
+            <div class="card-body p-1">
                 <h4 class="text-center">name - <code>19</code></h4>
                 <h6 class="text-center">dob</h6>
                 <h6 class="text-center">star</h6>
             </div>
-            <div class="card-footer text-right"><a routerLink="/profiledetail">View profile</a></div>
+            <div class="card-footer p-2 pr-3 text-right"><a routerLink="/profiledetail">View profile</a></div>
         </div>
     </div>
 </div>

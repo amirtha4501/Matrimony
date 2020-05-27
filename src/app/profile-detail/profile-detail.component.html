@@ -1,32 +1,126 @@
 <section class="bg-warning">
     <fieldset class="scheduler-border card border-custom">
-        <img src="{{imgUrls[0]}}" class="profile ml-auto w-25" alt="">
-        <label class="col-form-label col-6 bg-danger" for="name">Full name:</label>
-        <label class="col-form-label col-6 bg-danger" for="dob">DOB</label>
-        <label class="col-form-label col-6 bg-danger" for="birth_time">Birth time</label>
-        <label class="col-form-label col-6 bg-danger" for="birth_place">Birth Place</label>
-        <label class="col-form-label col-6 bg-danger" for="caste">Religion</label>
-        <label class="col-form-label col-6 bg-danger" for="caste">Caste</label>
-        <label class="col-form-label col-6 bg-danger" for="subcaste">Sub caste</label>
-        <label class="col-form-label col-6 bg-danger" for="gothram">Gothram</label>
-        <label class="col-form-label col-6 bg-danger" for="star">Star</label>
-        <label class="col-form-label col-6 bg-danger" for="qualification">Qualification</label>
-        <label class="col-form-label col-6 bg-danger" for="job">Job</label>        
-        <label class="col-form-label col-6 bg-danger" for="work_place">Work place</label>
-        <label class="col-form-label col-6 bg-danger" for="income">Income</label>
-        <label class="col-form-label col-6 bg-danger" for="height">Height(ft)</label>
-        <label class="col-form-label col-6 bg-danger" for="weight">Weight(kg)</label>
-        <label class="col-form-label col-6 bg-danger" for="mother_tongue">Mother Tongue</label>
-        <label class="col-form-label col-6 bg-danger" for="known_language">Known language</label>
-        <label class="col-form-label col-6 bg-danger" for="nativity">Nativity</label>
-        <label class="col-form-label col-6 bg-danger">Marital status</label>
-        <label class="col-form-label col-6 bg-danger" for="talents">Talents</label>
-        <label class="col-form-label col-6 bg-danger" for="hobbies">Hobbies</label>
-        <label class="col-form-label col-6 bg-danger">Vehicle driving</label>
-        <label class="col-form-label col-6 bg-danger">Disabilities</label>
-        
+        <div class="">
+            <div *ngFor="let img of detail['imageUrls']; index as i" class="bg-primary">
+                <img src={{img}} class="profile w-25" alt="">
+            </div>
+            
+            <div class ="details bg-primary">
+               <div class="row col-8 bg-dark">
+                    <label class="col-form-label bg-warning" for="name">Full name:</label>
+                    <label class="col-form-labe ml-auto bg-success" for="name">{{ detail['name'] | titlecase}}</label>
+                </div>
+
+                <div class="row col-8 bg-dark">
+                    <label class="col-form-label bg-warning" for="dob">DOB</label>
+                    <label class="col-form-label ml-auto bg-success" for="dob">{{ detail['dob'] | titlecase}}</label>
+                </div>
+                
+                <div class="row col-8 bg-dark">
+                    <label class="col-form-label bg-warning" for="birth_time">Birth time</label>
+                    <label class="col-form-label ml-auto bg-success" for="birth_time">{{ detail['birthtime'] | titlecase}}</label>
+                </div>
+                
+                <div class="row col-8 bg-dark">
+                    <label class="col-form-label bg-warning" for="birth_place">Birth Place</label>
+                    <label class="col-form-label ml-auto bg-success" for="birth_place">{{ detail['birthplace'] | titlecase}}</label>
+                </div>
+                
+                <div class="row col-8 bg-dark">
+                    <label class="col-form-label bg-warning" for="caste">Religion</label>
+                    <label class="col-form-label ml-auto bg-success" for="caste">{{ detail['religion'] | titlecase}}</label>
+                </div>
+
+                <div class="row col-8 bg-dark">
+                    <label class="col-form-label bg-warning" for="caste">Caste</label>
+                    <label class="col-form-label ml-auto bg-success" for="caste">{{ detail['caste'] | titlecase}}</label>
+                </div>
+
+                <div class="row col-8 bg-dark">
+                    <label class="col-form-label bg-warning" for="subcaste">Sub caste</label>
+                    <label class="col-form-label ml-auto bg-success" for="subcaste">{{ detail['subcaste'] | titlecase}}</label>
+                </div>
+
+                <div class="row col-8 bg-dark">
+                    <label class="col-form-label bg-warning" for="gothram">Gothram</label>
+                    <label class="col-form-label ml-auto bg-success" for="gothram">{{ detail['gothram'] | titlecase}}</label>
+                </div>
+                
+                <div class="row col-8 bg-dark">
+                    <label class="col-form-label bg-warning" for="star">Star</label>
+                    <label class="col-form-label ml-auto bg-success" for="star">{{ detail['star'] | titlecase}}</label>
+                </div>
+
+                <div class="row col-8 bg-dark">
+                    <label class="col-form-label bg-warning" for="qualification">Qualification</label>
+                    <label class="col-form-label ml-auto bg-success" for="qualification">{{ detail['qualification'] | titlecase}}</label>
+                </div>
+
+                <div class="row col-8 bg-dark">
+                    <label class="col-form-label bg-warning" for="job">Job</label>        
+                    <label class="col-form-label ml-auto bg-success" for="job">{{ detail['job'] | titlecase}}</label>
+                </div>
+                
+                <div class="row col-8 bg-dark">
+                    <label class="col-form-label bg-warning" for="work_place">Work place</label>
+                    <label class="col-form-label ml-auto bg-success" for="work_place">{{ detail['workplace'] | titlecase}}</label>
+                </div>
+
+                <div class="row col-8 bg-dark">
+                    <label class="col-form-label bg-warning" for="income">Income</label>
+                    <label class="col-form-label ml-auto bg-success" for="income">{{ detail['income'] | titlecase}}</label>
+                </div>
+
+                <div class="row col-8 bg-dark">
+                    <label class="col-form-label bg-warning" for="height">Height(ft)</label>
+                    <label class="col-form-label ml-auto bg-success" for="height">{{ detail['height'] | titlecase}}</label>
+                </div>
+                
+                <div class="row col-8 bg-dark">
+                    <label class="col-form-label bg-warning" for="weight">Weight(kg)</label>
+                    <label class="col-form-label ml-auto bg-success" for="weight">{{ detail['weight'] | titlecase}}</label>
+                </div>
+
+                <div class="row col-8 bg-dark">
+                    <label class="col-form-label bg-warning" for="mother_tongue">Mother Tongue</label>
+                    <label class="col-form-label ml-auto bg-success" for="mother_tongue">{{ detail['mothertongue'] | titlecase}}</label>
+                </div>
+
+                <div class="row col-8 bg-dark">
+                    <label class="col-form-label bg-warning" for="known_language">Known language</label>
+                    <label class="col-form-label ml-auto bg-success" for="known_language">{{ detail['knownlanguage'] | titlecase}}</label>
+                </div>
+
+                <div class="row col-8 bg-dark">
+                    <label class="col-form-label bg-warning" for="nativity">Nativity</label>
+                    <label class="col-form-label ml-auto bg-success" for="nativity">{{ detail['nativity'] | titlecase}}</label>
+                </div>
+                
+                <div class="row col-8 bg-dark">
+                    <label class="col-form-label bg-warning">Marital status</label>
+                    <label class="col-form-label ml-auto bg-success">{{ detail['maritalstatus'] | titlecase}}</label>
+                </div>
+
+                <div class="row col-8 bg-dark">
+                    <label class="col-form-label bg-warning" for="talents">Talents</label>
+                    <label class="col-form-label ml-auto bg-success" for="talents">{{ detail['talents'] | titlecase}}</label>
+                </div>
+
+                <div class="row col-8 bg-dark">
+                    <label class="col-form-label bg-warning" for="hobbies">Hobbies</label>
+                    <label class="col-form-label ml-auto bg-success" for="hobbies">{{ detail['hobbies'] | titlecase}}</label>
+                </div>
+
+                <div class="row col-8 bg-dark">
+                    <label class="col-form-label bg-warning">Vehicle driving</label>
+                    <label class="col-form-label ml-auto bg-success">{{ detail['vehicledriving'] | titlecase}}</label>
+                </div>
+                
+                <div class="row col-8 bg-dark">
+                    <label class="col-form-label bg-warning">Disabilities</label>
+                    <label class="col-form-label ml-auto bg-success">{{ detail['disabilities'] | titlecase}}</label>
+                </div>
+            </div>
+        </div>
     </fieldset>
 </section>
-<!-- <aside class="bg-primary">
-    <img src="{{imgUrls[0]}}" class="img-responsive w-25" alt="">
-</aside> -->
