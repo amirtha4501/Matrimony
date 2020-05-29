@@ -1,126 +1,314 @@
-<section class="bg-warning">
-    <fieldset class="scheduler-border card border-custom">
-        <div class="">
-            <div *ngFor="let img of detail['imageUrls']; index as i" class="bg-primary">
-                <img src={{img}} class="profile w-25" alt="">
-            </div>
+<section class="personal">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <fieldset class="border-custom card rounded mt-5">
+                    <h2 class="text-center card-header text-white">Personal details</h2>
+                    
+                    <div *ngFor="let img of detail['imageUrls']; index as i" class="profile col-4 mx-auto mb-5 mt-5">
+                        <img src={{img}} class="card card-img-top rounded img-fluid" alt="">
+                    </div>
+
+                    <div class="row col-9 mt-5 mx-auto">
+                        <label class="col-form-label" for="name"><h5 class="text-secondary">Full name</h5></label>
+                        <label class="col-form-label col-6 ml-auto col-6" for="name">{{ detail['name'] | titlecase}}</label>
+                    </div>
+    
+                    <div class="row col-9 mx-auto">
+                        <label class="col-form-label" for="dob"><h5 class="text-secondary">DOB</h5></label>
+                        <label class="col-form-label ml-auto col-6" for="dob">{{ detail['dob'] | titlecase}}</label>
+                    </div>
+                    
+                    <div class="row col-9 mx-auto">
+                        <label class="col-form-label" for="birth_time"><h5 class="text-secondary">Birth time</h5></label>
+                        <label class="col-form-label ml-auto col-6" for="birth_time">{{ detail['birthtime'] | titlecase}}</label>
+                    </div>
+                    
+                    <div class="row col-9 mx-auto">
+                        <label class="col-form-label" for="birth_place"><h5 class="text-secondary">Birth Place</h5></label>
+                        <label class="col-form-label ml-auto col-6" for="birth_place">{{ detail['birthplace'] | titlecase}}</label>
+                    </div>
+                    
+                    <div class="row col-9 mx-auto">
+                        <label class="col-form-label" for="caste"><h5 class="text-secondary">Religion</h5></label>
+                        <label class="col-form-label ml-auto col-6" for="caste">{{ detail['religion'] | titlecase}}</label>
+                    </div>
+    
+                    <div class="row col-9 mx-auto">
+                        <label class="col-form-label" for="caste"><h5 class="text-secondary">Caste</h5></label>
+                        <label class="col-form-label ml-auto col-6" for="caste">{{ detail['caste'] | titlecase}}</label>
+                    </div>
+    
+                    <div class="row col-9 mx-auto">
+                        <label class="col-form-label" for="subcaste"><h5 class="text-secondary">Sub caste</h5></label>
+                        <label class="col-form-label ml-auto col-6" for="subcaste">{{ detail['subcaste'] | titlecase}}</label>
+                    </div>
+    
+                    <div class="row col-9 mx-auto">
+                        <label class="col-form-label" for="gothram"><h5 class="text-secondary">Gothram</h5></label>
+                        <label class="col-form-label ml-auto col-6" for="gothram">{{ detail['gothram'] | titlecase}}</label>
+                    </div>
+                    
+                    <div class="row col-9 mx-auto">
+                        <label class="col-form-label" for="star"><h5 class="text-secondary">Star</h5></label>
+                        <label class="col-form-label ml-auto col-6" for="star">{{ detail['star'] | titlecase}}</label>
+                    </div>
+    
+                    <div class="row col-9 mx-auto">
+                        <label class="col-form-label" for="qualification"><h5 class="text-secondary">Qualification</h5></label>
+                        <label class="col-form-label ml-auto col-6" for="qualification">{{ detail['qualification'] | titlecase}}</label>
+                    </div>
+    
+                    <div class="row col-9 mx-auto">
+                        <label class="col-form-label" for="job"><h5 class="text-secondary">Job</h5></label>        
+                        <label class="col-form-label ml-auto col-6" for="job">{{ detail['job'] | titlecase}}</label>
+                    </div>
+                    
+                    <div class="row col-9 mx-auto">
+                        <label class="col-form-label" for="work_place"><h5 class="text-secondary">Work place</h5></label>
+                        <label class="col-form-label ml-auto col-6" for="work_place">{{ detail['workplace'] | titlecase}}</label>
+                    </div>
+    
+                    <div class="row col-9 mx-auto">
+                        <label class="col-form-label" for="income"><h5 class="text-secondary">Income</h5></label>
+                        <label class="col-form-label ml-auto col-6" for="income">{{ detail['income'] | titlecase}}</label>
+                    </div>
+    
+                    <div class="row col-9 mx-auto">
+                        <label class="col-form-label" for="height"><h5 class="text-secondary">Height(ft)</h5></label>
+                        <label class="col-form-label ml-auto col-6" for="height">{{ detail['height'] | titlecase}}</label>
+                    </div>
+                    
+                    <div class="row col-9 mx-auto">
+                        <label class="col-form-label" for="weight"><h5 class="text-secondary">Weight(kg)</h5></label>
+                        <label class="col-form-label ml-auto col-6" for="weight">{{ detail['weight'] | titlecase}}</label>
+                    </div>
+    
+                    <div class="row col-9 mx-auto">
+                        <label class="col-form-label" for="mother_tongue"><h5 class="text-secondary">Mother Tongue</h5></label>
+                        <label class="col-form-label ml-auto col-6" for="mother_tongue">{{ detail['mothertongue'] | titlecase}}</label>
+                    </div>
+    
+                    <div class="row col-9 mx-auto">
+                        <label class="col-form-label" for="known_language"><h5 class="text-secondary">Known language</h5></label>
+                        <label class="col-form-label ml-auto col-6" for="known_language">{{ detail['knownlanguage'] | titlecase}}</label>
+                    </div>
+    
+                    <div class="row col-9 mx-auto">
+                        <label class="col-form-label" for="nativity"><h5 class="text-secondary">Nativity</h5></label>
+                        <label class="col-form-label ml-auto col-6" for="nativity">{{ detail['nativity'] | titlecase}}</label>
+                    </div>
+                    
+                    <div class="row col-9 mx-auto">
+                        <label class="col-form-label"><h5 class="text-secondary">Marital status</h5></label>
+                        <label class="col-form-label ml-auto col-6">{{ detail['maritalstatus'] | titlecase}}</label>
+                    </div>
+    
+                    <div class="row col-9 mx-auto">
+                        <label class="col-form-label" for="talents"><h5 class="text-secondary">Talents</h5></label>
+                        <label class="col-form-label ml-auto col-6" for="talents">{{ detail['talents'] | titlecase}}</label>
+                    </div>
+    
+                    <div class="row col-9 mx-auto">
+                        <label class="col-form-label" for="hobbies"><h5 class="text-secondary">Hobbies</h5></label>
+                        <label class="col-form-label ml-auto col-6" for="hobbies">{{ detail['hobbies'] | titlecase}}</label>
+                    </div>
+    
+                    <div class="row col-9 mx-auto">
+                        <label class="col-form-label"><h5 class="text-secondary">Vehicle driving</h5></label>
+                        <label class="col-form-label ml-auto col-6">{{ detail['vehicledriving'] | titlecase}}</label>
+                    </div>
+                    
+                    <div class="row col-9 mx-auto mb-5">
+                        <label class="col-form-label"><h5 class="text-secondary">Disabilities</h5></label>
+                        <label class="col-form-label ml-auto col-6">{{ detail['disabilities'] | titlecase}}</label>
+                    </div>
             
-            <div class ="details bg-primary">
-               <div class="row col-8 bg-dark">
-                    <label class="col-form-label bg-warning" for="name">Full name:</label>
-                    <label class="col-form-labe ml-auto bg-success" for="name">{{ detail['name'] | titlecase}}</label>
-                </div>
-
-                <div class="row col-8 bg-dark">
-                    <label class="col-form-label bg-warning" for="dob">DOB</label>
-                    <label class="col-form-label ml-auto bg-success" for="dob">{{ detail['dob'] | titlecase}}</label>
-                </div>
-                
-                <div class="row col-8 bg-dark">
-                    <label class="col-form-label bg-warning" for="birth_time">Birth time</label>
-                    <label class="col-form-label ml-auto bg-success" for="birth_time">{{ detail['birthtime'] | titlecase}}</label>
-                </div>
-                
-                <div class="row col-8 bg-dark">
-                    <label class="col-form-label bg-warning" for="birth_place">Birth Place</label>
-                    <label class="col-form-label ml-auto bg-success" for="birth_place">{{ detail['birthplace'] | titlecase}}</label>
-                </div>
-                
-                <div class="row col-8 bg-dark">
-                    <label class="col-form-label bg-warning" for="caste">Religion</label>
-                    <label class="col-form-label ml-auto bg-success" for="caste">{{ detail['religion'] | titlecase}}</label>
-                </div>
-
-                <div class="row col-8 bg-dark">
-                    <label class="col-form-label bg-warning" for="caste">Caste</label>
-                    <label class="col-form-label ml-auto bg-success" for="caste">{{ detail['caste'] | titlecase}}</label>
-                </div>
-
-                <div class="row col-8 bg-dark">
-                    <label class="col-form-label bg-warning" for="subcaste">Sub caste</label>
-                    <label class="col-form-label ml-auto bg-success" for="subcaste">{{ detail['subcaste'] | titlecase}}</label>
-                </div>
-
-                <div class="row col-8 bg-dark">
-                    <label class="col-form-label bg-warning" for="gothram">Gothram</label>
-                    <label class="col-form-label ml-auto bg-success" for="gothram">{{ detail['gothram'] | titlecase}}</label>
-                </div>
-                
-                <div class="row col-8 bg-dark">
-                    <label class="col-form-label bg-warning" for="star">Star</label>
-                    <label class="col-form-label ml-auto bg-success" for="star">{{ detail['star'] | titlecase}}</label>
-                </div>
-
-                <div class="row col-8 bg-dark">
-                    <label class="col-form-label bg-warning" for="qualification">Qualification</label>
-                    <label class="col-form-label ml-auto bg-success" for="qualification">{{ detail['qualification'] | titlecase}}</label>
-                </div>
-
-                <div class="row col-8 bg-dark">
-                    <label class="col-form-label bg-warning" for="job">Job</label>        
-                    <label class="col-form-label ml-auto bg-success" for="job">{{ detail['job'] | titlecase}}</label>
-                </div>
-                
-                <div class="row col-8 bg-dark">
-                    <label class="col-form-label bg-warning" for="work_place">Work place</label>
-                    <label class="col-form-label ml-auto bg-success" for="work_place">{{ detail['workplace'] | titlecase}}</label>
-                </div>
-
-                <div class="row col-8 bg-dark">
-                    <label class="col-form-label bg-warning" for="income">Income</label>
-                    <label class="col-form-label ml-auto bg-success" for="income">{{ detail['income'] | titlecase}}</label>
-                </div>
-
-                <div class="row col-8 bg-dark">
-                    <label class="col-form-label bg-warning" for="height">Height(ft)</label>
-                    <label class="col-form-label ml-auto bg-success" for="height">{{ detail['height'] | titlecase}}</label>
-                </div>
-                
-                <div class="row col-8 bg-dark">
-                    <label class="col-form-label bg-warning" for="weight">Weight(kg)</label>
-                    <label class="col-form-label ml-auto bg-success" for="weight">{{ detail['weight'] | titlecase}}</label>
-                </div>
-
-                <div class="row col-8 bg-dark">
-                    <label class="col-form-label bg-warning" for="mother_tongue">Mother Tongue</label>
-                    <label class="col-form-label ml-auto bg-success" for="mother_tongue">{{ detail['mothertongue'] | titlecase}}</label>
-                </div>
-
-                <div class="row col-8 bg-dark">
-                    <label class="col-form-label bg-warning" for="known_language">Known language</label>
-                    <label class="col-form-label ml-auto bg-success" for="known_language">{{ detail['knownlanguage'] | titlecase}}</label>
-                </div>
-
-                <div class="row col-8 bg-dark">
-                    <label class="col-form-label bg-warning" for="nativity">Nativity</label>
-                    <label class="col-form-label ml-auto bg-success" for="nativity">{{ detail['nativity'] | titlecase}}</label>
-                </div>
-                
-                <div class="row col-8 bg-dark">
-                    <label class="col-form-label bg-warning">Marital status</label>
-                    <label class="col-form-label ml-auto bg-success">{{ detail['maritalstatus'] | titlecase}}</label>
-                </div>
-
-                <div class="row col-8 bg-dark">
-                    <label class="col-form-label bg-warning" for="talents">Talents</label>
-                    <label class="col-form-label ml-auto bg-success" for="talents">{{ detail['talents'] | titlecase}}</label>
-                </div>
-
-                <div class="row col-8 bg-dark">
-                    <label class="col-form-label bg-warning" for="hobbies">Hobbies</label>
-                    <label class="col-form-label ml-auto bg-success" for="hobbies">{{ detail['hobbies'] | titlecase}}</label>
-                </div>
-
-                <div class="row col-8 bg-dark">
-                    <label class="col-form-label bg-warning">Vehicle driving</label>
-                    <label class="col-form-label ml-auto bg-success">{{ detail['vehicledriving'] | titlecase}}</label>
-                </div>
-                
-                <div class="row col-8 bg-dark">
-                    <label class="col-form-label bg-warning">Disabilities</label>
-                    <label class="col-form-label ml-auto bg-success">{{ detail['disabilities'] | titlecase}}</label>
-                </div>
+                </fieldset>
             </div>
         </div>
-    </fieldset>
+
+    </div>
+</section>
+
+<section class="horoscope">
+    <div class="container">
+        <fieldset class="border-custom card rounded mt-5">
+            <h2 class="text-center card-header text-white">Horoscope</h2>
+            <div class="container row mx-auto mt-5 mb-5">
+                <table class="table-bordered text-center mb-2 mx-auto">
+                    <tbody>
+                        <tr>
+                            <td class="" height="100" width="100"> {{ detail['rasibox'] }} </td>
+                            <td class="" height="100" width="100"> {{ detail['rasibox'] }} </td>
+                            <td class="" height="100" width="100"> {{ detail['rasibox'] }} </td>
+                            <td class="" height="100" width="100"> {{ detail['rasibox'] }} </td>
+                        </tr>
+                        <tr>
+                            <td class="" height="100" width="100"> {{ detail['rasibox'] }} </td>
+                            <td rowspan="2" colspan="2">
+                                <h2 class="text-center">RASI</h2>
+                            </td>
+                            <td class="" height="100" width="100"> {{ detail['rasibox'] }} </td>
+                        </tr>
+                        <tr>
+                            <td class="" height="100" width="100"> {{ detail['rasibox'] }} </td>
+                            <td class="" height="100" width="100"> {{ detail['rasibox'] }} </td>
+                        </tr>
+                        <tr>
+                            <td class="" height="100" width="100"> {{ detail['rasibox'] }} </td>
+                            <td class="" height="100" width="100"> {{ detail['rasibox'] }} </td>
+                            <td class="" height="100" width="100"> {{ detail['rasibox'] }} </td>
+                            <td class="" height="100" width="100"> {{ detail['rasibox'] }} </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table-bordered text-center mb-2 mx-auto">
+                    <tbody>
+                        <tr>
+                            <td class="" height="100" width="100"> {{ detail['rasibox'] }} </td>
+                            <td class="" height="100" width="100"> {{ detail['rasibox'] }} </td>
+                            <td class="" height="100" width="100"> {{ detail['rasibox'] }} </td>
+                            <td class="" height="100" width="100"> {{ detail['rasibox'] }} </td>
+                        </tr>
+                        <tr>
+                            <td class="" height="100" width="100"> {{ detail['rasibox'] }} </td>
+                            <td rowspan="2" colspan="2">
+                                <h2 class="text-center">AMSAM</h2>
+                            </td>
+                            <td class="" height="100" width="100"> {{ detail['rasibox'] }} </td>
+                        </tr>
+                        <tr>
+                            <td class="" height="100" width="100"> {{ detail['rasibox'] }} </td>
+                            <td class="" height="100" width="100"> {{ detail['rasibox'] }} </td>
+                        </tr>
+                        <tr>
+                            <td class="" height="100" width="100"> {{ detail['rasibox'] }} </td>
+                            <td class="" height="100" width="100"> {{ detail['rasibox'] }} </td>
+                            <td class="" height="100" width="100"> {{ detail['rasibox'] }} </td>
+                            <td class="" height="100" width="100"> {{ detail['rasibox'] }} </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </fieldset>
+    </div>
+</section>
+
+<section class="family">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <fieldset class="border-custom card rounded mt-5">
+                    <h2 class="text-center card-header text-white">Family details</h2>
+
+                    <div class="row col-9 mt-5 mx-auto">
+                        <label class="col-form-label" for="father_name"><h5 class="text-secondary">Father name</h5></label>
+                        <label class="col-form-label col-6 ml-auto col-6" for="father_name">{{ detail['father_name'] | titlecase}}</label>
+                    </div>
+    
+                    <div class="row col-9 mx-auto">
+                        <label class="col-form-label" for="father_occupation"><h5 class="text-secondary">Father occupation</h5></label>
+                        <label class="col-form-label ml-auto col-6" for="father_occupation">{{ detail['father_occupation'] | titlecase}}</label>
+                    </div>
+                    
+                    <div class="row col-9 mx-auto">
+                        <label class="col-form-label" for="mother_name"><h5 class="text-secondary">Mother name</h5></label>
+                        <label class="col-form-label ml-auto col-6" for="mother_name">{{ detail['mother_name'] | titlecase}}</label>
+                    </div>
+
+                    <div class="row col-9 mx-auto">
+                        <label class="col-form-label" for="mother_occupation"><h5 class="text-secondary">Mother occupation</h5></label>
+                        <label class="col-form-label ml-auto col-6" for="mother_occupation">{{ detail['mother_occupation'] | titlecase}}</label>
+                    </div>
+                    
+                    <div class="row col-9 mx-auto">
+                        <label class="col-form-label" for="family_contact"><h5 class="text-secondary">Family contact</h5></label>
+                        <label class="col-form-label ml-auto col-6" for="family_contact">{{ detail['family_contact'] | titlecase}}</label>
+                    </div>
+    
+                    <div class="row col-9 mx-auto">
+                        <label class="col-form-label" for="sibiling_count"><h5 class="text-secondary">Sibiling count</h5></label>
+                        <label class="col-form-label ml-auto col-6" for="sibiling_count">{{ detail['sibiling_count'] | titlecase}}</label>
+                    </div>
+    
+                    <div class="row col-9 mx-auto">
+                        <label class="col-form-label" for="family_status"><h5 class="text-secondary">Family status</h5></label>
+                        <label class="col-form-label ml-auto col-6" for="family_status">{{ detail['family_status'] | titlecase}}</label>
+                    </div>
+    
+                    <div class="row col-9 mx-auto mb-2">
+                        <label class="col-form-label" for="property"><h5 class="text-secondary">Property</h5></label>
+                        <label class="col-form-label ml-auto col-6" for="property">{{ detail['property'] | titlecase}}</label>
+                    </div>
+                    
+                    <div class="row col-9 mx-auto mb-5" *ngIf="detail['anydetails']">
+                        <label class="col-form-label" for="anydetails"><h5 class="text-secondary">Other details</h5></label>
+                        <label class="col-form-label ml-auto col-6" for="anydetails">{{ detail['anydetails'] | titlecase}}</label>
+                    </div>
+   
+                </fieldset>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="partner expectation">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <fieldset class="border-custom card rounded mt-5">
+                    <h2 class="text-center card-header text-white">Partner Expectations</h2>
+
+                    <div class="row col-9 mt-5 mx-auto">
+                        <label class="col-form-label" for="expected_qualification"><h5 class="text-secondary">Qualification</h5></label>
+                        <label class="col-form-label col-6 ml-auto col-6" for="expected_qualification">{{ detail['expected_qualification'] | titlecase}}</label>
+                    </div>
+    
+                    <div class="row col-9 mx-auto">
+                        <label class="col-form-label" for="expected_place"><h5 class="text-secondary">Settle Location</h5></label>
+                        <label class="col-form-label ml-auto col-6" for="expected_place">{{ detail['expected_place'] | titlecase}}</label>
+                    </div>
+                    
+                    <div class="row col-9 mx-auto">
+                        <label class="col-form-label" for="expected_income"><h5 class="text-secondary">Income</h5></label>
+                        <label class="col-form-label ml-auto col-6" for="expected_income">{{ detail['expected_income'] | titlecase}}</label>
+                    </div>
+
+                    <div class="row col-9 mx-auto">
+                        <label class="col-form-label" for="expected_caste"><h5 class="text-secondary">Caste</h5></label>
+                        <label class="col-form-label ml-auto col-6" for="expected_caste">{{ detail['expected_caste'] | titlecase}}</label>
+                    </div>
+                    
+                    <div class="row col-9 mx-auto">
+                        <label class="col-form-label" for="expected_subcaste"><h5 class="text-secondary">Sub caste</h5></label>
+                        <label class="col-form-label ml-auto col-6" for="expected_subcaste">{{ detail['expected_subcaste'] | titlecase}}</label>
+                    </div>
+    
+                    <div class="row col-9 mx-auto">
+                        <label class="col-form-label" for="age_difference"><h5 class="text-secondary">Age difference</h5></label>
+                        <label class="col-form-label ml-auto col-6" for="age_difference">{{ detail['age_difference'] | titlecase}}</label>
+                    </div>
+    
+                    <div class="row col-9 mx-auto">
+                        <label class="col-form-label" for="expected_height"><h5 class="text-secondary">Height(ft)</h5></label>
+                        <label class="col-form-label ml-auto col-6" for="expected_height">{{ detail['expected_height'] | titlecase}}</label>
+                    </div>
+    
+                    <div class="row col-9 mx-auto mb-2">
+                        <label class="col-form-label" for="expected_weight"><h5 class="text-secondary">Weight(kg)</h5></label>
+                        <label class="col-form-label ml-auto col-6" for="expected_weight">{{ detail['expected_weight'] | titlecase}}</label>
+                    </div>
+                    
+                    <div class="row col-9 mx-auto mb-5" *ngIf="detail['expectations']">
+                        <label class="col-form-label" for="expectations"><h5 class="text-secondary">Other expectations</h5></label>
+                        <label class="col-form-label ml-auto col-6" for="expectations">{{ detail['expectations'] | titlecase}}</label>
+                    </div>
+   
+                </fieldset>
+            </div>
+        </div>
+
+    </div>
 </section>

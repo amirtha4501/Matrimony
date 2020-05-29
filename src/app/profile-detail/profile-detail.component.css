@@ -1,3 +1,45 @@
-.profile {
-    position: absolute;
+.border-custom {
+    border: none;
 }
+
+.border-custom .card-header {
+    /* background-image: linear-gradient(to right, rgb(211, 6, 160), rgb(235, 113, 198), rgb(211, 6, 160)); */
+    background-image: linear-gradient(to right, rgb(2, 55, 228), rgb(67, 180, 245), rgb(2, 55, 228));
+}
+
+/* =========================================================================================================== */
+
+@media screen and (max-height: 570px) {
+    .card img {
+        height: 100px;
+    }
+}
+
+@media screen and (min-height: 571px) and (max-height: 670px) {
+    .card img {
+        height: 110px;
+    }
+}
+@media screen and (min-height: 671px) and (max-height: 840px) {
+    .card img {
+        height: 100px;
+    }
+}
+@media screen and (min-height: 841px) and (max-height: 1025px) {
+    .card img {
+        height: 200px;
+    }
+}
+@media screen and (min-height: 1026px) and (max-height: 1400px) {
+    .card img {
+        height: 250px;
+    }
+}
+@media screen and (min-width:1025px) {
+    .card img {
+        height:300px;
+    }
+}
+
+/* ================================================================================================================== */
+
