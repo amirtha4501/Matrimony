@@ -6,3 +6,23 @@ a {
 footer {
     background-image: linear-gradient(to right,  rgb(1, 107, 1), rgb(93, 196, 8), rgb(1, 107, 1));
 }
+/* @media only screen 
+  and (min-device-width: 1024px) 
+  and (max-device-width: 1366px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+      footer {
+          position: relative;
+          bottom: 0;
+          width: 100%;
+      }
+}
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+    footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+} */

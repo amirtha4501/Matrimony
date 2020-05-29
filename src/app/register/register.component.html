@@ -5,7 +5,7 @@
                 <fieldset class="border-custom card rounded mt-5">
                     <h2 class="text-center card-header text-white">Personal details</h2>
                     <aside class="container mt-5 mb-4 text-center">
-                        <div class="col-4 mx-auto bg-primary" *ngIf="imgURL">
+                        <div class="col-4 mx-auto" *ngIf="imgURL">
                             <img [src]="imgURL" class="card card-img-top rounded img-fluid">
                         </div>
                         <div>
@@ -19,42 +19,42 @@
                         </div>
                     </aside>
                     <div class="container col-12 text-secondary pt-4 pb-5">
-                        <div class="form-group row col-10 mx-auto">
+                        <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="name"><h5>Full name</h5></label>
                             <input type="text" name="name" class="form-control col-8 ml-auto" required>
                         </div>
                         
-                        <div class="form-group row col-10 mx-auto">
+                        <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="email"><h5>Email</h5></label>
                             <input type="email" name="email" class="form-control col-8 ml-auto" required>
                         </div>
                         
-                        <div class="form-group row col-10 mx-auto">
+                        <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="password"><h5>Password</h5></label>
                             <input type="password" name="password" class="form-control col-8 ml-auto" required>
                         </div>
                         
-                        <div class="form-group row col-10 mx-auto">
+                        <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="mobile"><h5>Phone</h5></label>
                             <input type="tel" name="mobile" class="form-control col-8 ml-auto" required>
                         </div>
                         
-                        <div class="form-group row col-10 mx-auto">
+                        <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="dob"><h5>DOB</h5></label>
                             <input type="date" name="dob" class="form-control col-8 ml-auto" required>
                         </div>
                         
-                        <div class="form-group row col-10 mx-auto">
+                        <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="birth_time"><h5>Birth time</h5></label>
                             <input type="time" name="birth_time" class="form-control col-8 ml-auto" required>
                         </div>
                         
-                        <div class="form-group row col-10 mx-auto">
+                        <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="birth_place"><h5>Birth Place</h5></label>
                             <input type="text" name="birth_place" class="form-control col-8 ml-auto" required>
                         </div>
                         
-                        <div class="form-group row col-10 mx-auto">
+                        <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="caste"><h5>Religion</h5></label>
                             <input type="text" name="caste" class="form-control col-8 ml-auto" list="caste">
                             <datalist name="caste" id="caste">
@@ -65,7 +65,7 @@
                             </datalist>
                         </div>
 
-                        <div class="form-group row col-10 mx-auto">
+                        <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="caste"><h5>Caste</h5></label>
                             <input type="text" name="caste" class="form-control col-8 ml-auto" list="caste">
                             <datalist name="caste" id="caste">
@@ -76,7 +76,7 @@
                             </datalist>
                         </div>
                         
-                        <div class="form-group row col-10 mx-auto">
+                        <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="subcaste"><h5>Sub caste</h5></label>
                             <input type="text" name="subcaste" class="form-control col-8 ml-auto" list="subcaste">
                             <datalist name="subcaste" id="subcaste">
@@ -91,7 +91,7 @@
                             </datalist>        
                         </div>
                         
-                        <div class="form-group row col-10 mx-auto">
+                        <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="gothram"><h5>Gothram</h5></label>
                             <input type="text" name="gothram" class="form-control col-8 ml-auto" list="gothram">
                             <datalist name="gothram" id="gothram">
@@ -101,7 +101,7 @@
                             </datalist>
                         </div>
                         
-                        <div class="form-group row col-10 mx-auto">
+                        <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="star"><h5>Star</h5></label>
                             <input type="text" name="star" class="form-control col-8 ml-auto" list="star">
                             <datalist name="star" id="star">
@@ -111,35 +111,37 @@
                             </datalist>
                         </div>
             
-                        <div class="form-group row col-10 mx-auto">
+                        <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="qualification"><h5>Qualification</h5></label>
                             <input type="text" name="qualification" class="form-control col-8 ml-auto">
                         </div>
             
-                        <div class="form-group row col-10 mx-auto">
+                        <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="job"><h5>Job</h5></label>        
                             <input type="text" name="job" class="form-control col-8 ml-auto">
                         </div>
             
-                        <div class="form-group row col-10 mx-auto">
+                        <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="work_place"><h5>Work place</h5></label>
                             <input type="text" name="work_place" class="form-control col-8 ml-auto">
                         </div>
             
-                        <div class="form-group row col-10 mx-auto">
+                        <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="income"><h5>Income</h5></label>
                             <input type="number" name="income" class="form-control col-8 ml-auto">
                         </div>
             
-                        <div class="form-group row col-10 mx-auto">
+                        <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="height"><h5>Height(ft)</h5></label>
-                            <input type="number" name="height" class="form-control col-2 ">
-            
+                            <input type="number" name="height" class="form-control col-8 ml-auto">
+                        </div>
+
+                        <div class="form-group mb-2 row col-10 mx-auto">    
                             <label class="col-form-label" for="weight"><h5>Weight(kg)</h5></label>
-                            <input type="number" name="weight" class="form-control col-2 ">
+                            <input type="number" name="weight" class="form-control col-8 ml-auto">
                         </div>
             
-                        <div class="form-group row col-10 mx-auto">
+                        <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="mother_tongue"><h5>Mother Tongue</h5></label>
                             <input type="text" name="mother_tongue" class="form-control col-8 ml-auto" list="mother_tongue">
                             <datalist name="mother_tongue" id="mother_tongue">
@@ -151,7 +153,7 @@
                             </datalist>
                         </div>
             
-                        <div class="form-group row col-10 mx-auto">
+                        <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="known_language"><h5>Known language</h5></label>
                             <input type="text" name="known_language" class="form-control col-8 ml-auto" list="known_language">
                             <datalist name="known_language[]" multiple id="known_language">
@@ -166,7 +168,7 @@
                             </datalist>
                         </div>
             
-                        <div class="form-group row col-10 mx-auto">
+                        <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="nativity"><h5>Nativity</h5></label>
                             <input type="text" name="nativity" class="form-control col-8 ml-auto" list="nativity">
                             <datalist name="nativity" id="nativity">
@@ -178,7 +180,7 @@
                             </datalist>
                         </div>
             
-                        <div class="form-group row col-10 mx-auto">
+                        <div class="form-group mb-3 row col-10 mx-auto">
                             <label class="col-form-label"><h5>Marital status</h5></label>
                             
                             <div class="form-check form-check-inline offset-md-3">
@@ -191,36 +193,37 @@
                             </div>
                         </div>
             
-                        <div class="form-group row col-10 mx-auto">
+                        <div class="form-group mb-3 row col-10 mx-auto">
                             <label class="col-form-label" for="talents"><h5>Talents</h5></label>
                             <textarea name="talents" cols="50" rows="4" class="form-control ml-auto"></textarea>
                         </div>
                         
-                        <div class="form-group row col-10 mx-auto">
+                        <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="hobbies"><h5>Hobbies</h5></label>
                             <textarea name="hobbies" cols="50" rows="3" class="form-control ml-auto"></textarea>
                         </div>
             
-                        <div class="form-group row col-10 mx-auto">
+                        <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label"><h5>Vehicle driving</h5></label>
-                            <div class="form-check form-check-inline">
+                            <div class="form-check form-check-inline offset-md-3">
                                 <input class="form-check-input" type="checkbox" >
                                 <label class="form-check-label">Two wheeler</label>
                             </div>
-                            <div class="form-check form-check-inline">
+                            <div class="form-check form-check-inline offset-md-2">
                                 <input class="form-check-input" type="checkbox">
                                 <label class="form-check-label">Four wheeler</label>
                             </div>
                         </div>
             
-                        <div class="form-group row col-10 mx-auto">
+                        <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label"><h5>Disabilities</h5></label>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             
-                            <div class="form-check form-check-inline">
+                            <div class="form-check form-check-inline offset-md-3">
                                 <input class="form-check-input" type="radio" >
                                 <label class="form-check-label">Normal</label>
                             </div>
-                            <div class="form-check form-check-inline">
+                            <div class="form-check form-check-inline offset-md-2">
                                 <input class="form-check-input" type="radio">
                                 <label class="form-check-label">Physically challenged</label>
                             </div>
@@ -234,8 +237,8 @@
     <div class="container">
         <fieldset class="border-custom card rounded mt-5">
             <h2 class="text-center card-header text-white">Horoscope</h2>
-            <div class="container row mt-5 mb-5">
-                <table class="form-group mx-auto">
+            <div class="container row mx-auto mt-5 mb-5">
+                <table class="form-group mb-2 mx-auto">
                     <tbody>
                         <tr>
                             <td> <textarea type="text" cols="8" rows="4" name="1" class="form-control"></textarea> </td>
@@ -262,7 +265,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <table class="form-group mx-auto">
+                <table class="form-group mb-2 mx-auto">
                     <tbody>
                         <tr>
                             <td> <textarea type="text" cols="8" rows="4" name="1" class="form-control"></textarea> </td>
@@ -298,64 +301,61 @@
             <div class="col-12">
                 <fieldset class="border-custom card rounded mt-5">       
                     <h2 class="text-center card-header text-white">Family details</h2>
-                    <div class="container col-12">
-                        <div class="form-group row col-10 mx-auto">
+                    <div class="container text-secondary col-12">
+                        <div class="form-group mb-2 mt-5 row col-10 mx-auto">
                             <label class="col-form-label" for="father_name"><h5>Father name</h5></label>
                             <input type="text" name="father_name" class="form-control col-8 ml-auto">
                         </div>
 
-                        <div class="form-group row col-10 mx-auto">
+                        <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="father_occupation"><h5>Father occupation</h5></label>
                             <input type="text" name="father_occupation" class="form-control col-8 ml-auto">
                         </div>
 
-                        <div class="form-group row col-10 mx-auto">
+                        <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="mother_name"><h5>Mother name</h5></label>
                             <input type="text" name="mother_name" class="form-control col-8 ml-auto">
                         </div>
                         
-                        <div class="form-group row col-10 mx-auto">
+                        <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="mother_occupation"><h5>Mother occupation</h5></label>
                             <input type="text" name="mother_occupation" class="form-control col-8 ml-auto">
                         </div>
                         
-                        <div class="form-group row col-10 mx-auto">
+                        <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="family_contact"><h5>Family contact</h5></label>
                             <input type="tel" name="family_contact" class="form-control col-8 ml-auto">
                         </div>
 
-                        <div class="form-group row col-10 mx-auto">
+                        <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="sibiling_count"><h5>Sibiling Count</h5></label>
                             <input type="number" name="sibiling_count" class="form-control col-8 ml-auto">
                         </div>
 
-                        <div class="form-group row col-10 mx-auto">
+                        <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label"><h5>Family Status</h5></label>
                             
-                            <div class="form-check form-check-inline offset-md-2">
+                            <div class="form-check form-check-inline offset-md-3">
                                 <input class="form-check-input" type="radio">
                                 <label class="form-check-label">Middle Class</label>
                             </div>
-                            <div class="form-check form-check-inline ">
-                                <input class="form-check-input" type="radio">
-                                <label class="form-check-label">Upper Middle Class</label>
-                            </div>
-                            <div class="form-check form-check-inline ">
+
+                            <div class="form-check form-check-inline offset-md-1">
                                 <input class="form-check-input" type="radio">
                                 <label class="form-check-label">Rich</label>
                             </div>
-                            <div class="form-check form-check-inline ">
+                            <div class="form-check form-check-inline offset-md-1">
                                 <input class="form-check-input" type="radio">
                                 <label class="form-check-label">Affluent</label>
                             </div>
                         </div>
                         
-                        <div class="form-group row col-10 mx-auto">
+                        <div class="form-group mb-4 row col-10 mx-auto">
                             <label class="col-form-label" for="property"><h5>Property</h5></label>
                             <textarea class="form-control ml-auto" name="property" cols="50" rows="4" placeholder="e.g. 1 flat in Bangalore..."></textarea>
                         </div>
 
-                        <div class="form-group row col-10 mx-auto">
+                        <div class="form-group mb-5 row col-10 mx-auto">
                             <label class="col-form-label" for="anydetails"><h5>Other details</h5></label>
                             <textarea class="form-control ml-auto" name="anydetails" cols="50" rows="4" placeholder="Write something about you..."></textarea>
                         </div>
@@ -370,24 +370,24 @@
             <div class="col-12">
                 <fieldset class="border-custom card rounded mt-5">
                     <h2 class="text-center card-header text-white">Partner expectations</h2>
-                    <div class="container col-12">
+                    <div class="container text-secondary col-12">
                         
-                        <div class="form-group row col-10 mx-auto">
+                        <div class="form-group mb-2 mt-5 row col-10 mx-auto">
                             <label class="col-form-label" for="expected_qualification"><h5>Qualification</h5></label>
                             <input type="text" name="expected_qualification" class="form-control col-8 ml-auto">
                         </div>
             
-                        <div class="form-group row col-10 mx-auto">
+                        <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="expected_place"><h5>Settle Location</h5></label>
                             <input type="text" name="expected_place" class="form-control col-8 ml-auto">
                         </div>
             
-                        <div class="form-group row col-10 mx-auto">
+                        <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="expected_income"><h5>Income</h5></label>
                             <input type="number" name="expected_income" class="form-control col-8 ml-auto">
                         </div>
             
-                        <div class="form-group row col-10 mx-auto">
+                        <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="expected_caste"><h5>Caste</h5></label>
                             <input type="text" name="expected_caste" class="form-control col-8 ml-auto" list="expected_caste">
                             <datalist name="expected_caste" id="expected_caste">
@@ -398,8 +398,8 @@
                             </datalist>
                         </div>
             
-                        <div class="form-group row col-10 mx-auto">
-                            <label class="col-form-label" for="expected_caste"><h5>Sub caste</h5></label>
+                        <div class="form-group mb-2 row col-10 mx-auto">
+                            <label class="col-form-label" for="expected_subcaste"><h5>Sub caste</h5></label>
                             <select name="expected_subcaste" id="expected_subcaste" class="form-control col-8 ml-auto">
                                 <option value="nobar">No bar</option>
                                 <optgroup label="Brahmin">
@@ -412,9 +412,9 @@
                                 </optgroup>
                             </select>        
                         </div>
-            
-                        <div class="form-group row col-10 mx-auto">
-                            <label class="col-form-label col-8"><h5>Marital status</h5></label>
+
+                        <div class="form-group mb-3 row col-10 mx-auto">
+                            <label class="col-form-label"><h5>Marital status</h5></label>
                             
                             <div class="form-check form-check-inline offset-md-3">
                                 <input class="form-check-input" type="radio" >
@@ -426,35 +426,37 @@
                             </div>
                         </div>
             
-                        <div class="form-group row col-10 mx-auto">
+                        <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label"><h5>Age difference</h5></label>
-                            <div class="form-check form-check-inline">
+                            <div class="form-check form-check-inline offset-md-3">
                                 <input class="form-check-input" type="checkbox" >
                                 <label class="form-check-label">0-3</label>
                             </div>
-                            <div class="form-check form-check-inline">
+                            <div class="form-check form-check-inline offset-md-1">
                                 <input class="form-check-input" type="checkbox" >
                                 <label class="form-check-label">4-6</label>
                             </div>
-                            <div class="form-check form-check-inline">
+                            <div class="form-check form-check-inline offset-md-1">
                                 <input class="form-check-input" type="checkbox" >
                                 <label class="form-check-label">7-10</label>
                             </div>
-                            <div class="form-check form-check-inline">
+                            <div class="form-check form-check-inline offset-md-1">
                                 <input class="form-check-input" type="checkbox" >
                                 <label class="form-check-label">10 above</label>
                             </div>
                         </div>
             
-                        <div class="form-group row col-10 mx-auto">
-                            <label class=" col-form-label" for="expected_height"><h5>Height(ft)</h5></label>
-                            <input type="number" name="expected_height" class="form-control border-bottom-2">
-            
-                            <label class=" col-form-label" for="expected_weight"><h5>Weight(kg)</h5></label>
-                            <input type="number" name="expected_weight" class="form-control ml-auto">
+                        <div class="form-group mb-2 row col-10 mx-auto">
+                            <label class="col-form-label" for="expected_height"><h5>Height(ft)</h5></label>
+                            <input type="number" name="expected_height" class="form-control col-8 ml-auto">
+                        </div>
+
+                        <div class="form-group mb-2 row col-10 mx-auto">    
+                            <label class="col-form-label" for="expected_weight"><h5>Weight(kg)</h5></label>
+                            <input type="number" name="expected_weight" class="form-control col-8 ml-auto">
                         </div>
                         
-                        <div class="form-group row col-10 mx-auto">
+                        <div class="form-group mb-5 mt-3 row col-10 mx-auto">
                             <label class="col-form-label" for="expectations"><h5>Other expectations</h5></label>
                             <textarea name="expectations" cols="50" rows="4" class="form-control ml-auto" placeholder="Write your expectations of your partner..."></textarea>
                         </div>
@@ -465,9 +467,9 @@
     </div>
 
     <div class="container text-center mb-5">
-        <div class="row">
+        <div class="text-center">
             <button class="btn btn-lg submit-btn col-4" type="submit">Submit</button>
-            <button class="btn btn-lg cancel-btn col-4" type="reset">Cancel</button>
+            <button class="btn btn-lg cancel-btn col-4 offset-md-2" type="reset">Cancel</button>
         </div>
     </div>
 </form>
