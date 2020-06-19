@@ -5,123 +5,123 @@
                 <fieldset class="border-custom card rounded mt-5">
                     <h2 class="text-center card-header text-white">Personal details</h2>
                     
-                    <div *ngFor="let img of detail['imageUrls']; index as i" class="profile col-4 mx-auto mb-5 mt-5">
+                    <div *ngFor="let img of profile['imageUrls']; index as i" class="profile col-4 mx-auto mb-5 mt-5">
                         <img src={{img}} class="card card-img-top rounded img-fluid" alt="">
                     </div>
 
                     <div class="row col-9 mt-5 mx-auto">
                         <label class="col-form-label" for="name"><h5 class="text-secondary">Full name</h5></label>
-                        <label class="col-form-label col-6 ml-auto col-6" for="name">{{ detail['name'] | titlecase}}</label>
+                        <label class="col-form-label col-6 ml-auto col-6" for="name" *ngIf="profile.name else elseNil">{{ profile['name'] | titlecase}}</label>
                     </div>
     
                     <div class="row col-9 mx-auto">
                         <label class="col-form-label" for="dob"><h5 class="text-secondary">DOB</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="dob">{{ detail['dob'] | titlecase}}</label>
+                        <label class="col-form-label ml-auto col-6" for="dob"><label *ngIf="profile.dob; else elseNil">{{ profile['dob'] | titlecase}}</label></label>
                     </div>
-                    
+                    <!-- ================================================================================= -->
                     <div class="row col-9 mx-auto">
                         <label class="col-form-label" for="birth_time"><h5 class="text-secondary">Birth time</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="birth_time">{{ detail['birthtime'] | titlecase}}</label>
+                        <label class="col-form-label ml-auto col-6" for="birth_time"><label *ngIf="profile.birthtime; else elseNil">{{ profile['birthtime'] | titlecase}}</label></label>
                     </div>
                     
                     <div class="row col-9 mx-auto">
                         <label class="col-form-label" for="birth_place"><h5 class="text-secondary">Birth Place</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="birth_place">{{ detail['birthplace'] | titlecase}}</label>
+                        <label class="col-form-label ml-auto col-6" for="birth_place"><label *ngIf="profile.birthplace; else elseNil">{{ profile['birthplace'] | titlecase}}</label></label>
                     </div>
                     
                     <div class="row col-9 mx-auto">
                         <label class="col-form-label" for="caste"><h5 class="text-secondary">Religion</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="caste">{{ detail['religion'] | titlecase}}</label>
+                        <label class="col-form-label ml-auto col-6" for="caste"><label *ngIf="profile.religion; else elseNil">{{ profile['religion'] | titlecase}}</label></label>
                     </div>
     
                     <div class="row col-9 mx-auto">
                         <label class="col-form-label" for="caste"><h5 class="text-secondary">Caste</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="caste">{{ detail['caste'] | titlecase}}</label>
+                        <label class="col-form-label ml-auto col-6" for="caste"><label *ngIf="profile.dob; else elseNil">{{ profile['caste'] | titlecase}}</label></label>
                     </div>
     
                     <div class="row col-9 mx-auto">
                         <label class="col-form-label" for="subcaste"><h5 class="text-secondary">Sub caste</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="subcaste">{{ detail['subcaste'] | titlecase}}</label>
+                        <label class="col-form-label ml-auto col-6" for="subcaste"><label *ngIf="profile.subcaste; else elseNil">{{ profile['subcaste'] | titlecase}}</label></label>
                     </div>
     
                     <div class="row col-9 mx-auto">
                         <label class="col-form-label" for="gothram"><h5 class="text-secondary">Gothram</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="gothram">{{ detail['gothram'] | titlecase}}</label>
+                        <label class="col-form-label ml-auto col-6" for="gothram"><label *ngIf="profile.gothram; else elseNil">{{ profile['gothram'] | titlecase}}</label></label>
                     </div>
                     
                     <div class="row col-9 mx-auto">
                         <label class="col-form-label" for="star"><h5 class="text-secondary">Star</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="star">{{ detail['star'] | titlecase}}</label>
+                        <label class="col-form-label ml-auto col-6" for="star"><label *ngIf="profile.star; else elseNil">{{ profile['star'] | titlecase}}</label></label>
                     </div>
     
                     <div class="row col-9 mx-auto">
                         <label class="col-form-label" for="qualification"><h5 class="text-secondary">Qualification</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="qualification">{{ detail['qualification'] | titlecase}}</label>
+                        <label class="col-form-label ml-auto col-6" for="qualification"><label *ngIf="profile.qualification else elseNil">{{ profile['qualification'] | titlecase}}</label></label>
                     </div>
     
                     <div class="row col-9 mx-auto">
                         <label class="col-form-label" for="job"><h5 class="text-secondary">Job</h5></label>        
-                        <label class="col-form-label ml-auto col-6" for="job">{{ detail['job'] | titlecase}}</label>
+                        <label class="col-form-label ml-auto col-6" for="job"><label *ngIf="profile.job; else elseNil">{{ profile['job'] | titlecase}}</label></label>
                     </div>
                     
                     <div class="row col-9 mx-auto">
                         <label class="col-form-label" for="work_place"><h5 class="text-secondary">Work place</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="work_place">{{ detail['workplace'] | titlecase}}</label>
+                        <label class="col-form-label ml-auto col-6" for="work_place"><label *ngIf="profile.workplace; else elseNil">{{ profile['workplace'] | titlecase}}</label></label>
                     </div>
     
                     <div class="row col-9 mx-auto">
                         <label class="col-form-label" for="income"><h5 class="text-secondary">Income</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="income">{{ detail['income'] | titlecase}}</label>
+                        <label class="col-form-label ml-auto col-6" for="income"><label *ngIf="profile.income; else elseNil">{{ profile['income'] | titlecase}}</label></label>
                     </div>
     
                     <div class="row col-9 mx-auto">
                         <label class="col-form-label" for="height"><h5 class="text-secondary">Height(ft)</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="height">{{ detail['height'] | titlecase}}</label>
+                        <label class="col-form-label ml-auto col-6" for="height"><label *ngIf="profile.dob; else elseNil">{{ profile['height'] | titlecase}}</label></label>
                     </div>
                     
                     <div class="row col-9 mx-auto">
                         <label class="col-form-label" for="weight"><h5 class="text-secondary">Weight(kg)</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="weight">{{ detail['weight'] | titlecase}}</label>
+                        <label class="col-form-label ml-auto col-6" for="weight"><label *ngIf="profile.weight; else elseNil">{{ profile['weight'] | titlecase}}</label></label>
                     </div>
     
                     <div class="row col-9 mx-auto">
                         <label class="col-form-label" for="mother_tongue"><h5 class="text-secondary">Mother Tongue</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="mother_tongue">{{ detail['mothertongue'] | titlecase}}</label>
+                        <label class="col-form-label ml-auto col-6" for="mother_tongue"><label *ngIf="profile.mothertongue; else elseNil">{{ profile['mothertongue'] | titlecase}}</label></label>
                     </div>
     
                     <div class="row col-9 mx-auto">
                         <label class="col-form-label" for="known_language"><h5 class="text-secondary">Known language</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="known_language">{{ detail['knownlanguage'] | titlecase}}</label>
+                        <label class="col-form-label ml-auto col-6" for="known_language"><label *ngIf="profile.knownlanguage; else elseNil">{{ profile['knownlanguage'] | titlecase}}</label></label>
                     </div>
     
                     <div class="row col-9 mx-auto">
                         <label class="col-form-label" for="nativity"><h5 class="text-secondary">Nativity</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="nativity">{{ detail['nativity'] | titlecase}}</label>
+                        <label class="col-form-label ml-auto col-6" for="nativity"><label *ngIf="profile.nativity; else elseNil">{{ profile['nativity'] | titlecase}}</label></label>
                     </div>
                     
                     <div class="row col-9 mx-auto">
                         <label class="col-form-label"><h5 class="text-secondary">Marital status</h5></label>
-                        <label class="col-form-label ml-auto col-6">{{ detail['maritalstatus'] | titlecase}}</label>
+                        <label class="col-form-label ml-auto col-6"><label *ngIf="profile.maritalstatus; else elseNil">{{ profile['maritalstatus'] | titlecase}}</label></label>
                     </div>
     
                     <div class="row col-9 mx-auto">
                         <label class="col-form-label" for="talents"><h5 class="text-secondary">Talents</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="talents">{{ detail['talents'] | titlecase}}</label>
+                        <label class="col-form-label ml-auto col-6" for="talents"><label *ngIf="profile.talents; else elseNil">{{ profile['talents'] | titlecase}}</label></label>
                     </div>
     
                     <div class="row col-9 mx-auto">
                         <label class="col-form-label" for="hobbies"><h5 class="text-secondary">Hobbies</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="hobbies">{{ detail['hobbies'] | titlecase}}</label>
+                        <label class="col-form-label ml-auto col-6" for="hobbies"><label *ngIf="profile.hobbies; else elseNil">{{ profile['hobbies'] | titlecase}}</label></label>
                     </div>
     
                     <div class="row col-9 mx-auto">
                         <label class="col-form-label"><h5 class="text-secondary">Vehicle driving</h5></label>
-                        <label class="col-form-label ml-auto col-6">{{ detail['vehicledriving'] | titlecase}}</label>
+                        <label class="col-form-label ml-auto col-6"><label *ngIf="profile.vehicledriving; else elseNil">{{ profile['vehicledriving'] | titlecase}}</label></label>
                     </div>
                     
                     <div class="row col-9 mx-auto mb-5">
                         <label class="col-form-label"><h5 class="text-secondary">Disabilities</h5></label>
-                        <label class="col-form-label ml-auto col-6">{{ detail['disabilities'] | titlecase}}</label>
+                        <label class="col-form-label ml-auto col-6"><label *ngIf="profile.disabilities else elseNil">{{ profile['disabilities'] | titlecase}}</label></label>
                     </div>
             
                 </fieldset>
@@ -139,54 +139,54 @@
                 <table class="table-bordered text-center mb-2 mx-auto">
                     <tbody>
                         <tr>
-                            <td class="" height="100" width="100"> {{ detail['rasibox'] }} </td>
-                            <td class="" height="100" width="100"> {{ detail['rasibox'] }} </td>
-                            <td class="" height="100" width="100"> {{ detail['rasibox'] }} </td>
-                            <td class="" height="100" width="100"> {{ detail['rasibox'] }} </td>
+                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox11; else elseNone"> {{ profile['rasibox11'] }} </label></td>
+                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox12; else elseNone"> {{ profile['rasibox12'] }} </label></td>
+                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox13; else elseNone"> {{ profile['rasibox13'] }} </label></td>
+                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox14; else elseNone"> {{ profile['rasibox14'] }} </label></td>
                         </tr>
                         <tr>
-                            <td class="" height="100" width="100"> {{ detail['rasibox'] }} </td>
+                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox15; else elseNone"> {{ profile['rasibox15'] }} </label></td>
                             <td rowspan="2" colspan="2">
                                 <h2 class="text-center">RASI</h2>
                             </td>
-                            <td class="" height="100" width="100"> {{ detail['rasibox'] }} </td>
+                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox16; else elseNone"> {{ profile['rasibox16'] }} </label></td>
                         </tr>
                         <tr>
-                            <td class="" height="100" width="100"> {{ detail['rasibox'] }} </td>
-                            <td class="" height="100" width="100"> {{ detail['rasibox'] }} </td>
+                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox17; else elseNone"> {{ profile['rasibox17'] }} </label></td>
+                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox18; else elseNone"> {{ profile['rasibox18'] }} </label></td>
                         </tr>
                         <tr>
-                            <td class="" height="100" width="100"> {{ detail['rasibox'] }} </td>
-                            <td class="" height="100" width="100"> {{ detail['rasibox'] }} </td>
-                            <td class="" height="100" width="100"> {{ detail['rasibox'] }} </td>
-                            <td class="" height="100" width="100"> {{ detail['rasibox'] }} </td>
+                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox19; else elseNone"> {{ profile['rasibox19'] }} </label></td>
+                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox110; else elseNone"> {{ profile['rasibox110'] }}</label> </td>
+                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox111; else elseNone"> {{ profile['rasibox111'] }}</label> </td>
+                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox112; else elseNone"> {{ profile['rasibox112'] }}</label> </td>
                         </tr>
                     </tbody>
                 </table>
                 <table class="table-bordered text-center mb-2 mx-auto">
                     <tbody>
                         <tr>
-                            <td class="" height="100" width="100"> {{ detail['rasibox'] }} </td>
-                            <td class="" height="100" width="100"> {{ detail['rasibox'] }} </td>
-                            <td class="" height="100" width="100"> {{ detail['rasibox'] }} </td>
-                            <td class="" height="100" width="100"> {{ detail['rasibox'] }} </td>
+                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox21; else elseNone"> {{ profile['rasibox21'] }} </label></td>
+                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox22; else elseNone"> {{ profile['rasibox22'] }} </label></td>
+                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox23; else elseNone"> {{ profile['rasibox23'] }} </label></td>
+                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox24; else elseNone"> {{ profile['rasibox24'] }} </label></td>
                         </tr>
                         <tr>
-                            <td class="" height="100" width="100"> {{ detail['rasibox'] }} </td>
+                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox25; else elseNone"> {{ profile['rasibox25'] }} </label></td>
                             <td rowspan="2" colspan="2">
                                 <h2 class="text-center">AMSAM</h2>
                             </td>
-                            <td class="" height="100" width="100"> {{ detail['rasibox'] }} </td>
+                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox26; else elseNone"> {{ profile['rasibox26'] }} </label></td>
                         </tr>
                         <tr>
-                            <td class="" height="100" width="100"> {{ detail['rasibox'] }} </td>
-                            <td class="" height="100" width="100"> {{ detail['rasibox'] }} </td>
+                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox27; else elseNone"> {{ profile['rasibox27'] }} </label></td>
+                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox28; else elseNone"> {{ profile['rasibox28'] }} </label></td>
                         </tr>
                         <tr>
-                            <td class="" height="100" width="100"> {{ detail['rasibox'] }} </td>
-                            <td class="" height="100" width="100"> {{ detail['rasibox'] }} </td>
-                            <td class="" height="100" width="100"> {{ detail['rasibox'] }} </td>
-                            <td class="" height="100" width="100"> {{ detail['rasibox'] }} </td>
+                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox29; else elseNone"> {{ profile['rasibox29'] }} </label></td>
+                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox210; else elseNone"> {{ profile['rasibox210'] }}</label> </td>
+                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox211; else elseNone"> {{ profile['rasibox211'] }}</label> </td>
+                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox212; else elseNone"> {{ profile['rasibox212'] }}</label> </td>
                         </tr>
                     </tbody>
                 </table>
@@ -204,47 +204,47 @@
 
                     <div class="row col-9 mt-5 mx-auto">
                         <label class="col-form-label" for="father_name"><h5 class="text-secondary">Father name</h5></label>
-                        <label class="col-form-label col-6 ml-auto col-6" for="father_name">{{ detail['father_name'] | titlecase}}</label>
+                        <label class="col-form-label col-6 ml-auto col-6" for="father_name"><label *ngIf="profile.father_name; else elseNil">{{ profile['father_name'] | titlecase}}</label></label>
                     </div>
     
                     <div class="row col-9 mx-auto">
                         <label class="col-form-label" for="father_occupation"><h5 class="text-secondary">Father occupation</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="father_occupation">{{ detail['father_occupation'] | titlecase}}</label>
+                        <label class="col-form-label ml-auto col-6" for="father_occupation"><label *ngIf="profile.father_occupation; else elseNil">{{ profile['father_occupation'] | titlecase}}</label></label>
                     </div>
                     
                     <div class="row col-9 mx-auto">
                         <label class="col-form-label" for="mother_name"><h5 class="text-secondary">Mother name</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="mother_name">{{ detail['mother_name'] | titlecase}}</label>
+                        <label class="col-form-label ml-auto col-6" for="mother_name"><label *ngIf="profile.mother_name; else elseNil">{{ profile['mother_name'] | titlecase}}</label></label>
                     </div>
 
                     <div class="row col-9 mx-auto">
                         <label class="col-form-label" for="mother_occupation"><h5 class="text-secondary">Mother occupation</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="mother_occupation">{{ detail['mother_occupation'] | titlecase}}</label>
+                        <label class="col-form-label ml-auto col-6" for="mother_occupation"><label *ngIf="profile.mother_occupation; else elseNil">{{ profile['mother_occupation'] | titlecase}}</label></label>
                     </div>
                     
                     <div class="row col-9 mx-auto">
                         <label class="col-form-label" for="family_contact"><h5 class="text-secondary">Family contact</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="family_contact">{{ detail['family_contact'] | titlecase}}</label>
+                        <label class="col-form-label ml-auto col-6" for="family_contact"><label *ngIf="profile.family_contact; else elseNil">{{ profile['family_contact'] | titlecase}}</label></label>
                     </div>
     
                     <div class="row col-9 mx-auto">
                         <label class="col-form-label" for="sibiling_count"><h5 class="text-secondary">Sibiling count</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="sibiling_count">{{ detail['sibiling_count'] | titlecase}}</label>
+                        <label class="col-form-label ml-auto col-6" for="sibiling_count"><label *ngIf="profile.sibiling_count; else elseNil">{{ profile['sibiling_count'] | titlecase}}</label></label>
                     </div>
     
                     <div class="row col-9 mx-auto">
                         <label class="col-form-label" for="family_status"><h5 class="text-secondary">Family status</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="family_status">{{ detail['family_status'] | titlecase}}</label>
+                        <label class="col-form-label ml-auto col-6" for="family_status"><label *ngIf="profile.family_status; else elseNil">{{ profile['family_status'] | titlecase}}</label></label>
                     </div>
     
                     <div class="row col-9 mx-auto mb-2">
-                        <label class="col-form-label" for="property"><h5 class="text-secondary">Property</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="property">{{ detail['property'] | titlecase}}</label>
+                        <label class="col-form-label" for="properties"><h5 class="text-secondary">Property</h5></label>
+                        <label class="col-form-label ml-auto col-6" for="properties"><label *ngIf="profile.properties; else elseNil">{{ profile['properties'] | titlecase}}</label></label>
                     </div>
                     
-                    <div class="row col-9 mx-auto mb-5" *ngIf="detail['anydetails']">
-                        <label class="col-form-label" for="anydetails"><h5 class="text-secondary">Other details</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="anydetails">{{ detail['anydetails'] | titlecase}}</label>
+                    <div class="row col-9 mx-auto mb-5" *ngIf="profile['other_details']">
+                        <label class="col-form-label" for="other_details"><h5 class="text-secondary">Other details</h5></label>
+                        <label class="col-form-label ml-auto col-6" for="other_details"><label *ngIf="profile.other_details; else elseNil">{{ profile['other_details'] | titlecase}}</label></label>
                     </div>
    
                 </fieldset>
@@ -263,47 +263,47 @@
 
                     <div class="row col-9 mt-5 mx-auto">
                         <label class="col-form-label" for="expected_qualification"><h5 class="text-secondary">Qualification</h5></label>
-                        <label class="col-form-label col-6 ml-auto col-6" for="expected_qualification">{{ detail['expected_qualification'] | titlecase}}</label>
+                        <label class="col-form-label col-6 ml-auto col-6" for="expected_qualification"><label *ngIf="profile.expected_qualification; else elseNil">{{ profile['expected_qualification'] | titlecase}}</label></label>
                     </div>
     
                     <div class="row col-9 mx-auto">
                         <label class="col-form-label" for="expected_place"><h5 class="text-secondary">Settle Location</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="expected_place">{{ detail['expected_place'] | titlecase}}</label>
+                        <label class="col-form-label ml-auto col-6" for="expected_place"><label *ngIf="profile.expected_place; else elseNil">{{ profile['expected_place'] | titlecase}}</label></label>
                     </div>
                     
                     <div class="row col-9 mx-auto">
                         <label class="col-form-label" for="expected_income"><h5 class="text-secondary">Income</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="expected_income">{{ detail['expected_income'] | titlecase}}</label>
+                        <label class="col-form-label ml-auto col-6" for="expected_income"><label *ngIf="profile.expected_income; else elseNil">{{ profile['expected_income'] | titlecase}}</label></label>
                     </div>
 
                     <div class="row col-9 mx-auto">
                         <label class="col-form-label" for="expected_caste"><h5 class="text-secondary">Caste</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="expected_caste">{{ detail['expected_caste'] | titlecase}}</label>
+                        <label class="col-form-label ml-auto col-6" for="expected_caste"><label *ngIf="profile.expected_caste; else elseNil">{{ profile['expected_caste'] | titlecase}}</label></label>
                     </div>
                     
                     <div class="row col-9 mx-auto">
                         <label class="col-form-label" for="expected_subcaste"><h5 class="text-secondary">Sub caste</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="expected_subcaste">{{ detail['expected_subcaste'] | titlecase}}</label>
+                        <label class="col-form-label ml-auto col-6" for="expected_subcaste"><label *ngIf="profile.expected_subcaste; else elseNil">{{ profile['expected_subcaste'] | titlecase}}</label></label>
                     </div>
     
                     <div class="row col-9 mx-auto">
                         <label class="col-form-label" for="age_difference"><h5 class="text-secondary">Age difference</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="age_difference">{{ detail['age_difference'] | titlecase}}</label>
+                        <label class="col-form-label ml-auto col-6" for="age_difference"><label *ngIf="profile.age_difference; else elseNil">{{ profile['age_difference'] | titlecase}}</label></label>
                     </div>
     
                     <div class="row col-9 mx-auto">
                         <label class="col-form-label" for="expected_height"><h5 class="text-secondary">Height(ft)</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="expected_height">{{ detail['expected_height'] | titlecase}}</label>
+                        <label class="col-form-label ml-auto col-6" for="expected_height"><label *ngIf="profile.expected_height; else elseNil">{{ profile['expected_height'] | titlecase}}</label></label>
                     </div>
     
                     <div class="row col-9 mx-auto mb-2">
                         <label class="col-form-label" for="expected_weight"><h5 class="text-secondary">Weight(kg)</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="expected_weight">{{ detail['expected_weight'] | titlecase}}</label>
+                        <label class="col-form-label ml-auto col-6" for="expected_weight"><label *ngIf="profile.expected_weight; else elseNil">{{ profile['expected_weight'] | titlecase}}</label></label>
                     </div>
                     
-                    <div class="row col-9 mx-auto mb-5" *ngIf="detail['expectations']">
+                    <div class="row col-9 mx-auto mb-5" *ngIf="profile['expectations']">
                         <label class="col-form-label" for="expectations"><h5 class="text-secondary">Other expectations</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="expectations">{{ detail['expectations'] | titlecase}}</label>
+                        <label class="col-form-label ml-auto col-6" for="expectations"><label *ngIf="profile.expectations; else elseNil">{{ profile['expectations'] | titlecase}}</label></label>
                     </div>
    
                 </fieldset>
@@ -312,3 +312,6 @@
 
     </div>
 </section>
+
+<ng-template #elseNil><small class="text-secondary">&mdash;</small></ng-template>
+<ng-template #elseNone><small></small></ng-template>

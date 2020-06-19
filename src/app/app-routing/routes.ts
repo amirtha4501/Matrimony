@@ -13,7 +13,7 @@ export const allroutes: Routes = [
     { path: 'register', component: RegisterComponent},
     { path: 'about', component: AboutComponent},
     { path: 'profiles', component: ProfilesComponent},
-    { path: 'profiledetail', component: ProfileDetailComponent},
+    { path: 'profiledetail/:id', component: ProfileDetailComponent},
     { path: 'payments', component: PaymentsComponent}
   ];
   
