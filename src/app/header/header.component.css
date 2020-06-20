@@ -73,3 +73,7 @@ nav h5 {
 .navbar-toggler:focus {
     outline: 3px solid orange;
 }
+
+.modal-header {
+    background-image: linear-gradient(to right, rgb(2, 55, 228), rgb(67, 180, 245), rgb(2, 55, 228));
+}

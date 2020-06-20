@@ -48,6 +48,11 @@
                         </div>
 
                         <div class="form-group mb-2 row col-10 mx-auto">
+                            <label class="col-form-label" for="age"><h5>Age</h5></label>
+                            <input type="number" formControlName="age" class="form-control col-8 ml-auto">
+                        </div>
+
+                        <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="dob"><h5>DOB</h5></label>
                             <input type="date" formControlName="dob" class="form-control col-8 ml-auto">
                         </div>
@@ -88,36 +93,32 @@
                             <label class="col-form-label" for="subcaste"><h5>Sub caste</h5></label>
                             <input type="text" formControlName="subcaste" class="form-control col-8 ml-auto" list="subcaste">
                             <datalist id="subcaste">
-                                <optgroup label="Brahmin">
-                                    <option value="iyer">Iyer</option>
-                                    <option value="iyengar">Iyengar</option>
-                                </optgroup>
-                                <optgroup label="Gounder">
-                                    <option value="vellalar">Vellalar</option>
-                                    <option value="gaura">Gaura</option>
-                                </optgroup>
+                                <option value="iyer">Iyer</option>
+                                <option value="iyengar">Iyengar</option>
+                                <option value="vellalar">Vellalar</option>
+                                <option value="gaura">Gaura</option>
                             </datalist>        
                         </div>
                         
-                        <!-- <div class="form-group mb-2 row col-10 mx-auto">
+                        <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="gothram"><h5>Gothram</h5></label>
                             <input type="text" formControlName="gothram" class="form-control col-8 ml-auto" list="gothram">
-                            <datalist formControlName="gothram" id="gothram">
+                            <datalist id="gothram">
                                 <option value="brahacharanam">Bracharanam</option>
                                 <option value="vadamal">Vadamal</option>
                                 <option value="srivathsa">Srivathsa</option>
                             </datalist>
-                        </div> -->
+                        </div>
                         
-                        <!-- <div class="form-group mb-2 row col-10 mx-auto">
+                        <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="star"><h5>Star</h5></label>
                             <input type="text" formControlName="star" class="form-control col-8 ml-auto" list="star">
-                            <datalist formControlName="star" id="star">
+                            <datalist id="star">
                                 <option value="uthiram"></option>
                                 <option value="hastham"></option>
                                 <option value="barani"></option>
                             </datalist>
-                        </div> -->
+                        </div>
             
                         <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="qualification"><h5>Qualification</h5></label>
@@ -149,22 +150,22 @@
                             <input type="number" formControlName="weight" class="form-control col-8 ml-auto">
                         </div>
             
-                        <!-- <div class="form-group mb-2 row col-10 mx-auto">
+                        <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="mother_tongue"><h5>Mother Tongue</h5></label>
                             <input type="text" formControlName="mother_tongue" class="form-control col-8 ml-auto" list="mother_tongue">
-                            <datalist formControlName="mother_tongue" id="mother_tongue">
+                            <datalist id="mother_tongue">
                                 <option value="Tamil"></option>
                                 <option value="Telugu"></option>
                                 <option value="Malayalam"></option>
                                 <option value="Hindi"></option>
                                 <option value="Kannada"></option>
                             </datalist>
-                        </div> -->
+                        </div>
             
-                        <!-- <div class="form-group mb-2 row col-10 mx-auto">
+                        <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="known_language"><h5>Known language</h5></label>
                             <input type="text" formControlName="known_language" class="form-control col-8 ml-auto" list="known_language">
-                            <datalist formControlName="known_language" multiple id="known_language">
+                            <datalist multiple id="known_language">
                                 <option value="Tamil"></option>
                                 <option value="English"></option>
                                 <option value="Telugu"></option>
@@ -174,29 +175,29 @@
                                 <option value="Thulu"></option>
                                 <option value="Marati"></option>
                             </datalist>
-                        </div> -->
+                        </div>
             
-                        <!-- <div class="form-group mb-2 row col-10 mx-auto">
+                        <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="nativity"><h5>Nativity</h5></label>
                             <input type="text" formControlName="nativity" class="form-control col-8 ml-auto" list="nativity">
-                            <datalist formControlName="nativity" id="nativity">
+                            <datalist id="nativity">
                                 <option value="trichy"></option>
                                 <option value="coimbatore"></option>
                                 <option value="salem"></option>
                                 <option value="tirupur"></option>
                                 <option value="chennai"></option>
                             </datalist>
-                        </div> -->
+                        </div>
             
                         <div class="form-group mb-3 row col-10 mx-auto">
                             <label class="col-form-label"><h5>Marital status</h5></label>
                             
                             <div class="form-check form-check-inline offset-md-3">
-                                <input class="form-check-input" type="radio" >
+                                <input class="form-check-input" value="not married" type="radio" formControlName="marital_status">
                                 <label class="form-check-label">Unmarried</label>
                             </div>
                             <div class="form-check form-check-inline offset-md-2">
-                                <input class="form-check-input" type="radio">
+                                <input class="form-check-input" value="married" type="radio" formControlName="marital_status">
                                 <label class="form-check-label">Married</label>
                             </div>
                         </div>
@@ -214,11 +215,11 @@
                         <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label"><h5>Vehicle driving</h5></label>
                             <div class="form-check form-check-inline offset-md-3">
-                                <input class="form-check-input" type="checkbox" >
+                                <input class="form-check-input" value="two wheeler" type="checkbox" formControlName="vehicle_driving">
                                 <label class="form-check-label">Two wheeler</label>
                             </div>
                             <div class="form-check form-check-inline offset-md-2">
-                                <input class="form-check-input" type="checkbox">
+                                <input class="form-check-input" value="four wheeler" type="checkbox" formControlName="vehicle_driving">
                                 <label class="form-check-label">Four wheeler</label>
                             </div>
                         </div>
@@ -228,11 +229,11 @@
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             
                             <div class="form-check form-check-inline offset-md-3">
-                                <input class="form-check-input" type="radio" >
+                                <input class="form-check-input" value="normal" type="radio" formControlName="disabilities">
                                 <label class="form-check-label">Normal</label>
                             </div>
                             <div class="form-check form-check-inline offset-md-2">
-                                <input class="form-check-input" type="radio">
+                                <input class="form-check-input" value="physically challenged" type="radio"  formControlName="disabilities">
                                 <label class="form-check-label">Physically challenged</label>
                             </div>
                         </div>
@@ -345,16 +346,16 @@
                             <label class="col-form-label"><h5>Family Status</h5></label>
                             
                             <div class="form-check form-check-inline offset-md-3">
-                                <input class="form-check-input" type="radio">
+                                <input class="form-check-input" value="middle class" type="radio" formControlName="family_status">
                                 <label class="form-check-label">Middle Class</label>
                             </div>
 
                             <div class="form-check form-check-inline offset-md-1">
-                                <input class="form-check-input" type="radio">
+                                <input class="form-check-input" value="rich" type="radio" formControlName="family_status">
                                 <label class="form-check-label">Rich</label>
                             </div>
                             <div class="form-check form-check-inline offset-md-1">
-                                <input class="form-check-input" type="radio">
+                                <input class="form-check-input" value="affluent" type="radio" formControlName="family_status">
                                 <label class="form-check-label">Affluent</label>
                             </div>
                         </div>
@@ -396,31 +397,27 @@
                             <input type="number" formControlName="expected_income" class="form-control col-8 ml-auto">
                         </div>
             
-                        <!-- <div class="form-group mb-2 row col-10 mx-auto">
+                        <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="expected_caste"><h5>Caste</h5></label>
                             <input type="text" formControlName="expected_caste" class="form-control col-8 ml-auto" list="expected_caste">
-                            <datalist formControlName="expected_caste" id="expected_caste">
+                            <datalist id="expected_caste">
                                 <option value="brahmin">Brahmin</option>
                                 <option value="chettiyar">Chettiyar</option>
                                 <option value="gounder">Gounder</option>
                                 <option value="mudhaliyar">Mudhaliyar</option>
                             </datalist>
-                        </div> -->
+                        </div>
             
-                        <!-- <div class="form-group mb-2 row col-10 mx-auto">
+                        <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="expected_subcaste"><h5>Sub caste</h5></label>
-                            <select formControlName="expected_subcaste" id="expected_subcaste" class="form-control col-8 ml-auto">
-                                <option value="nobar">No bar</option>
-                                <optgroup label="Brahmin">
+                            <input type="text" formControlName="expected_subcaste" class="form-control col-8 ml-auto" list="expected_subcaste">
+                            <datalist id="expected_subcaste">
                                     <option value="iyer">Iyer</option>
                                     <option value="iyengar">Iyengar</option>
-                                </optgroup>
-                                <optgroup label="Gounder">
                                     <option value="vellalar">Vellalar</option>
                                     <option value="gaura">Gaura</option>
-                                </optgroup>
-                            </select>        
-                        </div> -->
+                            </datalist>        
+                        </div>
 
                         <div class="form-group mb-3 row col-10 mx-auto">
                             <label class="col-form-label"><h5>Marital status</h5></label>

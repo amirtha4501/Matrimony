@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { ProfileService } from '../services/profile.service';
 
 @Component({
   selector: 'app-header',
@@ -7,12 +9,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  detail = {}
+  loginForm: FormGroup;
+
+  constructor(
+    private fb: FormBuilder,
+    private profileService: ProfileService
+  ) { 
+    this.createLoginForm();
+  }
 
   ngOnInit(): void {
+    
   }
-  save(){
-    console.log("saved!")
+  createLoginForm() {
+    this.loginForm = this.fb.group({
+      id:[''],
+      password:[''],
+    });
+  }
+
+  onSubmit() {
+    this.detail = this.loginForm.value;
+    this.profileService.signIn(this.detail).subscribe((res) => {
+      console.log(res);
+    });
   }
 
 }
