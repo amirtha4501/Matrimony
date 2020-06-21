@@ -14,6 +14,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProfileDetailComponent } from './profile-detail/profile-detail.component';
 import { PaymentsComponent } from './payments/payments.component';
+import { FilterComponent } from './filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { PaymentsComponent } from './payments/payments.component';
     HeaderComponent,
     FooterComponent,
     ProfileDetailComponent,
-    PaymentsComponent
+    PaymentsComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,

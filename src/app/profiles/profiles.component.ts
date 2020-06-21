@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { ProfileService } from '../services/profile.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { ProfileService } from '../services/profile.service';
 export class ProfilesComponent implements OnInit {
 
   imgUrls = []
-  profiles:any = []
+  profiles:any = [];
 
   constructor(
     private profileService: ProfileService

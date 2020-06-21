@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -107,6 +107,40 @@ export class ProfileService {
 
   getProfiles() {
     return this.http.get('http://localhost:3000/profiles');
+  }
+
+  getFilteredProfiles(filters) {
+    
+    let params = new HttpParams();
+
+    if(filters.gender) {
+      params=params.append('gender', filters.gender);
+    } 
+    if(filters.caste) {
+      params=params.append('caste', filters.caste);
+    }
+    if(filters.from_age) {
+      params=params.append('from_age', filters.from_age);
+    }
+    if(filters.to_age) {
+      params=params.append('to_age', filters.to_age);
+    }
+    if(filters.from_height) {
+      params=params.append('from_height', filters.from_height);
+    }
+    if(filters.to_height) {
+      params=params.append('to_height', filters.to_height);
+    }
+    if(filters.from_weight) {
+      params=params.append('from_weight', filters.from_weight);
+    }
+    if(filters.to_weight) {
+      params=params.append('to_weight', filters.to_weight);
+    }
+
+    let url = 'http://localhost:3000/profiles?' + params;
+    console.log(url);
+    return this.http.get(url);
   }
 
   getProfileById(id: number) {

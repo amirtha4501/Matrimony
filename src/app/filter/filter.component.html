@@ -1,0 +1,50 @@
+<section class="container bg-white rounded mt-5">
+    <div class="row mx-auto">
+        <aside class="col-4 p-0">
+            <h5 class="text-center mt-3">Profile search</h5>
+            <input type="number" placeholder="Id" name="id" class="form-control mt-4 mb-3">
+            <input type="text" placeholder="Name" name="name" class="form-control mt-4">
+        </aside>
+        <aside class="col-8 ml-auto">
+            <h5 class="text-center mt-3">Search options</h5>
+
+            <form class="form-inline m-4" [formGroup]="filterForm" (ngSubmit)="onSubmit()" novalidate autocomplete="off">
+                <div class="form-group mx-auto m-2">   
+                    <input type="text" placeholder="Gender" formControlName="gender" class="form-control mr-1" list="gender_filter">
+                    <datalist id="gender_filter">
+                        <option value="Male"></option>
+                        <option value="Female"></option>
+                    </datalist>
+
+                    <input type="text" placeholder="Caste" formControlName="caste" class="form-control" list="caste_filter">
+                    <datalist id="caste_filter">
+                        <option value="Brahmin"></option>
+                        <option value="Gounder"></option>
+                        <option value="Chettiyar"></option>
+                        <option value="Mudhaliyar"></option>
+                        <option value="Vanniyar"></option>
+                    </datalist>
+                </div>
+
+                <div class="form-group mx-auto m-2">
+                    <input type="number" placeholder="from age" formControlName="from_age" class="form-control mr-1">
+                    <input type="number" placeholder="to age" formControlName="to_age" class="form-control">
+                </div>
+
+                <div class="form-group mx-auto m-2">
+                    <input type="number" placeholder="from height" formControlName="from_height" class="form-control mr-1">
+                    <input type="number" placeholder="to height" formControlName="to_height" class="form-control">
+                </div>
+                
+                <div class="form-group mx-auto m-2">
+                    <input type="number" placeholder="from weight" formControlName="from_weight" class="form-control mr-1">
+                    <input type="number" placeholder="to weight" formControlName="to_weight" class="form-control">
+                </div>
+
+               
+                <button class="btn btn-primary" type="submit">Filter</button>
+            </form>
+          
+        </aside>
+    </div>
+</section>
