@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 import { ProfileService } from '../services/profile.service';
 
 @Component({
@@ -8,9 +8,25 @@ import { ProfileService } from '../services/profile.service';
   styleUrls: ['./profiles.component.css']
 })
 export class ProfilesComponent implements OnInit {
-
+  
   imgUrls = []
   profiles:any = [];
+  filteredProfiles: any= [];
+  isFilter: Boolean = false;
+  filters = {};
+  filterForm = new FormGroup({
+    id: new FormControl(''),
+    name: new FormControl(''),
+    gender: new FormControl(''),
+    caste: new FormControl(''),
+    from_age: new FormControl(''),
+    to_age: new FormControl(''),
+    from_height: new FormControl(''),
+    to_height: new FormControl(''),
+    from_weight: new FormControl(''),
+    to_weight: new FormControl('')
+  })
+
 
   constructor(
     private profileService: ProfileService
@@ -28,8 +44,17 @@ export class ProfilesComponent implements OnInit {
       'https://www.cinemapettai.com/wp-content/uploads/2020/02/amirtha-4.jpg',
       'https://cdn.sharechat.com/amirthaaiyer_1c4887e9_1580923904619_cmprsd_40.jpg'
     ]
-
-    this.getProfiles();
+    // alert(localStorage.getItem('filters'));
+    // console.log(JSON.parse(localStorage.getItem('filters')));
+    // if(!localStorage.getItem('filters')) {
+      this.getProfiles();
+  //   }
+  //   else {
+  //     this.profileService.getFilteredProfiles(localStorage.getItem('filters')).subscribe((filteredProfiles) => {
+  //       console.log(filteredProfiles, 'filtered profiles');
+  //       this.filteredProfiles = filteredProfiles;
+  //     }); 
+  //   }
   }
 
   getProfiles() {
@@ -41,4 +66,19 @@ export class ProfilesComponent implements OnInit {
     );
   }
 
+  onSubmit() {
+    this.filters = this.filterForm.value;
+
+    localStorage.setItem('filters', JSON.stringify(this.filters));
+
+    if(this.filters != {}) {
+      this.isFilter = true;
+    } else {
+      this.isFilter = false;
+    }
+    this.profileService.getFilteredProfiles(this.filters).subscribe((filteredProfiles) => {
+      console.log(filteredProfiles, 'filtered profiles');
+      this.filteredProfiles = filteredProfiles;
+    });
+  }
 }

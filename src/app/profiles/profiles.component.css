@@ -24,8 +24,25 @@
         height: 250px;
     }
 }
-@media screen and (min-width:1025px) {
+@media screen and (min-width: 1025px) {
     .card img {
         height:510px;
+    }
+}
+
+
+@media screen and (min-width: 760px) and (max-width: 1000px) {
+    .form-ele {
+        margin-left: 10px;
+    }
+}
+@media screen and (min-width: 5000px) {
+    .form-ele {
+        margin-left: 100px;
+    }
+}
+@media screen and (min-width: 1001px) {
+    .form-ele {
+        margin-left: 90px;
     }
 }

@@ -1,7 +1,83 @@
-<app-filter></app-filter>
-<div class="container-fluid">
+<section class="container bg-white rounded mt-5">
+    <div class="row mx-auto">
+        <form class="form-inline mx-auto" [formGroup]="filterForm" (ngSubmit)="onSubmit()" novalidate autocomplete="off">
+            <aside class="col-4 text-center p-0">
+                <h5 class="text-center mt-3">Profile search</h5>
+                <input type="number" placeholder="Id" formControlName="id" class="form-control mt-4 mb-3">
+                <input type="text" placeholder="Name" formControlName="name" class="form-control mt-3">
+            </aside>
+            <aside class="col-8">
+                
+                <div class="text-center">
+                    <div class="text-center">
+                        <h5 class="mt-3">Search options</h5>
+                    </div>
+                    <div class="form-ele">
+                        <div class="form-group">   
+                            <input type="text" placeholder="Gender" formControlName="gender" class="form-control mr-2" list="gender_filter">
+                            <datalist id="gender_filter">
+                                <option value="Male"></option>
+                                <option value="Female"></option>
+                            </datalist>
+        
+                            <input type="text" placeholder="Caste" formControlName="caste" class="form-control" list="caste_filter">
+                            <datalist id="caste_filter">
+                                <option value="Brahmin"></option>
+                                <option value="Gounder"></option>
+                                <option value="Chettiyar"></option>
+                                <option value="Mudhaliyar"></option>
+                                <option value="Vanniyar"></option>
+                            </datalist>
+                        </div>
+        
+                        <div class="form-group">
+                            <input type="number" placeholder="from age" formControlName="from_age" class="form-control mr-2">
+                            <input type="number" placeholder="to age" formControlName="to_age" class="form-control">
+                        </div>
+        
+                        <div class="form-group">
+                            <input type="number" placeholder="from height" formControlName="from_height" class="form-control mr-2">
+                            <input type="number" placeholder="to height" formControlName="to_height" class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="number" placeholder="from weight" formControlName="from_weight" class="form-control mr-2">
+                            <input type="number" placeholder="to weight" formControlName="to_weight" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="container mt-3 mb-3">
+                        <button class="btn btn-primary" type="submit">Filter</button>
+                    </div>
+                </div>
+                
+            </aside>
+        </form>
+    </div>
+</section>
+
+
+<!-- <app-filter></app-filter> -->
+
+
+<div class="container-fluid" *ngIf="!isFilter">
     <div class="mt-5 mb-5 col-10 mx-auto text-center card-columns rounded">
         <div *ngFor="let profile of profiles; index as i" class="card mt-5 mb-5 text-center">
+            <!-- <img class="card-img-top img-fluid" src={{img}} alt="Card image"> -->
+            <div class="card-body p-1">
+                <h5 class="text-center">{{ profile.name }}<small *ngIf="profile.age"> - {{ profile.age }}</small></h5>
+                <h6 class="text-center">DOB - <small *ngIf="profile.dob; else elseNil">{{ profile.dob }}</small></h6>
+                <h6 class="text-center">Star - <small *ngIf="profile.star; else elseNil">{{ profile.star}}</small></h6>
+                <ng-template #elseNil><small>Nil</small></ng-template>
+            </div>
+            <div class="card-footer p-2 pr-3 text-right"><a [routerLink]="['/profiledetail', profile.id]">View profile</a></div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid" *ngIf="isFilter">
+    <div class="mt-5 mb-5 col-10 mx-auto text-center card-columns rounded">
+        <div *ngFor="let profile of filteredProfiles; index as i" class="card mt-5 mb-5 text-center">
             <!-- <img class="card-img-top img-fluid" src={{img}} alt="Card image"> -->
             <div class="card-body p-1">
                 <h5 class="text-center">{{ profile.name }}<small *ngIf="profile.age"> - {{ profile.age }}</small></h5>

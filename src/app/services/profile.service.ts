@@ -113,11 +113,19 @@ export class ProfileService {
     
     let params = new HttpParams();
 
+    if(filters.id) {
+      params=params.append('id', filters.id);
+    } 
+
+    if(filters.name) {
+      params=params.append('name', filters.name.toLowerCase());
+    } 
+
     if(filters.gender) {
-      params=params.append('gender', filters.gender);
+      params=params.append('gender', filters.gender.toLowerCase());
     } 
     if(filters.caste) {
-      params=params.append('caste', filters.caste);
+      params=params.append('caste', filters.caste.toLowerCase());
     }
     if(filters.from_age) {
       params=params.append('from_age', filters.from_age);
