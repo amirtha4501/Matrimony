@@ -222,14 +222,14 @@
                         <label class="col-form-label ml-auto col-6" for="mother_occupation"><label *ngIf="profile.mother_occupation; else elseNil">{{ profile['mother_occupation'] | titlecase}}</label></label>
                     </div>
                     
-                    <div class="row col-9 mx-auto">
+                    <!-- <div class="row col-9 mx-auto">
                         <label class="col-form-label" for="family_contact"><h5 class="text-secondary">Family contact</h5></label>
                         <label class="col-form-label ml-auto col-6" for="family_contact"><label *ngIf="profile.family_contact; else elseNil">{{ profile['family_contact'] | titlecase}}</label></label>
-                    </div>
+                    </div> -->
     
                     <div class="row col-9 mx-auto">
                         <label class="col-form-label" for="sibiling_count"><h5 class="text-secondary">Sibiling count</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="sibiling_count"><label *ngIf="profile.sibiling_count; else elseNil">{{ profile['sibiling_count'] | titlecase}}</label></label>
+                        <label class="col-form-label ml-auto col-6" for="sibiling_count"><label *ngIf="profile.sibiling_count; else elseNil">{{ profile['sibiling_count'] }}</label></label>
                     </div>
     
                     <div class="row col-9 mx-auto">
@@ -288,17 +288,17 @@
     
                     <div class="row col-9 mx-auto">
                         <label class="col-form-label" for="age_difference"><h5 class="text-secondary">Age difference</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="age_difference"><label *ngIf="profile.age_difference; else elseNil">{{ profile['age_difference'] | titlecase}}</label></label>
+                        <label class="col-form-label ml-auto col-6" for="age_difference"><label *ngIf="profile.age_difference; else elseNil">{{ profile['age_difference'] }}</label></label>
                     </div>
     
                     <div class="row col-9 mx-auto">
                         <label class="col-form-label" for="expected_height"><h5 class="text-secondary">Height(ft)</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="expected_height"><label *ngIf="profile.expected_height; else elseNil">{{ profile['expected_height'] | titlecase}}</label></label>
+                        <label class="col-form-label ml-auto col-6" for="expected_height"><label *ngIf="profile.expected_height; else elseNil">{{ profile['expected_height'] }}</label></label>
                     </div>
     
                     <div class="row col-9 mx-auto mb-2">
                         <label class="col-form-label" for="expected_weight"><h5 class="text-secondary">Weight(kg)</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="expected_weight"><label *ngIf="profile.expected_weight; else elseNil">{{ profile['expected_weight'] | titlecase}}</label></label>
+                        <label class="col-form-label ml-auto col-6" for="expected_weight"><label *ngIf="profile.expected_weight; else elseNil">{{ profile['expected_weight'] }}</label></label>
                     </div>
                     
                     <div class="row col-9 mx-auto mb-5" *ngIf="profile['expectations']">

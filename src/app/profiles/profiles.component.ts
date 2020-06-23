@@ -44,17 +44,22 @@ export class ProfilesComponent implements OnInit {
       'https://www.cinemapettai.com/wp-content/uploads/2020/02/amirtha-4.jpg',
       'https://cdn.sharechat.com/amirthaaiyer_1c4887e9_1580923904619_cmprsd_40.jpg'
     ]
-    // alert(localStorage.getItem('filters'));
-    // console.log(JSON.parse(localStorage.getItem('filters')));
-    // if(!localStorage.getItem('filters')) {
+    let data = localStorage.getItem('filters');
+
+    if(!JSON.parse(data)) {
+      this.isFilter = false;
       this.getProfiles();
-  //   }
-  //   else {
-  //     this.profileService.getFilteredProfiles(localStorage.getItem('filters')).subscribe((filteredProfiles) => {
-  //       console.log(filteredProfiles, 'filtered profiles');
-  //       this.filteredProfiles = filteredProfiles;
-  //     }); 
-  //   }
+    }
+    else {
+      this.isFilter = true;
+      this.filterForm.patchValue(JSON.parse(data));
+
+      this.profileService.getFilteredProfiles(JSON.parse(data)).subscribe((filteredProfiles) => {
+        console.log(filteredProfiles, 'filtered profiles');
+        this.filteredProfiles = filteredProfiles;
+      }); 
+    }
+
   }
 
   getProfiles() {
@@ -70,7 +75,7 @@ export class ProfilesComponent implements OnInit {
     this.filters = this.filterForm.value;
 
     localStorage.setItem('filters', JSON.stringify(this.filters));
-
+    
     if(this.filters != {}) {
       this.isFilter = true;
     } else {
@@ -81,4 +86,6 @@ export class ProfilesComponent implements OnInit {
       this.filteredProfiles = filteredProfiles;
     });
   }
+
+
 }

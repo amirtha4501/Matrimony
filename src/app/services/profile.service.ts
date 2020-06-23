@@ -29,6 +29,7 @@ export class ProfileService {
 
   signUp(detail): Observable<Object> {
     return this.http.post('http://localhost:3000/auth/signup', {
+      image: detail.image,
       name: detail.name,
       email: detail.email,
       password: detail.password,
