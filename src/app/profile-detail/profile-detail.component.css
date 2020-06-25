@@ -3,7 +3,6 @@
 }
 
 .border-custom .card-header {
-    /* background-image: linear-gradient(to right, rgb(211, 6, 160), rgb(235, 113, 198), rgb(211, 6, 160)); */
     background-image: linear-gradient(to right, rgb(2, 55, 228), rgb(67, 180, 245), rgb(2, 55, 228));
 }
 

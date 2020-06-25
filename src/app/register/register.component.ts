@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup, MinLengthValidator } from '@angular/forms';
 import { ProfileService } from '../services/profile.service';
 
 @Component({
@@ -13,9 +13,7 @@ export class RegisterComponent implements OnInit {
   regForm: FormGroup;
   profiles:any;
   storeImg: string;
-  formErrors = {
-    'name': ''
-  };
+  submitted = false;
 
   public imagePath;
   imgURL: any;
@@ -33,10 +31,11 @@ export class RegisterComponent implements OnInit {
  
     var reader = new FileReader();
     this.imagePath = files;
+    // console.log(files,'files');
+    // console.log(files[0],'files[0]');
     reader.readAsDataURL(files[0]); 
     reader.onload = (_event) => { 
       this.imgURL = reader.result; 
-      // console.log(this.imgURL);
       this.storeImg = btoa(this.imgURL);
     }
   }
@@ -49,16 +48,17 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.submitted = false;
   }
 
   createRegForm() {
     this.regForm = this.fb.group({
       image: [''],
       name: ['',  [Validators.required, Validators.minLength(2), Validators.maxLength(25)]],
-      age:[''],
-      dob:[''],
-      email:[''],
-      password:[''],
+      age:['', [Validators.required, Validators.min(18)]],
+      dob:['', Validators.required],
+      email:['', Validators.email],
+      password:['', [Validators.required, Validators.minLength(6), Validators.maxLength(20)]],
       gender: ['', Validators.required],
       birth_time:[''],
       birth_place:[''],
@@ -76,7 +76,7 @@ export class RegisterComponent implements OnInit {
       mother_tongue:[''],
       known_language:[''],
       nativity:[''],
-      marital_status:[''],
+      marital_status:['', Validators.required],
       talents:[''],
       hobbies:[''],
       vehicle_driving:[''],
@@ -114,7 +114,7 @@ export class RegisterComponent implements OnInit {
       father_occupation:[''],
       mother_name:[''],
       mother_occupation:[''],
-      contact_main:[''],
+      contact_main:['', [Validators.required, Validators.minLength(8), Validators.maxLength(12)]],
       contact_sup:[''],
       sibiling_count:[''],
       family_status:[''],
@@ -136,13 +136,22 @@ export class RegisterComponent implements OnInit {
     });
   }
 
+
+  // convenience getter for easy access to form fields
+  get f() { return this.regForm.controls; }
+
   onSubmit() {
+    this.submitted = true;
     this.detail = this.regForm.value;
     this.detail['image'] = this.storeImg;
-    // console.log(this.storeImg);
+
+    if (this.regForm.invalid) {
+      return;
+    }
+
     this.profileService.signUp(this.detail).subscribe((res) => {
-      console.log(res, 'res');
-      console.log(this.detail['image'], 'image');
+      console.log('registered');
+      // console.log(this.detail['image'], 'image');
     });
   }
 
