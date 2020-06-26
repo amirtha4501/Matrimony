@@ -49,10 +49,16 @@ div.form-group > textarea {
     outline: none;
     resize: none;
 }
+
 input, select {
     outline: 0;
     border-width: 0 0 1.5px;
     border-color: lightgray;
+}
+
+button.multiselect.dropdown-toggle.btn.btn-default > span.multiselect-selected-text {
+    border: #4A4 !important;
+    background-color: #4A4 !important;
 }
 
 /* ==================================================================================== */
@@ -66,13 +72,13 @@ input, select {
     background-image: linear-gradient(to right, rgb(228, 2, 2), rgb(245, 79, 67), rgb(228, 2, 2));
     color: white;
 }
+
 /* ====================================================================================== */
 label.myLabel input[type="file"] {
     position:absolute;
     top: -1000px;
 }
 
-/***** Example custom styling *****/
 .myLabel {
     border: none;
     border-radius: 4px;

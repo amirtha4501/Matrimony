@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup, MinLengthValidator } from '@angular/forms';
 import { ProfileService } from '../services/profile.service';
 
+declare var $: any;
+var known_language_style = {
+  "background-color": "#ddd",
+}
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -9,7 +14,7 @@ import { ProfileService } from '../services/profile.service';
 })
 export class RegisterComponent implements OnInit {
 
-  detail = {}
+  detail = {};
   regForm: FormGroup;
   profiles:any;
   storeImg: string;
@@ -19,7 +24,118 @@ export class RegisterComponent implements OnInit {
   imgURL: any;
   public message: string;
  
-  preview(files) {
+  stars = [
+    "Ashwini - 1",
+    "Ashwini - 2",
+    "Ashwini - 3",
+    "Ashwini - 4",
+    "Barani - 1",
+    "Barani - 2",
+    "Barani - 3",
+    "Barani - 4",
+    "Karthigai - 1",
+    "Karthigai - 2",
+    "Karthigai - 3",
+    "Karthigai - 4",
+    "Rohini - 1",
+    "Rohini - 2",
+    "Rohini - 3",
+    "Rohini - 4",
+    "Mirugasiridam - 1",
+    "Mirugasiridam - 2",
+    "Mirugasiridam - 3",
+    "Mirugasiridam - 4",
+    "Thiruvathirai - 1",
+    "Thiruvathirai - 2",
+    "Thiruvathirai - 3",
+    "Thiruvathirai - 4",
+    "Punarposam - 1",
+    "Punarposam - 2",
+    "Punarposam - 3",
+    "Punarposam - 4",
+    "Posam - 1",
+    "Posam - 2",
+    "Posam - 3",
+    "Posam - 4",
+    "Ailyam - 1",
+    "Ailyam - 2",
+    "Ailyam - 3",
+    "Ailyam - 4",
+    "Magam - 1",
+    "Magam - 2",
+    "Magam - 3",
+    "Magam - 4",
+    "Puram - 1",
+    "Puram - 2",
+    "Puram - 3",
+    "Puram - 4",
+    "Uthiram - 1",
+    "Uthiram - 2",
+    "Uthiram - 3",
+    "Uthiram - 4",
+    "Hastham - 1",
+    "Hastham - 2",
+    "Hastham - 3",
+    "Hastham - 4",
+    "Chithirai - 1",
+    "Chithirai - 2",
+    "Chithirai - 3",
+    "Chithirai - 4",
+    "Suvathi - 1",
+    "Suvathi - 2",
+    "Suvathi - 3",
+    "Suvathi - 4",
+    "Visagam - 1",
+    "Visagam - 2",
+    "Visagam - 3",
+    "Visagam - 4",
+    "Anusam - 1",
+    "Anusam - 2",
+    "Anusam - 3",
+    "Anusam - 4",
+    "Kettai - 1",
+    "Kettai - 2",
+    "Kettai - 3",
+    "Kettai - 4",
+    "Mulam - 1",
+    "Mulam - 2",
+    "Mulam - 3",
+    "Mulam - 4",
+    "Puradam - 1",
+    "Puradam - 2",
+    "Puradam - 3",
+    "Puradam - 4",
+    "Uthiradam - 1",
+    "Uthiradam - 2",
+    "Uthiradam - 3",
+    "Uthiradam - 4",
+    "Thiruvonam - 1",
+    "Thiruvonam - 2",
+    "Thiruvonam - 3",
+    "Thiruvonam - 4",
+    "Avitam - 1",
+    "Avitam - 2",
+    "Avitam - 3",
+    "Avitam - 4",
+    "Sathayam - 1",
+    "Sathayam - 2",
+    "Sathayam - 3",
+    "Sathayam - 4",
+    "Puratathi - 1",
+    "Puratathi - 2",
+    "Puratathi - 3",
+    "Puratathi - 4",
+    "Uthiratathi - 1",
+    "Uthiratathi - 2",
+    "Uthiratathi - 3",
+    "Uthiratathi - 4",
+    "Revathi - 1",
+    "Revathi - 2",
+    "Revathi - 3",
+    "Revathi - 4"
+  ]
+
+  preview(files) {``
     if (files.length === 0)
       return;
  
@@ -31,8 +147,6 @@ export class RegisterComponent implements OnInit {
  
     var reader = new FileReader();
     this.imagePath = files;
-    // console.log(files,'files');
-    // console.log(files[0],'files[0]');
     reader.readAsDataURL(files[0]); 
     reader.onload = (_event) => { 
       this.imgURL = reader.result; 
@@ -43,26 +157,33 @@ export class RegisterComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private profileService: ProfileService
-  ) { 
-    this.createRegForm();
-  }
+  ) { this.createRegForm(); }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
     this.submitted = false;
+    $('select[multiple]').multiselect();
+    $('#known_language').multiselect({
+      columns: 1,
+      placeholder: 'Select Languages',
+      search: true
+  });
+  $('button.multiselect.dropdown-toggle.btn.btn-default > span.multiselect-selected-text').css({ color : 'gray' });
+  $('button.multiselect.dropdown-toggle.btn.btn-default').css(known_language_style);
   }
 
+  
   createRegForm() {
     this.regForm = this.fb.group({
       image: [''],
       name: ['',  [Validators.required, Validators.minLength(2), Validators.maxLength(25)]],
-      age:['', [Validators.required, Validators.min(18)]],
-      dob:['', Validators.required],
-      email:['', Validators.email],
+      age:['', [Validators.required, Validators.min(18), Validators.max(50)]],
+      dob:['', [Validators.required]],
+      email:['', [Validators.email]],
       password:['', [Validators.required, Validators.minLength(6), Validators.maxLength(20)]],
       gender: ['', Validators.required],
       birth_time:[''],
       birth_place:[''],
-      religion:[''],
+      religion:['', [Validators.required]],
       caste:[''],
       subcaste:[''],
       gothram:[''],
@@ -136,7 +257,6 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-
   // convenience getter for easy access to form fields
   get f() { return this.regForm.controls; }
 
@@ -145,13 +265,10 @@ export class RegisterComponent implements OnInit {
     this.detail = this.regForm.value;
     this.detail['image'] = this.storeImg;
 
-    if (this.regForm.invalid) {
-      return;
-    }
+    if (this.regForm.invalid) { return; }
 
     this.profileService.signUp(this.detail).subscribe((res) => {
       console.log('registered');
-      // console.log(this.detail['image'], 'image');
     });
   }
 

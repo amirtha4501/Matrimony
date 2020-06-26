@@ -23,8 +23,7 @@
                     <div class="container col-12 text-secondary pt-4 pb-5">
                         <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="name"><h5>Full name</h5></label>
-                            <input type="text" formControlName="name" class="form-control col-8 ml-auto" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" required>
-                            
+                            <input type="text" formControlName="name" class="form-control col-8 ml-auto" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" required> 
                             <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
                                 <div *ngIf="f.name.errors.required">Name is required</div>
                             </div>
@@ -32,35 +31,53 @@
 
                         <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="email"><h5>Email</h5></label>
-                            <input type="email" formControlName="email" class="form-control col-8 ml-auto">
+                            <input type="email" formControlName="email" class="form-control col-8 ml-auto" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                            </div>
                         </div>
                         
                         <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="password"><h5>Password</h5></label>
-                            <input type="password" formControlName="password" class="form-control col-8 ml-auto" required>
+                            <input type="password" formControlName="password" class="form-control col-8 ml-auto" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" required>
+                            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                <div *ngIf="f.password.errors.required">Password is required</div>
+                                <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                                <div *ngIf="f.password.errors.maxlength">Password must be at most 20 characters</div>
+                            </div>
                         </div>
                         
                         <div class="form-group mb-3 row col-10 mx-auto">
                             <label class="col-form-label"><h5>Gender</h5></label>
-                            
                             <div class="form-check form-check-inline offset-md-3">
-                                <input class="form-check-input" value="male" type="radio" formControlName="gender">
+                                <input class="form-check-input" value="male" type="radio" formControlName="gender" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }" required>
                                 <label class="form-check-label">Male</label>
                             </div>
                             <div class="form-check form-check-inline offset-md-2">
-                                <input class="form-check-input" value="female" type="radio"  formControlName="gender">
+                                <input class="form-check-input" value="female" type="radio"  formControlName="gender" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }" required>
                                 <label class="form-check-label">Female</label>
+                                <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
+                                   <div *ngIf="f.gender.errors.required">&nbsp;&nbsp;&nbsp;&nbsp; Gender is required</div>
+                                </div>
                             </div>
                         </div>
 
                         <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="age"><h5>Age</h5></label>
-                            <input type="number" formControlName="age" class="form-control col-8 ml-auto">
+                            <input type="number" formControlName="age" class="form-control col-8 ml-auto" [ngClass]="{ 'is-invalid': submitted && f.age.errors }" required>
+                            <div *ngIf="submitted && f.age.errors" class="invalid-feedback">
+                                <div *ngIf="f.age.errors.required">Age is required</div>
+                                <div *ngIf="f.age.errors.min">Age should be greater than 18</div>
+                                <div *ngIf="f.age.errors.max">Age is too old</div>
+                            </div>
                         </div>
 
                         <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="dob"><h5>DOB</h5></label>
-                            <input type="date" formControlName="dob" class="form-control col-8 ml-auto">
+                            <input type="date" formControlName="dob" class="form-control col-8 ml-auto" [ngClass]="{ 'is-invalid': submitted && f.dob.errors }" required>
+                            <div *ngIf="submitted && f.dob.errors" class="invalid-feedback">
+                                <div *ngIf="f.dob.errors.required">Date of birth is required</div>
+                            </div>
                         </div>
                         
                         <div class="form-group mb-2 row col-10 mx-auto">
@@ -75,16 +92,19 @@
                         
                         <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="religion"><h5>Religion</h5></label>
-                            <input type="text" formControlName="religion" class="form-control col-8 ml-auto" list="religion">
+                            <input type="text" formControlName="religion" class="form-control col-8 ml-auto" list="religion" [ngClass]="{ 'is-invalid': submitted && f.religion.errors }" required>
                             <datalist id="religion">
                                 <option value="hindu">Hindu</option>
                                 <option value="christian">Christian</option>
                                 <option value="musleum">Musleum</option>
-                                <option value="nobar">No bar</option>
+                                <option value="others">Others</option>
                             </datalist>
+                            <div *ngIf="submitted && f.religion.errors" class="invalid-feedback">
+                                <div *ngIf="f.religion.errors.required">Religion is required</div>
+                            </div>
                         </div>
 
-                        <div class="form-group mb-2 row col-10 mx-auto">
+                        <div *ngIf="f.religion.value" class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="caste"><h5>Caste</h5></label>
                             <input type="text" formControlName="caste" class="form-control col-8 ml-auto" list="caste">
                             <datalist id="caste">
@@ -95,10 +115,11 @@
                             </datalist>
                         </div>
                         
-                        <div class="form-group mb-2 row col-10 mx-auto">
+                        <div *ngIf="f.caste.value" class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="subcaste"><h5>Sub caste</h5></label>
                             <input type="text" formControlName="subcaste" class="form-control col-8 ml-auto" list="subcaste">
                             <datalist id="subcaste">
+                                <option value="nil">Nil</option>
                                 <option value="iyer">Iyer</option>
                                 <option value="iyengar">Iyengar</option>
                                 <option value="vellalar">Vellalar</option>
@@ -106,10 +127,11 @@
                             </datalist>        
                         </div>
                         
-                        <div class="form-group mb-2 row col-10 mx-auto">
+                        <div *ngIf="f.caste.value" class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="gothram"><h5>Gothram</h5></label>
                             <input type="text" formControlName="gothram" class="form-control col-8 ml-auto" list="gothram">
                             <datalist id="gothram">
+                                <option value="nil">Nil</option>
                                 <option value="brahacharanam">Bracharanam</option>
                                 <option value="vadamal">Vadamal</option>
                                 <option value="srivathsa">Srivathsa</option>
@@ -120,9 +142,7 @@
                             <label class="col-form-label" for="star"><h5>Star</h5></label>
                             <input type="text" formControlName="star" class="form-control col-8 ml-auto" list="star">
                             <datalist id="star">
-                                <option value="uthiram"></option>
-                                <option value="hastham"></option>
-                                <option value="barani"></option>
+                                <option value="{{ star }}" *ngFor="let star of stars"></option> 
                             </datalist>
                         </div>
             
@@ -136,12 +156,12 @@
                             <input type="text" formControlName="job" class="form-control col-8 ml-auto">
                         </div>
             
-                        <div class="form-group mb-2 row col-10 mx-auto">
+                        <div *ngIf="f.job.value" class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="work_place"><h5>Work place</h5></label>
                             <input type="text" formControlName="work_place" class="form-control col-8 ml-auto">
                         </div>
             
-                        <div class="form-group mb-2 row col-10 mx-auto">
+                        <div *ngIf="f.job.value" class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="income"><h5>Income</h5></label>
                             <input type="number" formControlName="income" class="form-control col-8 ml-auto">
                         </div>
@@ -165,33 +185,37 @@
                                 <option value="Malayalam"></option>
                                 <option value="Hindi"></option>
                                 <option value="Kannada"></option>
-                            </datalist>
-                        </div>
-            
-                        <div class="form-group mb-2 row col-10 mx-auto">
-                            <label class="col-form-label" for="known_language"><h5>Known language</h5></label>
-                            <input type="text" formControlName="known_language" class="form-control col-8 ml-auto" list="known_language">
-                            <datalist multiple id="known_language">
-                                <option value="Tamil"></option>
-                                <option value="English"></option>
-                                <option value="Telugu"></option>
-                                <option value="Malayalam"></option>
-                                <option value="Hindi"></option>
-                                <option value="Kannada"></option>
+                                <option value="Urdu"></option>
                                 <option value="Thulu"></option>
                                 <option value="Marati"></option>
                             </datalist>
                         </div>
             
                         <div class="form-group mb-2 row col-10 mx-auto">
+                            <label class="col-form-label" for="known_language"><h5>Known language</h5></label>
+                            
+                            <div class="col-8 ml-auto">
+                                <select formControlName="known_language[]" multiple id="known_language">
+                                    <option value="Tamil">&nbsp;Tamil</option>
+                                    <option value="English">&nbsp;English</option>
+                                    <option value="Telugu">&nbsp;Telugu</option>
+                                    <option value="Malayalam">&nbsp;Malayalam</option>
+                                    <option value="Hindi">&nbsp;Hindi</option>
+                                    <option value="Kannada">&nbsp;Kannada</option>
+                                    <option value="Thulu">&nbsp;Thulu</option>
+                                    <option value="Marati">&nbsp;Marati</option>
+                                    <option value="Urdu">&nbsp;Urdu</option>
+                                </select>
+                            </div>
+
+                        </div>
+            
+                        <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="nativity"><h5>Nativity</h5></label>
                             <input type="text" formControlName="nativity" class="form-control col-8 ml-auto" list="nativity">
                             <datalist id="nativity">
-                                <option value="trichy"></option>
-                                <option value="coimbatore"></option>
-                                <option value="salem"></option>
-                                <option value="tirupur"></option>
-                                <option value="chennai"></option>
+                                <option value="Indian"></option>
+                                <option value="Others"></option>
                             </datalist>
                         </div>
             
@@ -339,7 +363,10 @@
                         
                         <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="contact"><h5>Family contact</h5></label>
-                            <input type="text" formControlName="contact_main" class="form-control col-8 ml-auto" placeholder="Primary">
+                            <input type="text" formControlName="contact_main" class="form-control col-8 ml-auto" placeholder="Primary" [ngClass]="{ 'is-invalid': submitted && f.contact_main.errors }" required>
+                            <div *ngIf="submitted && f.contact_main.errors" class="invalid-feedback">
+                                <div *ngIf="f.contact_main.errors.required">Primary contact is required</div>
+                            </div>
                             <input type="tel" formControlName="contact_sup" class="form-control col-8 ml-auto" placeholder="Optional">
                         </div>
 
