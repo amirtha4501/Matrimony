@@ -31,7 +31,10 @@ export class ProfileDetailComponent implements OnInit {
 
   getProfileById(id) {
     this.profileService.getProfileById(id).subscribe(
-      (profile) => this.profile = profile,
+      (profile) => {
+        this.profile = profile
+        profile['image'] = atob(profile['image']);
+      },
       (error) => { 
         if (error.status=='404') { alert('User not found') }      
       }

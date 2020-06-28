@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
   profiles:any;
   storeImg: string;
   submitted = false;
-
+  // val = [];
   public imagePath;
   imgURL: any;
   public message: string;
@@ -134,8 +134,69 @@ export class RegisterComponent implements OnInit {
     "Revathi - 3",
     "Revathi - 4"
   ]
+  castes = [
+    "Brahmin",
+    "Chettiyar",
+    "Desikar",
+    "Devar/thevar",
+    "Dhanak",
+    "Gandla",
+    "Ganiga",
+    "Gramani",
+    "Gounder",
+    "Isai vellalar",
+    "Julaha",
+    "Kanakkan padanna",
+    "Kandara",
+    "Karukathar",
+    "Khatik",
+    "Kerala mudali",
+    "Kasukara",
+    "Karunneegar",
+    "Mannan/velan/vannan",
+    "Maruthuvar",
+    "Meenavar",
+    "Meghwal",
+    "Mudaliyar",
+    "Muthuraja",
+    "Nadar",
+    "Naicker",
+    "Naidu",
+    "Pannan",
+    "Parkavakulam/udayar",
+    "Poundra",
+    "Pattusali",
+    "Parvatha rajakulam",
+    "Paswan/dusadh",
+    "Pillai",
+    "Pulaya/cheruman",
+    "Reddy",
+    "Rohit/ chamar",
+    "Sc",
+    "St",
+    "Saliyar",
+    "Samagar",
+    "Sambava",
+    "Satnami",
+    "Senguntha mudaliyar",
+    "Sonakar",
+    "Senai thalaivar",
+    "Telgupatti",
+    "Thandan",
+    "Vadambar",
+    "Veera saivam",
+    "Vanniakula kshatriyar/padaiyachi",
+    "Valluvan",
+    "Vaduvan",
+    "Vellalar",
+    "Vishwakarma",
+    "Yadavar",
+    "Yadava naidu",
+    "Vokkaliga",
+    "Vellan chettiar",
+  ]
 
-  preview(files) {``
+  preview(files) {
     if (files.length === 0)
       return;
  
@@ -161,16 +222,23 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void { 
     this.submitted = false;
-    $('select[multiple]').multiselect();
-    $('#known_language').multiselect({
-      columns: 1,
-      placeholder: 'Select Languages',
-      search: true
-  });
-  $('button.multiselect.dropdown-toggle.btn.btn-default > span.multiselect-selected-text').css({ color : 'gray' });
-  $('button.multiselect.dropdown-toggle.btn.btn-default').css(known_language_style);
-  }
 
+    // // Type 1
+    // $('select[multiple]').multiselect();
+    // this.val = $('#known_language').multiselect({
+    // columns: 1,
+    // placeholder: 'Select Languages',
+    // search: true
+    // });
+
+    // // Type 2
+    // this.val = $('#known_language').multiselect().val(); 
+
+    // Type 3
+    // $('#known_language').change(function() {
+    //   this.known_language = $(this).val();  
+    // )}
+  }
   
   createRegForm() {
     this.regForm = this.fb.group({
@@ -190,14 +258,14 @@ export class RegisterComponent implements OnInit {
       star:[''],
       qualification:[''],
       job:[''],
-      work_place:[''],
+      workplace:[''],
       income:[''],
       height:[''],
       weight:[''],
       mother_tongue:[''],
       known_language:[''],
       nativity:[''],
-      marital_status:['', Validators.required],
+      marital_status:[''],
       talents:[''],
       hobbies:[''],
       vehicle_driving:[''],
@@ -260,13 +328,24 @@ export class RegisterComponent implements OnInit {
   // convenience getter for easy access to form fields
   get f() { return this.regForm.controls; }
 
+  // knownLanguage() {
+  //   $('select[multiple]').multiselect();
+  //   this.val = $('#known_language').multiselect({
+  //   columns: 1,
+  //   placeholder: 'Select Languages',
+  //   search: true
+  //   });
+    // $('button.multiselect.dropdown-toggle.btn.btn-default > span.multiselect-selected-text').css({ color : 'gray' });
+    // $('button.multiselect.dropdown-toggle.btn.btn-default').css(known_language_style);
+  // }
+
   onSubmit() {
     this.submitted = true;
+
     this.detail = this.regForm.value;
+    console.log(this.detail);
     this.detail['image'] = this.storeImg;
-
     if (this.regForm.invalid) { return; }
-
     this.profileService.signUp(this.detail).subscribe((res) => {
       console.log('registered');
     });

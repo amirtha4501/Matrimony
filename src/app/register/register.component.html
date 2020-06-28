@@ -11,7 +11,7 @@
                         </div>
                         <div>
                             <label class="myLabel text-white btn btn-lg p-1">
-                                <input #file type="file" accept='image/*' (change)="preview(file.files)" class="inputfile" data-multiple-caption="{count} files selected" multiple/>
+                                <input #file type="file" accept='image/*' (change)="preview(file.files)" class="inputfile"/>
                                 <div>
                                     <i class="fa fa-upload" aria-hidden="true"></i>
                                     <span><strong>&nbsp;&nbsp;Upload the photo&hellip;</strong></span>
@@ -94,10 +94,10 @@
                             <label class="col-form-label" for="religion"><h5>Religion</h5></label>
                             <input type="text" formControlName="religion" class="form-control col-8 ml-auto" list="religion" [ngClass]="{ 'is-invalid': submitted && f.religion.errors }" required>
                             <datalist id="religion">
-                                <option value="hindu">Hindu</option>
-                                <option value="christian">Christian</option>
-                                <option value="musleum">Musleum</option>
-                                <option value="others">Others</option>
+                                <option value="Hindu"></option>
+                                <option value="Christian"></option>
+                                <option value="Musleum"></option>
+                                <option value="Others"></option>
                             </datalist>
                             <div *ngIf="submitted && f.religion.errors" class="invalid-feedback">
                                 <div *ngIf="f.religion.errors.required">Religion is required</div>
@@ -108,10 +108,7 @@
                             <label class="col-form-label" for="caste"><h5>Caste</h5></label>
                             <input type="text" formControlName="caste" class="form-control col-8 ml-auto" list="caste">
                             <datalist id="caste">
-                                <option value="brahmin">Brahmin</option>
-                                <option value="chettiyar">Chettiyar</option>
-                                <option value="gounder">Gounder</option>
-                                <option value="mudhaliyar">Mudhaliyar</option>
+                                <option value="{{ caste }}" *ngFor="let caste of castes"></option> 
                             </datalist>
                         </div>
                         
@@ -119,11 +116,11 @@
                             <label class="col-form-label" for="subcaste"><h5>Sub caste</h5></label>
                             <input type="text" formControlName="subcaste" class="form-control col-8 ml-auto" list="subcaste">
                             <datalist id="subcaste">
-                                <option value="nil">Nil</option>
-                                <option value="iyer">Iyer</option>
-                                <option value="iyengar">Iyengar</option>
-                                <option value="vellalar">Vellalar</option>
-                                <option value="gaura">Gaura</option>
+                                <option value="Nil"></option>
+                                <option value="Iyer"></option>
+                                <option value="Iyengar"></option>
+                                <option value="Vellalar"></option>
+                                <option value="Gaura"></option>
                             </datalist>        
                         </div>
                         
@@ -131,10 +128,10 @@
                             <label class="col-form-label" for="gothram"><h5>Gothram</h5></label>
                             <input type="text" formControlName="gothram" class="form-control col-8 ml-auto" list="gothram">
                             <datalist id="gothram">
-                                <option value="nil">Nil</option>
-                                <option value="brahacharanam">Bracharanam</option>
-                                <option value="vadamal">Vadamal</option>
-                                <option value="srivathsa">Srivathsa</option>
+                                <option value="Nil"></option>
+                                <option value="Bracharanam"></option>
+                                <option value="Vadamal"></option>
+                                <option value="Srivathsa"></option>
                             </datalist>
                         </div>
                         
@@ -157,11 +154,11 @@
                         </div>
             
                         <div *ngIf="f.job.value" class="form-group mb-2 row col-10 mx-auto">
-                            <label class="col-form-label" for="work_place"><h5>Work place</h5></label>
-                            <input type="text" formControlName="work_place" class="form-control col-8 ml-auto">
+                            <label class="col-form-label" for="workplace"><h5>Work place</h5></label>
+                            <input type="text" formControlName="workplace" class="form-control col-8 ml-auto">
                         </div>
             
-                        <div *ngIf="f.job.value" class="form-group mb-2 row col-10 mx-auto">
+                        <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="income"><h5>Income</h5></label>
                             <input type="number" formControlName="income" class="form-control col-8 ml-auto">
                         </div>
@@ -194,8 +191,8 @@
                         <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="known_language"><h5>Known language</h5></label>
                             
-                            <div class="col-8 ml-auto">
-                                <select formControlName="known_language[]" multiple id="known_language">
+                            <!-- <div class="col-8 ml-auto"> -->
+                                <!-- <select formControlName="known_language" multiple="multiple" id="known_language">
                                     <option value="Tamil">&nbsp;Tamil</option>
                                     <option value="English">&nbsp;English</option>
                                     <option value="Telugu">&nbsp;Telugu</option>
@@ -205,9 +202,9 @@
                                     <option value="Thulu">&nbsp;Thulu</option>
                                     <option value="Marati">&nbsp;Marati</option>
                                     <option value="Urdu">&nbsp;Urdu</option>
-                                </select>
-                            </div>
-
+                                </select> -->
+                                <input type="text" formControlName="known_language" class="form-control col-8 ml-auto">
+                            <!-- </div> -->
                         </div>
             
                         <div class="form-group mb-2 row col-10 mx-auto">
@@ -223,7 +220,7 @@
                             <label class="col-form-label"><h5>Marital status</h5></label>
                             
                             <div class="form-check form-check-inline offset-md-3">
-                                <input class="form-check-input" value="not married" type="radio" formControlName="marital_status">
+                                <input class="form-check-input" value="unmarried" type="radio" formControlName="marital_status">
                                 <label class="form-check-label">Unmarried</label>
                             </div>
                             <div class="form-check form-check-inline offset-md-2">
@@ -231,7 +228,7 @@
                                 <label class="form-check-label">Married</label>
                             </div>
                         </div>
-            
+
                         <div class="form-group mb-3 row col-10 mx-auto">
                             <label class="col-form-label" for="talents"><h5>Talents</h5></label>
                             <textarea formControlName="talents" cols="50" rows="4" class="form-control ml-auto"></textarea>
@@ -245,11 +242,11 @@
                         <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label"><h5>Vehicle driving</h5></label>
                             <div class="form-check form-check-inline offset-md-3">
-                                <input class="form-check-input" value="two wheeler" type="checkbox" formControlName="vehicle_driving">
+                                <input class="form-check-input" value="two_wheeler" type="checkbox" formControlName="vehicle_driving">
                                 <label class="form-check-label">Two wheeler</label>
                             </div>
                             <div class="form-check form-check-inline offset-md-2">
-                                <input class="form-check-input" value="four wheeler" type="checkbox" formControlName="vehicle_driving">
+                                <input class="form-check-input" value="four_wheeler" type="checkbox" formControlName="vehicle_driving">
                                 <label class="form-check-label">Four wheeler</label>
                             </div>
                         </div>

@@ -4,9 +4,9 @@
             <div class="col-12">
                 <fieldset class="border-custom card rounded mt-5">
                     <h2 class="text-center card-header text-white">Personal details</h2>
-                    
-                    <div *ngFor="let img of profile['imageUrls']; index as i" class="profile col-4 mx-auto mb-5 mt-5">
-                        <img src={{img}} class="card card-img-top rounded img-fluid" alt="">
+                    <!-- *ngFor="let img of profile['imageUrls']; index as i" -->
+                    <div class="profile col-4 mx-auto mb-5 mt-5">
+                        <img src={{profile.image}} class="card card-img-top rounded img-fluid" alt="No images available">
                     </div>
 
                     <div class="row col-9 mt-5 mx-auto">
@@ -18,7 +18,7 @@
                         <label class="col-form-label" for="dob"><h5 class="text-secondary">DOB</h5></label>
                         <label class="col-form-label ml-auto col-6" for="dob"><label *ngIf="profile.dob; else elseNil">{{ profile['dob'] | titlecase}}</label></label>
                     </div>
-                    <!-- ================================================================================= -->
+                   
                     <div class="row col-9 mx-auto">
                         <label class="col-form-label" for="birth_time"><h5 class="text-secondary">Birth time</h5></label>
                         <label class="col-form-label ml-auto col-6" for="birth_time"><label *ngIf="profile.birthtime; else elseNil">{{ profile['birthtime'] | titlecase}}</label></label>
@@ -36,7 +36,7 @@
     
                     <div class="row col-9 mx-auto">
                         <label class="col-form-label" for="caste"><h5 class="text-secondary">Caste</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="caste"><label *ngIf="profile.dob; else elseNil">{{ profile['caste'] | titlecase}}</label></label>
+                        <label class="col-form-label ml-auto col-6" for="caste"><label *ngIf="profile.caste; else elseNil">{{ profile['caste'] | titlecase}}</label></label>
                     </div>
     
                     <div class="row col-9 mx-auto">
@@ -65,8 +65,8 @@
                     </div>
                     
                     <div class="row col-9 mx-auto">
-                        <label class="col-form-label" for="work_place"><h5 class="text-secondary">Work place</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="work_place"><label *ngIf="profile.workplace; else elseNil">{{ profile['workplace'] | titlecase}}</label></label>
+                        <label class="col-form-label" for="workplace"><h5 class="text-secondary">Work place</h5></label>
+                        <label class="col-form-label ml-auto col-6" for="workplace"><label *ngIf="profile.workplace; else elseNil">{{ profile['workplace'] | titlecase}}</label></label>
                     </div>
     
                     <div class="row col-9 mx-auto">
@@ -86,12 +86,12 @@
     
                     <div class="row col-9 mx-auto">
                         <label class="col-form-label" for="mother_tongue"><h5 class="text-secondary">Mother Tongue</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="mother_tongue"><label *ngIf="profile.mothertongue; else elseNil">{{ profile['mothertongue'] | titlecase}}</label></label>
+                        <label class="col-form-label ml-auto col-6" for="mother_tongue"><label *ngIf="profile.mother_tongue; else elseNil">{{ profile['mother_tongue'] | titlecase}}</label></label>
                     </div>
     
                     <div class="row col-9 mx-auto">
                         <label class="col-form-label" for="known_language"><h5 class="text-secondary">Known language</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="known_language"><label *ngIf="profile.knownlanguage; else elseNil">{{ profile['knownlanguage'] | titlecase}}</label></label>
+                        <label class="col-form-label ml-auto col-6" for="known_language"><label *ngIf="profile.known_language; else elseNil">{{ profile['known_language'] | titlecase}}</label></label>
                     </div>
     
                     <div class="row col-9 mx-auto">
@@ -222,10 +222,15 @@
                         <label class="col-form-label ml-auto col-6" for="mother_occupation"><label *ngIf="profile.mother_occupation; else elseNil">{{ profile['mother_occupation'] | titlecase}}</label></label>
                     </div>
                     
-                    <!-- <div class="row col-9 mx-auto">
-                        <label class="col-form-label" for="family_contact"><h5 class="text-secondary">Family contact</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="family_contact"><label *ngIf="profile.family_contact; else elseNil">{{ profile['family_contact'] | titlecase}}</label></label>
-                    </div> -->
+                    <div class="row col-9 mx-auto">
+                        <label class="col-form-label" for="contact_main"><h5 class="text-secondary">Family contact</h5></label>
+                        <label class="col-form-label ml-auto col-6" for="contact_main"><label *ngIf="profile.contact_main; else elseNil">{{ profile['contact_main'] | titlecase}}</label></label>
+                    </div>
+    
+                    <div class="row col-9 mx-auto">
+                        <label class="col-form-label" for="contact_sup"><h5 class="text-secondary">Family contact</h5></label>
+                        <label class="col-form-label ml-auto col-6" for="contact_sup"><label *ngIf="profile.contact_sup; else elseNil">{{ profile['contact_sup'] | titlecase}}</label></label>
+                    </div>
     
                     <div class="row col-9 mx-auto">
                         <label class="col-form-label" for="sibiling_count"><h5 class="text-secondary">Sibiling count</h5></label>
