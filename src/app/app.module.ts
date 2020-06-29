@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import {CheckboxGroupComponent} from './checkbox-group.component';
+import {CheckboxComponent} from './checkbox.component';
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,6 +28,8 @@ import { PaymentsComponent } from './payments/payments.component';
     FooterComponent,
     ProfileDetailComponent,
     PaymentsComponent,
+    CheckboxGroupComponent, 
+    CheckboxComponent
   ],
   imports: [
     BrowserModule,

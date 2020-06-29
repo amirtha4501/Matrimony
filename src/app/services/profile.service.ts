@@ -28,7 +28,13 @@ export class ProfileService {
   }
 
   signUp(detail): Observable<Object> {
-    console.log(detail.known_language);
+    
+    if (detail.vehicle_driving) {
+      console.log(typeof detail.vehicle_driving);
+      detail.vehicle_driving = detail.vehicle_driving.toString();
+      console.log(typeof detail.vehicle_driving);
+    }
+
     return this.http.post('http://localhost:3000/auth/signup', {
       image: detail.image,
       name: detail.name.toLowerCase(),
@@ -40,10 +46,12 @@ export class ProfileService {
       birth_time: detail.birth_time,
       birth_place: detail.birth_place.toLowerCase() || detail.birth_place,
       religion: detail.religion.toLowerCase() || detail.religion,
+      division: detail.division.toLowerCase() || detail.division,
       caste: detail.caste.toLowerCase() || detail.caste,
       subcaste: detail.subcaste.toLowerCase() || detail.subcaste,
       gothram: detail.gothram.toLowerCase() || detail.gothram,
       star: detail.star.toLowerCase() || detail.star,
+      rasi: detail.rasi.toLowerCase() || detail.rasi,
       qualification: detail.qualification.toLowerCase() || detail.qualification,
       job: detail.job.toLowerCase() || detail.job,
       workplace: detail.workplace.toLowerCase() || detail.workplace,
@@ -81,8 +89,8 @@ export class ProfileService {
       rasibox28: detail.rasibox28.toLowerCase() || detail.rasibox28,
       rasibox29: detail.rasibox29.toLowerCase() || detail.rasibox29,
       rasibox210: detail.rasibox210.toLowerCase() || detail.rasibox220,
-      rasibox211: detail.rasibox211.toLowerCase() || detail.rasibox221,
-      rasibox212: detail.rasibox212.toLowerCase() || detail.rasibox222,
+      rasibox211: detail.rasibox211.toLowerCase() || detail.rasibox211,
+      rasibox212: detail.rasibox212.toLowerCase() || detail.rasibox212,
 
       father_name: detail.father_name.toLowerCase() || detail.father_name,
       father_occupation: detail.father_occupation.toLowerCase() || detail.father_occupation,

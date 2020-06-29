@@ -30,8 +30,13 @@
                     </div>
                     
                     <div class="row col-9 mx-auto">
-                        <label class="col-form-label" for="caste"><h5 class="text-secondary">Religion</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="caste"><label *ngIf="profile.religion; else elseNil">{{ profile['religion'] | titlecase}}</label></label>
+                        <label class="col-form-label" for="religion"><h5 class="text-secondary">Religion</h5></label>
+                        <label class="col-form-label ml-auto col-6" for="religion"><label *ngIf="profile.religion; else elseNil">{{ profile['religion'] | titlecase}}</label></label>
+                    </div>
+    
+                    <div class="row col-9 mx-auto" *ngIf="profile['religion']==='christian'">
+                        <label class="col-form-label" for="division"><h5 class="text-secondary">Division</h5></label>
+                        <label class="col-form-label ml-auto col-6" for="division"><label *ngIf="profile.division; else elseNil">{{ profile['division'] | titlecase}}</label></label>
                     </div>
     
                     <div class="row col-9 mx-auto">

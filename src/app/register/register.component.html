@@ -104,35 +104,41 @@
                             </div>
                         </div>
 
-                        <div *ngIf="f.religion.value" class="form-group mb-2 row col-10 mx-auto">
+                        <div *ngIf="f.religion.value && f.religion.value!='Christian'" class="form-group mb-2 row col-10 mx-auto">
+                            <label class="col-form-label" for="caste"><h5>Caste</h5></label>
+                            <input type="text" formControlName="caste" class="form-control col-8 ml-auto" list="caste">
+                            <datalist *ngIf="f.religion.value=='Hindu'" id="caste">
+                                <option value="{{ caste }}" *ngFor="let caste of hindu_castes"></option> 
+                            </datalist>
+                            <datalist *ngIf="f.religion.value=='Musleum'" id="caste">
+                                <option value="{{ caste }}" *ngFor="let caste of muslim_castes"></option> 
+                            </datalist>
+                        </div>
+
+                        <div *ngIf="f.religion.value && f.religion.value=='Christian'" class="form-group mb-2 row col-10 mx-auto">
+                            <label class="col-form-label" for="division"><h5>Division</h5></label>
+                            <input type="text" formControlName="division" class="form-control col-8 ml-auto" list="division">
+                            <datalist id="division">
+                                <option value="{{ division }}" *ngFor="let division of christian_division"></option> 
+                            </datalist>
+                        </div>
+
+                        <div *ngIf="f.division.value" class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="caste"><h5>Caste</h5></label>
                             <input type="text" formControlName="caste" class="form-control col-8 ml-auto" list="caste">
                             <datalist id="caste">
-                                <option value="{{ caste }}" *ngFor="let caste of castes"></option> 
+                                <option value="{{ caste }}" *ngFor="let caste of christian_castes"></option> 
                             </datalist>
                         </div>
                         
                         <div *ngIf="f.caste.value" class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="subcaste"><h5>Sub caste</h5></label>
-                            <input type="text" formControlName="subcaste" class="form-control col-8 ml-auto" list="subcaste">
-                            <datalist id="subcaste">
-                                <option value="Nil"></option>
-                                <option value="Iyer"></option>
-                                <option value="Iyengar"></option>
-                                <option value="Vellalar"></option>
-                                <option value="Gaura"></option>
-                            </datalist>        
+                            <input type="text" formControlName="subcaste" class="form-control col-8 ml-auto">
                         </div>
                         
                         <div *ngIf="f.caste.value" class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="gothram"><h5>Gothram</h5></label>
-                            <input type="text" formControlName="gothram" class="form-control col-8 ml-auto" list="gothram">
-                            <datalist id="gothram">
-                                <option value="Nil"></option>
-                                <option value="Bracharanam"></option>
-                                <option value="Vadamal"></option>
-                                <option value="Srivathsa"></option>
-                            </datalist>
+                            <input type="text" formControlName="gothram" class="form-control col-8 ml-auto">
                         </div>
                         
                         <div class="form-group mb-2 row col-10 mx-auto">
@@ -144,13 +150,163 @@
                         </div>
             
                         <div class="form-group mb-2 row col-10 mx-auto">
+                            <label class="col-form-label" for="rasi"><h5>Rasi</h5></label>
+                            <input type="text" formControlName="rasi" class="form-control col-8 ml-auto" list="rasi">
+                            <datalist id="rasi">
+                                <option value="{{ rasi }}" *ngFor="let rasi of rasies"></option> 
+                            </datalist>
+                        </div>
+            
+                        <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="qualification"><h5>Qualification</h5></label>
                             <input type="text" formControlName="qualification" class="form-control col-8 ml-auto">
                         </div>
             
                         <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="job"><h5>Job</h5></label>        
-                            <input type="text" formControlName="job" class="form-control col-8 ml-auto">
+                            <input type="text" formControlName="job" class="form-control col-8 ml-auto" list="job">
+                            <datalist id="job">
+                                <option value="Manager"></option>
+                                <option value="Supervisor"></option>
+                                <option value="Officer"></option>
+                                <option value="Administrative Professional"></option>
+                                <option value="Executive"></option>
+                                <option value="Clerk"></option>
+                                <option value="Human Resources Professional"></option>
+                                <option value="Secretary / Front Office"></option>
+                                <option value="Agriculture &amp; Farming Professional"></option>
+                                <option value="Horticulturist"></option>
+                                <option value="Pilot"></option>
+                                <option value="Air Hostess / Flight Attendant"></option>
+                                <option value="Airline Professional"></option>
+                                <option value="Architect"></option>
+                                <option value="Interior Designer"></option>
+                                <option value="Chartered Accountant"></option>
+                                <option value="Company Secretary"></option>
+                                <option value="Accounts / Finance Professional"></option>
+                                <option value="Banking Professional"></option>
+                                <option value="Auditor"></option>
+                                <option value="Financial Accountant"></option>
+                                <option value="Financial Analyst / Planning"></option>
+                                <option value="Investment Professional"></option>
+                                <option value="Fashion Designer"></option>
+                                <option value="Beautician"></option>
+                                <option value="Hair Stylist"></option>
+                                <option value="Jewellery Designer"></option>
+                                <option value="Designer (Others)"></option>
+                                <option value="Makeup Artist"></option>
+                                <option value="BPO / KPO / ITES Professional"></option>
+                                <option value="Customer Service Professional"></option>
+                                <option value="Civil Services (IAS / IPS / IRS / IES / IFS)"></option>
+                                <option value="Analyst"></option>
+                                <option value="Consultant"></option>
+                                <option value="Corporate Communication"></option>
+                                <option value="Corporate Planning"></option>
+                                <option value="Marketing Professional"></option>
+                                <option value="Operations Management"></option>
+                                <option value="Sales Professional"></option>
+                                <option value="Senior Manager / Manager"></option>
+                                <option value="Subject Matter Expert"></option>
+                                <option value="Business Development Professional"></option>
+                                <option value="Content Writer"></option>
+                                <option value="Army"></option>
+                                <option value="Navy"></option>
+                                <option value="Defence Services (Others)"></option>
+                                <option value="Air Force"></option>
+                                <option value="Paramilitary"></option>
+                                <option value="Professor / Lecturer"></option>
+                                <option value="Teaching / Academician"></option>
+                                <option value="Education Professional"></option>
+                                <option value="Training Professional"></option>
+                                <option value="Research Assistant"></option>
+                                <option value="Research Scholar"></option>
+                                <option value="Civil Engineer"></option>
+                                <option value="Electronics / Telecom Engineer"></option>
+                                <option value="Mechanical / Production Engineer"></option>
+                                <option value="Quality Assurance Engineer - Non IT"></option>
+                                <option value="Engineer - Non IT"></option>
+                                <option value="Designer"></option>
+                                <option value="Product Manager - Non IT"></option>
+                                <option value="Project Manager - Non IT"></option>
+                                <option value="Hotel / Hospitality Professional"></option>
+                                <option value="Restaurant / Catering Professional"></option>
+                                <option value="Chef / Cook"></option>
+                                <option value="Software Professional"></option>
+                                <option value="Hardware Professional"></option>
+                                <option value="Product Manager"></option>
+                                <option value="Project Manager"></option>
+                                <option value="Program Manager"></option>
+                                <option value="Animator"></option>
+                                <option value="Cyber / Network Security"></option>
+                                <option value="UI / UX Designer"></option>
+                                <option value="Web / Graphic Designer"></option>
+                                <option value="Software Consultant"></option>
+                                <option value="Data Analyst"></option>
+                                <option value="Data Scientist"></option>
+                                <option value="Network Engineer"></option>
+                                <option value="Quality Assurance Engineer"></option>
+                                <option value="Lawyer &amp; Legal Professional"></option>
+                                <option value="Legal Assistant"></option>
+                                <option value="Law Enforcement Officer"></option>
+                                <option value="Police"></option>
+                                <option value="Doctor"></option>
+                                <option value="Healthcare Professional"></option>
+                                <option value="Paramedical Professional"></option>
+                                <option value="Nurse"></option>
+                                <option value="Pharmacist"></option>
+                                <option value="Physiotherapist"></option>
+                                <option value="Psychologist"></option>
+                                <option value="Veterinary Doctor"></option>
+                                <option value="Dentist"></option>
+                                <option value="Surgeon"></option>
+                                <option value="Therapist"></option>
+                                <option value="Medical Transcriptionist"></option>
+                                <option value="Dietician / Nutritionist"></option>
+                                <option value="Lab Technician"></option>
+                                <option value="Journalist"></option>
+                                <option value="Media Professional"></option>
+                                <option value="Entertainment Professional"></option>
+                                <option value="Event Management Professional"></option>
+                                <option value="Advertising / PR Professional"></option>
+                                <option value="Designer"></option>
+                                <option value="Actor / Model"></option>
+                                <option value="Artist"></option>
+                                <option value="Mariner / Merchant Navy"></option>
+                                <option value="Sailor"></option>
+                                <option value="Scientist / Researcher"></option>
+                                <option value="CXO / President, Director, Chairman"></option>
+                                <option value="VP / AVP / GM / DGM / AGM"></option>
+                                <option value="Technician"></option>
+                                <option value="Arts &amp; Craftsman"></option>
+                                <option value="Librarian"></option>
+                                <option value="Business Owner / Entrepreneur"></option>
+                                <option value="Retired"></option>
+                                <option value="Transportation / Logistics Professional"></option>
+                                <option value="Agent / Broker / Trader"></option>
+                                <option value="Contractor"></option>
+                                <option value="Fitness Professional"></option>
+                                <option value="Security Professional"></option>
+                                <option value="Social Worker /  Volunteer / NGO"></option>
+                                <option value="Sportsperson"></option>
+                                <option value="Travel Professional"></option>
+                                <option value="Singer"></option>
+                                <option value="Writer"></option>
+                                <option value="Politician"></option>
+                                <option value="Associate"></option>
+                                <option value="Builder"></option>
+                                <option value="Chemist"></option>
+                                <option value="CNC Operator"></option>
+                                <option value="Distributor"></option>
+                                <option value="Driver"></option>
+                                <option value="Freelancer"></option>
+                                <option value="Mechanic"></option>
+                                <option value="Medical Representative"></option>
+                                <option value="Musician"></option>
+                                <option value="Photo / Videographer"></option>
+                                <option value="Surveyor"></option>
+                                <option value="Tailor"></option>
+                                <option value="Others"></option>
+                            </datalist>
                         </div>
             
                         <div *ngIf="f.job.value" class="form-group mb-2 row col-10 mx-auto">
@@ -165,12 +321,20 @@
             
                         <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="height"><h5>Height(ft)</h5></label>
-                            <input type="number" formControlName="height" class="form-control col-8 ml-auto">
+                            <input type="number" formControlName="height" class="form-control col-8 ml-auto" [ngClass]="{ 'is-invalid': submitted && f.height.errors }">
+                            <div *ngIf="submitted && f.height.errors" class="invalid-feedback">
+                                <div *ngIf="f.height.errors.min">Height must be greater than 4</div>
+                                <div *ngIf="f.height.errors.max">Height must be lesser than 9</div>
+                            </div>
                         </div>
 
                         <div class="form-group mb-2 row col-10 mx-auto">    
                             <label class="col-form-label" for="weight"><h5>Weight(kg)</h5></label>
-                            <input type="number" formControlName="weight" class="form-control col-8 ml-auto">
+                            <input type="number" formControlName="weight" class="form-control col-8 ml-auto" [ngClass]="{ 'is-invalid': submitted && f.weight.errors }">
+                            <div *ngIf="submitted && f.weight.errors" class="invalid-feedback">
+                                <div *ngIf="f.weight.errors.min">Weight must be greater than 30</div>
+                                <div *ngIf="f.weight.errors.max">Weight must be lesser than 95</div>
+                            </div>
                         </div>
             
                         <div class="form-group mb-2 row col-10 mx-auto">
@@ -207,15 +371,6 @@
                             <!-- </div> -->
                         </div>
             
-                        <div class="form-group mb-2 row col-10 mx-auto">
-                            <label class="col-form-label" for="nativity"><h5>Nativity</h5></label>
-                            <input type="text" formControlName="nativity" class="form-control col-8 ml-auto" list="nativity">
-                            <datalist id="nativity">
-                                <option value="Indian"></option>
-                                <option value="Others"></option>
-                            </datalist>
-                        </div>
-            
                         <div class="form-group mb-3 row col-10 mx-auto">
                             <label class="col-form-label"><h5>Marital status</h5></label>
                             
@@ -241,14 +396,18 @@
             
                         <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label"><h5>Vehicle driving</h5></label>
-                            <div class="form-check form-check-inline offset-md-3">
+                            <!-- <div class="form-check form-check-inline offset-md-3">
                                 <input class="form-check-input" value="two_wheeler" type="checkbox" formControlName="vehicle_driving">
                                 <label class="form-check-label">Two wheeler</label>
                             </div>
                             <div class="form-check form-check-inline offset-md-2">
                                 <input class="form-check-input" value="four_wheeler" type="checkbox" formControlName="vehicle_driving">
                                 <label class="form-check-label">Four wheeler</label>
-                            </div>
+                            </div> -->
+                            <checkbox-group formControlName="vehicle_driving">
+                                <checkbox value="two_wheeler">Two wheeler</checkbox>
+                                <checkbox value="four_wheeler">Four wheeler</checkbox>
+                            </checkbox-group>
                         </div>
             
                         <div class="form-group mb-2 row col-10 mx-auto">
@@ -453,7 +612,7 @@
                             <label class="col-form-label"><h5>Marital status</h5></label>
                             
                             <div class="form-check form-check-inline offset-md-3">
-                                <input class="form-check-input" type="checkbox" >
+                                <input class="form-check-input" type="checkbox">
                                 <label class="form-check-label">Unmarried</label>
                             </div>
                             <div class="form-check form-check-inline offset-md-2">
