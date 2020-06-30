@@ -1142,7 +1142,6 @@ export class RegisterComponent implements OnInit {
       weight:['', [Validators.min(30), Validators.max(95)]],
       mother_tongue:[''],
       known_language:[''],
-      // nativity:[''],
       marital_status:[''],
       talents:[''],
       hobbies:[''],

@@ -100,11 +100,6 @@
                     </div>
     
                     <div class="row col-9 mx-auto">
-                        <label class="col-form-label" for="nativity"><h5 class="text-secondary">Nativity</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="nativity"><label *ngIf="profile.nativity; else elseNil">{{ profile['nativity'] | titlecase}}</label></label>
-                    </div>
-                    
-                    <div class="row col-9 mx-auto">
                         <label class="col-form-label"><h5 class="text-secondary">Marital status</h5></label>
                         <label class="col-form-label ml-auto col-6"><label *ngIf="profile.maritalstatus; else elseNil">{{ profile['maritalstatus'] | titlecase}}</label></label>
                     </div>

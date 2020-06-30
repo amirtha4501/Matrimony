@@ -316,7 +316,36 @@
             
                         <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="income"><h5>Income</h5></label>
-                            <input type="number" formControlName="income" class="form-control col-8 ml-auto">
+                            <input type="text" formControlName="income" class="form-control col-8 ml-auto" list="income">
+                            <datalist id="income">
+                                <option value="0 - 1 Lakh"></option>
+                                <option value="1 - 2 Lakhs"></option>
+                                <option value="2 - 3 Lakhs"></option>
+                                <option value="3 - 4 Lakhs"></option>
+                                <option value="4 - 5 Lakhs"></option>
+                                <option value="5 - 6 Lakhs"></option>
+                                <option value="6 - 7 Lakhs"></option>
+                                <option value="7 - 8 Lakhs"></option>
+                                <option value="8 - 9 Lakhs"></option>
+                                <option value="9 - 10 Lakhs"></option>
+                                <option value="10 - 12 Lakhs"></option>
+                                <option value="12 - 14 Lakhs"></option>
+                                <option value="14 - 16 Lakhs"></option>
+                                <option value="16 - 18 Lakhs"></option>
+                                <option value="18 - 20 Lakhs"></option>
+                                <option value="20 - 25 Lakhs"></option>
+                                <option value="25 - 30 Lakhs"></option>
+                                <option value="30 - 35 Lakhs"></option>
+                                <option value="35 - 40 Lakhs"></option>
+                                <option value="40 - 45 Lakhs"></option>
+                                <option value="45 - 50 Lakhs"></option>
+                                <option value="50 - 60 Lakhs"></option>
+                                <option value="60 - 70 Lakhs"></option>
+                                <option value="70 - 80 Lakhs"></option>
+                                <option value="80 - 90 Lakhs"></option>
+                                <option value="90 Lakhs - 1 Crore"></option>
+                                <option value="1 Crore and Above"></option>
+                            </datalist>
                         </div>
             
                         <div class="form-group mb-2 row col-10 mx-auto">
@@ -354,21 +383,7 @@
             
                         <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="known_language"><h5>Known language</h5></label>
-                            
-                            <!-- <div class="col-8 ml-auto"> -->
-                                <!-- <select formControlName="known_language" multiple="multiple" id="known_language">
-                                    <option value="Tamil">&nbsp;Tamil</option>
-                                    <option value="English">&nbsp;English</option>
-                                    <option value="Telugu">&nbsp;Telugu</option>
-                                    <option value="Malayalam">&nbsp;Malayalam</option>
-                                    <option value="Hindi">&nbsp;Hindi</option>
-                                    <option value="Kannada">&nbsp;Kannada</option>
-                                    <option value="Thulu">&nbsp;Thulu</option>
-                                    <option value="Marati">&nbsp;Marati</option>
-                                    <option value="Urdu">&nbsp;Urdu</option>
-                                </select> -->
-                                <input type="text" formControlName="known_language" class="form-control col-8 ml-auto">
-                            <!-- </div> -->
+                            <input type="text" formControlName="known_language" class="form-control col-8 ml-auto" list="known_language">       
                         </div>
             
                         <div class="form-group mb-3 row col-10 mx-auto">
@@ -395,16 +410,8 @@
                         </div>
             
                         <div class="form-group mb-2 row col-10 mx-auto">
-                            <label class="col-form-label"><h5>Vehicle driving</h5></label>
-                            <!-- <div class="form-check form-check-inline offset-md-3">
-                                <input class="form-check-input" value="two_wheeler" type="checkbox" formControlName="vehicle_driving">
-                                <label class="form-check-label">Two wheeler</label>
-                            </div>
-                            <div class="form-check form-check-inline offset-md-2">
-                                <input class="form-check-input" value="four_wheeler" type="checkbox" formControlName="vehicle_driving">
-                                <label class="form-check-label">Four wheeler</label>
-                            </div> -->
-                            <checkbox-group formControlName="vehicle_driving">
+                            <label class="col-form-label mr-5 pr-4"><h5>Vehicle driving</h5></label>
+                            <checkbox-group formControlName="vehicle_driving" class="form-check ml-5 pl-5">
                                 <checkbox value="two_wheeler">Two wheeler</checkbox>
                                 <checkbox value="four_wheeler">Four wheeler</checkbox>
                             </checkbox-group>
@@ -583,7 +590,36 @@
             
                         <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="expected_income"><h5>Income</h5></label>
-                            <input type="number" formControlName="expected_income" class="form-control col-8 ml-auto">
+                            <input type="text" formControlName="expected_income" class="form-control col-8 ml-auto" list="expected_income">
+                            <datalist id="expected_income">
+                                <option value="0 - 1 Lakh"></option>
+                                <option value="1 - 2 Lakhs"></option>
+                                <option value="2 - 3 Lakhs"></option>
+                                <option value="3 - 4 Lakhs"></option>
+                                <option value="4 - 5 Lakhs"></option>
+                                <option value="5 - 6 Lakhs"></option>
+                                <option value="6 - 7 Lakhs"></option>
+                                <option value="7 - 8 Lakhs"></option>
+                                <option value="8 - 9 Lakhs"></option>
+                                <option value="9 - 10 Lakhs"></option>
+                                <option value="10 - 12 Lakhs"></option>
+                                <option value="12 - 14 Lakhs"></option>
+                                <option value="14 - 16 Lakhs"></option>
+                                <option value="16 - 18 Lakhs"></option>
+                                <option value="18 - 20 Lakhs"></option>
+                                <option value="20 - 25 Lakhs"></option>
+                                <option value="25 - 30 Lakhs"></option>
+                                <option value="30 - 35 Lakhs"></option>
+                                <option value="35 - 40 Lakhs"></option>
+                                <option value="40 - 45 Lakhs"></option>
+                                <option value="45 - 50 Lakhs"></option>
+                                <option value="50 - 60 Lakhs"></option>
+                                <option value="60 - 70 Lakhs"></option>
+                                <option value="70 - 80 Lakhs"></option>
+                                <option value="80 - 90 Lakhs"></option>
+                                <option value="90 Lakhs - 1 Crore"></option>
+                                <option value="1 Crore and Above"></option>
+                            </datalist>
                         </div>
             
                         <div class="form-group mb-2 row col-10 mx-auto">
@@ -609,36 +645,21 @@
                         </div>
 
                         <div class="form-group mb-3 row col-10 mx-auto">
-                            <label class="col-form-label"><h5>Marital status</h5></label>
-                            
-                            <div class="form-check form-check-inline offset-md-3">
-                                <input class="form-check-input" type="checkbox">
-                                <label class="form-check-label">Unmarried</label>
-                            </div>
-                            <div class="form-check form-check-inline offset-md-2">
-                                <input class="form-check-input" type="checkbox">
-                                <label class="form-check-label">Married</label>
-                            </div>
+                            <label class="col-form-label mr-5 pr-5"><h5>Marital status</h5></label>
+                            <checkbox-group formControlName="expected_marital_status" class="form-check ml-5 pl-5">
+                                <checkbox value="unmarried">Unmarried</checkbox>
+                                <checkbox value="married">Married</checkbox>
+                            </checkbox-group>
                         </div>
             
                         <div class="form-group mb-2 row col-10 mx-auto">
-                            <label class="col-form-label"><h5>Age difference</h5></label>
-                            <div class="form-check form-check-inline offset-md-3">
-                                <input class="form-check-input" type="checkbox" >
-                                <label class="form-check-label">0-3</label>
-                            </div>
-                            <div class="form-check form-check-inline offset-md-1">
-                                <input class="form-check-input" type="checkbox" >
-                                <label class="form-check-label">4-6</label>
-                            </div>
-                            <div class="form-check form-check-inline offset-md-1">
-                                <input class="form-check-input" type="checkbox" >
-                                <label class="form-check-label">7-10</label>
-                            </div>
-                            <div class="form-check form-check-inline offset-md-1">
-                                <input class="form-check-input" type="checkbox" >
-                                <label class="form-check-label">10 above</label>
-                            </div>
+                            <label class="col-form-label mr-5 pr-4"><h5>Age difference</h5></label>
+                            <checkbox-group formControlName="age_difference" class="form-check ml-5 pl-5">
+                                <checkbox value="0-3 years">0-3</checkbox>
+                                <checkbox value="4-6 years">4-6</checkbox>
+                                <checkbox value="7-10 years">7-10</checkbox>
+                                <checkbox value="10 above">10 above</checkbox>
+                            </checkbox-group>
                         </div>
             
                         <div class="form-group mb-2 row col-10 mx-auto">

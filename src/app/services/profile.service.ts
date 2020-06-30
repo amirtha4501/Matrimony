@@ -30,9 +30,16 @@ export class ProfileService {
   signUp(detail): Observable<Object> {
     
     if (detail.vehicle_driving) {
-      console.log(typeof detail.vehicle_driving);
       detail.vehicle_driving = detail.vehicle_driving.toString();
-      console.log(typeof detail.vehicle_driving);
+    }
+    if (detail.expected_marital_status) {
+      detail.expected_marital_status = detail.expected_marital_status.toString();
+    }
+    if (detail.age_difference) {
+      detail.age_difference = detail.age_difference.toString();
+    }
+    if (detail.weight) {
+      detail.weight = detail.weight.toFixed();
     }
 
     return this.http.post('http://localhost:3000/auth/signup', {
@@ -88,7 +95,7 @@ export class ProfileService {
       rasibox27: detail.rasibox27.toLowerCase() || detail.rasibox27,
       rasibox28: detail.rasibox28.toLowerCase() || detail.rasibox28,
       rasibox29: detail.rasibox29.toLowerCase() || detail.rasibox29,
-      rasibox210: detail.rasibox210.toLowerCase() || detail.rasibox220,
+      rasibox210: detail.rasibox210.toLowerCase() || detail.rasibox210,
       rasibox211: detail.rasibox211.toLowerCase() || detail.rasibox211,
       rasibox212: detail.rasibox212.toLowerCase() || detail.rasibox212,
 
