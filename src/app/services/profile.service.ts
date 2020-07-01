@@ -39,7 +39,7 @@ export class ProfileService {
       detail.age_difference = detail.age_difference.toString();
     }
     if (detail.weight) {
-      detail.weight = parseFloat(detail.weight).toFixed();
+      detail.weight = detail.weight.toFixed();
     }
 
     return this.http.post('http://localhost:3000/auth/signup', {
