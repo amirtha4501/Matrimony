@@ -4,9 +4,33 @@
             <div class="col-12">
                 <fieldset class="border-custom card rounded mt-5">
                     <h2 class="text-center card-header text-white">Personal details</h2>
-                    <!-- *ngFor="let img of profile['imageUrls']; index as i" -->
                     <div class="profile col-4 mx-auto mb-5 mt-5">
-                        <img src={{profile.image}} class="card card-img-top rounded img-fluid" alt="No images available">
+                        <div class="carousel slide" data-ride="carousel" id="slider">
+                            <ol class="carousel-indicators">
+                                <li data-target="#slider1" data-slide-to="0" class="active"></li>
+                                <li data-target="#slider2" data-slide-to="1"></li>
+                                <li data-target="#slider3" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="item active" id="slider1">
+                                    <img src={{profile.image}} class="card card-img-top rounded img-fluid" alt="No images available">
+                                </div>
+                                <div class="item" id="slider2">
+                                    <img src={{profile.image1}} class="card card-img-top rounded img-fluid" alt="No images available">
+                                </div>
+                                <div class="item" id="slider3">
+                                    <img src={{profile.image2}} class="card card-img-top rounded img-fluid"alt="No images available">
+                                </div>
+                            </div>
+                            <a href="#slider" class="left carousel-control" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a href="#slider" class="right carousel-control" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
                     </div>
 
                     <div class="row col-9 mt-5 mx-auto">
@@ -86,7 +110,7 @@
                     
                     <div class="row col-9 mx-auto">
                         <label class="col-form-label" for="weight"><h5 class="text-secondary">Weight(kg)</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="weight"><label *ngIf="profile.weight; else elseNil">{{ profile['weight'] | titlecase}}</label></label>
+                        <label class="col-form-label ml-auto col-6" for="weight"><label *ngIf="profile.weight; else elseNil">{{ profile['weight'] }}kg</label></label>
                     </div>
     
                     <div class="row col-9 mx-auto">
@@ -139,54 +163,54 @@
                 <table class="table-bordered text-center mb-2 mx-auto">
                     <tbody>
                         <tr>
-                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox11; else elseNone"> {{ profile['rasibox11'] }} </label></td>
-                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox12; else elseNone"> {{ profile['rasibox12'] }} </label></td>
-                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox13; else elseNone"> {{ profile['rasibox13'] }} </label></td>
-                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox14; else elseNone"> {{ profile['rasibox14'] }} </label></td>
+                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox11; else elseNone"> {{ profile['rasibox11'] | titlecase }} </label></td>
+                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox12; else elseNone"> {{ profile['rasibox12'] | titlecase }} </label></td>
+                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox13; else elseNone"> {{ profile['rasibox13'] | titlecase }} </label></td>
+                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox14; else elseNone"> {{ profile['rasibox14'] | titlecase }} </label></td>
                         </tr>
                         <tr>
-                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox15; else elseNone"> {{ profile['rasibox15'] }} </label></td>
+                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox15; else elseNone"> {{ profile['rasibox15'] | titlecase }} </label></td>
                             <td rowspan="2" colspan="2">
                                 <h2 class="text-center">RASI</h2>
                             </td>
-                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox16; else elseNone"> {{ profile['rasibox16'] }} </label></td>
+                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox16; else elseNone"> {{ profile['rasibox16'] | titlecase }} </label></td>
                         </tr>
                         <tr>
-                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox17; else elseNone"> {{ profile['rasibox17'] }} </label></td>
-                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox18; else elseNone"> {{ profile['rasibox18'] }} </label></td>
+                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox17; else elseNone"> {{ profile['rasibox17'] | titlecase }} </label></td>
+                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox18; else elseNone"> {{ profile['rasibox18'] | titlecase }} </label></td>
                         </tr>
                         <tr>
-                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox19; else elseNone"> {{ profile['rasibox19'] }} </label></td>
-                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox110; else elseNone"> {{ profile['rasibox110'] }}</label> </td>
-                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox111; else elseNone"> {{ profile['rasibox111'] }}</label> </td>
-                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox112; else elseNone"> {{ profile['rasibox112'] }}</label> </td>
+                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox19; else elseNone"> {{ profile['rasibox19'] | titlecase }} </label></td>
+                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox110; else elseNone"> {{ profile['rasibox110'] | titlecase }}</label> </td>
+                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox111; else elseNone"> {{ profile['rasibox111'] | titlecase }}</label> </td>
+                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox112; else elseNone"> {{ profile['rasibox112'] | titlecase }}</label> </td>
                         </tr>
                     </tbody>
                 </table>
                 <table class="table-bordered text-center mb-2 mx-auto">
                     <tbody>
                         <tr>
-                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox21; else elseNone"> {{ profile['rasibox21'] }} </label></td>
-                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox22; else elseNone"> {{ profile['rasibox22'] }} </label></td>
-                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox23; else elseNone"> {{ profile['rasibox23'] }} </label></td>
-                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox24; else elseNone"> {{ profile['rasibox24'] }} </label></td>
+                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox21; else elseNone"> {{ profile['rasibox21'] | titlecase }} </label></td>
+                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox22; else elseNone"> {{ profile['rasibox22'] | titlecase }} </label></td>
+                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox23; else elseNone"> {{ profile['rasibox23'] | titlecase }} </label></td>
+                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox24; else elseNone"> {{ profile['rasibox24'] | titlecase }} </label></td>
                         </tr>
                         <tr>
-                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox25; else elseNone"> {{ profile['rasibox25'] }} </label></td>
+                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox25; else elseNone"> {{ profile['rasibox25'] | titlecase }} </label></td>
                             <td rowspan="2" colspan="2">
                                 <h2 class="text-center">AMSAM</h2>
                             </td>
-                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox26; else elseNone"> {{ profile['rasibox26'] }} </label></td>
+                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox26; else elseNone"> {{ profile['rasibox26'] | titlecase }} </label></td>
                         </tr>
                         <tr>
-                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox27; else elseNone"> {{ profile['rasibox27'] }} </label></td>
-                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox28; else elseNone"> {{ profile['rasibox28'] }} </label></td>
+                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox27; else elseNone"> {{ profile['rasibox27'] | titlecase }} </label></td>
+                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox28; else elseNone"> {{ profile['rasibox28'] | titlecase }} </label></td>
                         </tr>
                         <tr>
-                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox29; else elseNone"> {{ profile['rasibox29'] }} </label></td>
-                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox210; else elseNone"> {{ profile['rasibox210'] }}</label> </td>
-                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox211; else elseNone"> {{ profile['rasibox211'] }}</label> </td>
-                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox212; else elseNone"> {{ profile['rasibox212'] }}</label> </td>
+                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox29; else elseNone"> {{ profile['rasibox29'] | titlecase }} </label></td>
+                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox210; else elseNone"> {{ profile['rasibox210'] | titlecase }}</label> </td>
+                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox211; else elseNone"> {{ profile['rasibox211'] | titlecase }}</label> </td>
+                            <td class="" height="100" width="100"><label *ngIf="profile.rasibox212; else elseNone"> {{ profile['rasibox212'] | titlecase }}</label> </td>
                         </tr>
                     </tbody>
                 </table>
@@ -224,12 +248,13 @@
                     
                     <div class="row col-9 mx-auto">
                         <label class="col-form-label" for="contact_main"><h5 class="text-secondary">Family contact</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="contact_main"><label *ngIf="profile.contact_main; else elseNil">{{ profile['contact_main'] | titlecase}}</label></label>
+                        <label class="col-form-label ml-auto col-6" for="contact_main"><label><a href="tel:profile.contact_main" class="text-decoration-none">{{ profile['contact_main'] | titlecase}}</a></label></label>
                     </div>
     
-                    <div class="row col-9 mx-auto">
-                        <label class="col-form-label" for="contact_sup"><h5 class="text-secondary">Family contact</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="contact_sup"><label *ngIf="profile.contact_sup; else elseNil">{{ profile['contact_sup'] | titlecase}}</label></label>
+                    <div *ngIf="profile.contact_sup" class="row col-9 mx-auto">
+                        <!-- <label class="col-form-label" for="contact_sup"><h5 class="text-secondary">Family contact</h5></label> -->
+                    
+                    <label class="col-form-label ml-auto col-6" for="contact_sup"><label><a href="tel:profile.contact_sup" class="text-decoration-none">{{ profile['contact_sup'] | titlecase}}</a></label></label>
                     </div>
     
                     <div class="row col-9 mx-auto">
@@ -293,17 +318,17 @@
     
                     <div class="row col-9 mx-auto">
                         <label class="col-form-label" for="age_difference"><h5 class="text-secondary">Age difference</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="age_difference"><label *ngIf="profile.age_difference; else elseNil">{{ profile['age_difference'] }}</label></label>
+                        <label class="col-form-label ml-auto col-6" for="age_difference"><label *ngIf="profile.age_difference; else elseNil">{{ profile['age_difference'] | titlecase }}</label></label>
                     </div>
     
                     <div class="row col-9 mx-auto">
                         <label class="col-form-label" for="expected_height"><h5 class="text-secondary">Height(ft)</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="expected_height"><label *ngIf="profile.expected_height; else elseNil">{{ profile['expected_height'] }}</label></label>
+                        <label class="col-form-label ml-auto col-6" for="expected_height"><label *ngIf="profile.expected_height; else elseNil">{{ profile['expected_height'] }} ft</label></label>
                     </div>
     
                     <div class="row col-9 mx-auto mb-2">
                         <label class="col-form-label" for="expected_weight"><h5 class="text-secondary">Weight(kg)</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="expected_weight"><label *ngIf="profile.expected_weight; else elseNil">{{ profile['expected_weight'] }}</label></label>
+                        <label class="col-form-label ml-auto col-6" for="expected_weight"><label *ngIf="profile.expected_weight; else elseNil">{{ profile['expected_weight'] }} kg</label></label>
                     </div>
                     
                     <div class="row col-9 mx-auto mb-5" *ngIf="profile['expectations']">

@@ -1,11 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, Validators, FormGroup, MinLengthValidator, FormArray, FormControl } from '@angular/forms';
 import { ProfileService } from '../services/profile.service';
 
 declare var $: any;
-var known_language_style = {
-  "background-color": "#ddd",
-}
 
 @Component({
   selector: 'app-register',
@@ -18,10 +15,14 @@ export class RegisterComponent implements OnInit {
   regForm: FormGroup;
   profiles:any;
   storeImg: string;
+  storeImg1: string;
+  storeImg2: string;
   submitted = false;
-  // val = [];
+  
   public imagePath;
   imgURL: any;
+  imgURL1: any;
+  imgURL2: any;
   public message: string;
   selectedItems: any = null;
 
@@ -1091,6 +1092,59 @@ export class RegisterComponent implements OnInit {
     }
   }
 
+  preview1(files) {
+    if (files.length === 0)
+      return;
+ 
+    var mimeType = files[0].type;
+    if (mimeType.match(/image\/*/) == null) {
+      this.message = "Only images are supported.";
+      return;
+    }
+ 
+    var reader = new FileReader();
+    this.imagePath = files;
+    reader.readAsDataURL(files[0]); 
+    reader.onload = (_event) => { 
+      this.imgURL1 = reader.result; 
+      this.storeImg1 = btoa(this.imgURL1);
+    }
+  }
+
+  preview2(files) {
+    if (files.length === 0)
+      return;
+ 
+    var mimeType = files[0].type;
+    if (mimeType.match(/image\/*/) == null) {
+      this.message = "Only images are supported.";
+      return;
+    }
+ 
+    var reader = new FileReader();
+    this.imagePath = files;
+    reader.readAsDataURL(files[0]); 
+    reader.onload = (_event) => { 
+      this.imgURL2 = reader.result; 
+      this.storeImg2 = btoa(this.imgURL2);
+    }
+  }
+
+  // @ViewChild('file') fileUploader:ElementRef;
+  resetFileUploader() { 
+    this.imgURL = null;
+    this.imgURL1 = null;
+    this.imgURL2 = null;  }
+
+  resetFileUploader1() { 
+    this.imgURL1 = null;
+    this.imgURL2 = null;
+  }
+
+  resetFileUploader2() { 
+    this.imgURL2 = null;
+  }
+
   constructor(
     private fb: FormBuilder,
     private profileService: ProfileService
@@ -1119,6 +1173,8 @@ export class RegisterComponent implements OnInit {
   createRegForm() {
     this.regForm = this.fb.group({
       image: [''],
+      image1: [''],
+      image2: [''],
       name: ['',  [Validators.required, Validators.minLength(2), Validators.maxLength(25)]],
       age:['', [Validators.required, Validators.min(18), Validators.max(50)]],
       dob:['', [Validators.required]],
@@ -1222,6 +1278,8 @@ export class RegisterComponent implements OnInit {
     this.detail = this.regForm.value;
     console.log(this.detail);
     this.detail['image'] = this.storeImg;
+    this.detail['image1'] = this.storeImg1;
+    this.detail['image2'] = this.storeImg2;
     if (this.regForm.invalid) { return; }
     this.profileService.signUp(this.detail).subscribe((res) => {
       console.log('registered');

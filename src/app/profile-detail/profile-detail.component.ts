@@ -14,7 +14,7 @@ export class ProfileDetailComponent implements OnInit {
   profile: any = {}
   // id$: Observable<string>;
   id: string;
-
+  imgCount: number = 0;
   constructor(
     private profileService: ProfileService,
     private route: ActivatedRoute,
@@ -32,8 +32,20 @@ export class ProfileDetailComponent implements OnInit {
   getProfileById(id) {
     this.profileService.getProfileById(id).subscribe(
       (profile) => {
-        this.profile = profile
-        profile['image'] = atob(profile['image']);
+        this.profile = profile;
+        if (profile['image']) {
+          profile['image'] = atob(profile['image']);
+          this.imgCount += 1;
+        }
+        if (profile['image1']) {
+          profile['image1'] = atob(profile['image1']);
+          this.imgCount += 1;
+        }
+        if (profile['image2']) {
+          profile['image2'] = atob(profile['image2']);
+          this.imgCount += 1;
+        }
+        
       },
       (error) => { 
         if (error.status=='404') { alert('User not found') }      
