@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from "src/environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -14,12 +15,12 @@ export class ProfileService {
 
   signIn(detail): Observable<Object> {
     if (detail.id.includes('@')) {
-      return this.http.post('http://localhost:3000/auth/signin', {
+      return this.http.post(`${environment.api}/auth/signin`, {
         email: detail.id,
         password: detail.password
       });
     } else {
-      return this.http.post('http://localhost:3000/auth/signin', {
+      return this.http.post(`${environment.api}/auth/signin`, {
         id: detail.id,
         password: detail.password
       });
@@ -39,7 +40,7 @@ export class ProfileService {
       detail.age_difference = detail.age_difference.toString();
     }
 
-    return this.http.post('http://localhost:3000/auth/signup', {
+    return this.http.post(`${environment.api}/auth/signup`, {
       image: detail.image,
       image1: detail.image1,
       image2: detail.image2,
@@ -124,7 +125,7 @@ export class ProfileService {
   }
 
   getProfiles() {
-    return this.http.get('http://localhost:3000/profiles');
+    return this.http.get(`${environment.api}/profiles`);
   }
 
   getFilteredProfiles(filters) {
@@ -164,12 +165,12 @@ export class ProfileService {
       params=params.append('to_weight', filters.to_weight);
     }
 
-    let url = 'http://localhost:3000/profiles?' + params;
+    let url = `${environment.api}/profiles?` + params;
     console.log(url);
     return this.http.get(url);
   }
 
   getProfileById(id: number) {
-    return this.http.get('http://localhost:3000/profiles/' + id);
+    return this.http.get(`${environment.api}/profiles/` + id);
   }
 }
