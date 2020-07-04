@@ -38,18 +38,15 @@ export class ProfileService {
     if (detail.age_difference) {
       detail.age_difference = detail.age_difference.toString();
     }
-    if (detail.weight) {
-      detail.weight = detail.weight.toFixed() || detail.weight;
-    }
 
     return this.http.post('http://localhost:3000/auth/signup', {
       image: detail.image,
       image1: detail.image1,
       image2: detail.image2,
-      name: detail.name.toLowerCase(),
+      name: detail.name.toLowerCase() || detail.name,
       email: detail.email,
       password: detail.password,
-      gender: detail.gender.toLowerCase(),
+      gender: detail.gender.toLowerCase() || detail.gender,
       age: detail.age,
       dob: detail.dob,
       birth_time: detail.birth_time,

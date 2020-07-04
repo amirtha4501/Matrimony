@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { FormBuilder, Validators, FormGroup, MinLengthValidator, FormArray, FormControl } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms';
 import { ProfileService } from '../services/profile.service';
+import { Router } from '@angular/router';
 
 declare var $: any;
 
@@ -18,14 +19,15 @@ export class RegisterComponent implements OnInit {
   storeImg1: string;
   storeImg2: string;
   submitted = false;
-  
+  registered = false;
+
   public imagePath;
   imgURL: any;
   imgURL1: any;
   imgURL2: any;
   public message: string;
   selectedItems: any = null;
-
+  
   stars = [
     "Ashwini - 1",
     "Ashwini - 2",
@@ -1130,11 +1132,11 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  // @ViewChild('file') fileUploader:ElementRef;
   resetFileUploader() { 
     this.imgURL = null;
     this.imgURL1 = null;
-    this.imgURL2 = null;  }
+    this.imgURL2 = null;  
+  }
 
   resetFileUploader1() { 
     this.imgURL1 = null;
@@ -1146,30 +1148,17 @@ export class RegisterComponent implements OnInit {
   }
 
   constructor(
+    private router: Router,
     private fb: FormBuilder,
     private profileService: ProfileService
-  ) { this.createRegForm(); }
+  ) { 
+    this.createRegForm(); 
+  }
 
   ngOnInit(): void { 
     this.submitted = false;
-
-    // // Type 1
-    // $('select[multiple]').multiselect();
-    // this.val = $('#known_language').multiselect({
-    // columns: 1,
-    // placeholder: 'Select Languages',
-    // search: true
-    // });
-
-    // // Type 2
-    // this.val = $('#known_language').multiselect().val(); 
-
-    // Type 3
-    // $('#known_language').change(function() {
-    //   this.known_language = $(this).val();  
-    // )}
   }
-  
+
   createRegForm() {
     this.regForm = this.fb.group({
       image: [''],
@@ -1194,8 +1183,8 @@ export class RegisterComponent implements OnInit {
       job:[''],
       workplace:[''],
       income:[''],
-      height:['', [Validators.min(4), Validators.max(9)]],
-      weight:['', [Validators.min(30), Validators.max(95)]],
+      height:['', [Validators.required, Validators.min(4), Validators.max(9)]],
+      weight:['', [Validators.required, Validators.min(30), Validators.max(95)]],
       mother_tongue:[''],
       known_language:[''],
       marital_status:[''],
@@ -1251,8 +1240,8 @@ export class RegisterComponent implements OnInit {
       expected_subcaste:[''],
       expected_marital_status: [],
       age_difference:[''],
-      expected_height:['', [ Validators.min(4), Validators.max(9)]],
-      expected_weight:['', [ Validators.min(30), Validators.max(95)]],
+      expected_height:['', [ Validators.maxLength(25) ]],
+      expected_weight:['', [ Validators.maxLength(25) ]],
       expectations:['']
 
     });
@@ -1260,17 +1249,6 @@ export class RegisterComponent implements OnInit {
 
   // convenience getter for easy access to form fields
   get f() { return this.regForm.controls; }
-
-  // knownLanguage() {
-  //   $('select[multiple]').multiselect();
-  //   this.val = $('#known_language').multiselect({
-  //   columns: 1,
-  //   placeholder: 'Select Languages',
-  //   search: true
-  //   });
-    // $('button.multiselect.dropdown-toggle.btn.btn-default > span.multiselect-selected-text').css({ color : 'gray' });
-    // $('button.multiselect.dropdown-toggle.btn.btn-default').css(known_language_style);
-  // }
 
   onSubmit() {
     this.submitted = true;
@@ -1283,6 +1261,10 @@ export class RegisterComponent implements OnInit {
     if (this.regForm.invalid) { return; }
     this.profileService.signUp(this.detail).subscribe((res) => {
       console.log('registered');
+      this.registered = true;
+      alert('REGISTRATION SUCCESSFULLY COMPLETED!');
+      this.router.navigate(['/profiles'])
+      this.regForm.reset();
     });
   }
 

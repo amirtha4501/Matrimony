@@ -103,9 +103,9 @@
                             <div class="form-check form-check-inline offset-md-2">
                                 <input class="form-check-input" value="female" type="radio"  formControlName="gender" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }" required>
                                 <label class="form-check-label">Female</label>
-                                <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
+                                <!-- <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
                                    <div *ngIf="f.gender.errors.required">&nbsp;&nbsp;&nbsp;&nbsp; Gender is required</div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
 
@@ -397,8 +397,9 @@
             
                         <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="height"><h5>Height(ft)</h5></label>
-                            <input type="number" formControlName="height" class="form-control col-8 ml-auto" [ngClass]="{ 'is-invalid': submitted && f.height.errors }">
+                            <input type="number" formControlName="height" class="form-control col-8 ml-auto" [ngClass]="{ 'is-invalid': submitted && f.height.errors }" required>
                             <div *ngIf="submitted && f.height.errors" class="invalid-feedback">
+                                <div *ngIf="f.height.errors.required">Height is required</div>
                                 <div *ngIf="f.height.errors.min">Height must be greater than 4</div>
                                 <div *ngIf="f.height.errors.max">Height must be lesser than 9</div>
                             </div>
@@ -406,8 +407,9 @@
 
                         <div class="form-group mb-2 row col-10 mx-auto">    
                             <label class="col-form-label" for="weight"><h5>Weight(kg)</h5></label>
-                            <input type="number" formControlName="weight" class="form-control col-8 ml-auto" [ngClass]="{ 'is-invalid': submitted && f.weight.errors }">
+                            <input type="number" formControlName="weight" class="form-control col-8 ml-auto" [ngClass]="{ 'is-invalid': submitted && f.weight.errors }" required>
                             <div *ngIf="submitted && f.weight.errors" class="invalid-feedback">
+                                <div *ngIf="f.weight.errors.required">Weight is required</div>
                                 <div *ngIf="f.weight.errors.min">Weight must be greater than 30</div>
                                 <div *ngIf="f.weight.errors.max">Weight must be lesser than 95</div>
                             </div>
@@ -711,12 +713,18 @@
             
                         <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label" for="expected_height"><h5>Height(ft)</h5></label>
-                            <input type="number" formControlName="expected_height" class="form-control col-8 ml-auto">
+                            <input type="text" formControlName="expected_height" class="form-control col-8 ml-auto" [ngClass]="{ 'is-invalid': submitted && f.expected_height.errors }"> 
+                            <div *ngIf="submitted && f.expected_height.errors" class="invalid-feedback">
+                                <div *ngIf="f.expected_height.errors.maxlength">Requirements should be less than 25 letters</div>
+                            </div>
                         </div>
 
                         <div class="form-group mb-2 row col-10 mx-auto">    
                             <label class="col-form-label" for="expected_weight"><h5>Weight(kg)</h5></label>
-                            <input type="number" formControlName="expected_weight" class="form-control col-8 ml-auto">
+                            <input type="text" formControlName="expected_weight" class="form-control col-8 ml-auto" [ngClass]="{ 'is-invalid': submitted && f.expected_weight.errors }">
+                            <div *ngIf="submitted && f.expected_weight.errors" class="invalid-feedback">
+                                <div *ngIf="f.expected_weight.errors.maxlength">Requirements should be less than 25 letters</div>
+                            </div>
                         </div>
                         
                         <div class="form-group mb-5 mt-3 row col-10 mx-auto">
