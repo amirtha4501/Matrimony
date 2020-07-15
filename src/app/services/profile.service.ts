@@ -173,4 +173,12 @@ export class ProfileService {
   getProfileById(id: number) {
     return this.http.get(`${environment.api}/profiles/` + id);
   }
+
+  updateAccount(id: number) {
+    return this.http.patch(``, {});
+  }
+
+  deleteAccount(id: number) {
+    return this.http.delete(``);
+  }
 }
