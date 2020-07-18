@@ -16,6 +16,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProfileDetailComponent } from './profile-detail/profile-detail.component';
 import { PaymentsComponent } from './payments/payments.component';
+import { UpdateComponent } from './update/update.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { PaymentsComponent } from './payments/payments.component';
     ProfileDetailComponent,
     PaymentsComponent,
     CheckboxGroupComponent, 
-    CheckboxComponent
+    CheckboxComponent,
+    UpdateComponent
   ],
   imports: [
     BrowserModule,

@@ -38,9 +38,9 @@
             <li class="nav-item dropdown" *ngIf="isLogged">
                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Profile</a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item text-dark" (click)="viewMyProfile()">View Profile</a>
-                    <a class="dropdown-item text-dark" href="#">Edit Profile</a>
-                    <a class="dropdown-item text-dark" (click)="onLogout()">Log Out</a>
+                    <a class="dropdown-item text-dark" (click)="viewMyProfile()" routerLink='/profiledetail/{{id}}' target="_blank">View Profile</a>
+                    <a class="dropdown-item text-dark" routerLink='/update/{{id}}'>Edit Profile</a>
+                    <a class="dropdown-item text-dark" (click)="onLogout()" routerLink='/home'>Log Out</a>
                 </div>
             </li>
             <li class="nav-item" *ngIf="!isLogged"><a class="nav-link" routerLink='/register'>Register</a></li>
