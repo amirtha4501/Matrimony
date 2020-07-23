@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms';
 import { ProfileService } from '../services/profile.service';
 import { Router } from '@angular/router';
@@ -10,6 +10,7 @@ declare var $: any;
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
+
 export class RegisterComponent implements OnInit {
 
   detail = {};
@@ -1075,6 +1076,19 @@ export class RegisterComponent implements OnInit {
     "Meenam - Pisces"
   ]
 
+  // Update
+
+  @Input() id: number;
+  @Input() isUpdate: boolean;
+  logId: number;
+  
+  base64Img1: any;
+  base64Img2: any;
+  base64Img3: any;
+
+
+  // image
+
   preview(files) {
     if (files.length === 0)
       return;
@@ -1092,6 +1106,7 @@ export class RegisterComponent implements OnInit {
       this.imgURL = reader.result; 
       this.storeImg = btoa(this.imgURL);
     }
+
   }
 
   preview1(files) {
@@ -1157,6 +1172,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void { 
     this.submitted = false;
+    this.updateProfile();
   }
 
   createRegForm() {
@@ -1250,6 +1266,112 @@ export class RegisterComponent implements OnInit {
   // convenience getter for easy access to form fields
   get f() { return this.regForm.controls; }
 
+  updateProfile() {
+    const token = atob(localStorage.getItem('token').split('.')[1])
+    this.logId = JSON.parse(token).id;
+    console.log(this.logId, 'parse');
+
+    if (this.id == this.logId && this.isUpdate) {
+      this.profileService.getProfileById(this.id).subscribe((res) => {
+        console.log(res['name']);
+
+        this.base64Img1 = 'data:image/jpeg;base64, '+ res['image'];
+        console.log(this.base64Img1, 'base64')
+        // this.base64Img1 = res['image'];
+        this.base64Img2 = res['image1'];
+        this.base64Img3 = res['image2'];
+
+        this.regForm.patchValue({
+          // image: atob(res['image']),
+          // image1: res['image1'],
+          // image2: res['image2'],
+          name: res['name'],
+          age: res['age'],
+          dob: res['dob'],
+          email: res['email'],
+          password: res['password'],
+          gender: res['gender'],
+          birth_time: res['birth_time'],
+          birth_place: res['birth_place'],
+          religion: res['religion'],
+          division: res['division'],
+          caste: res['caste'],
+          subcaste: res['subcaste'],
+          gothram: res['gothram'],
+          star: res['star'],
+          rasi: res['rasi'],
+          qualification: res['qualification'],
+          job: res['job'],
+          workplace: res['workplace'],
+          income: res['income'],
+          height: res['height'],
+          weight: res['weight'],
+          mother_tongue: res['mother_tongue'],
+          known_language: res['known_language'],
+          marital_status: res['marital_status'],
+          talents: res['talents'],
+          hobbies: res['hobbies'],
+          vehicle_driving: res['vehicle_driving'],
+          disabilities: res['disabilities'],
+    
+        // Horoscope
+          rasibox11: res['rasibox11'],
+          rasibox12: res['rasibox12'],
+          rasibox13: res['rasibox13'],
+          rasibox14: res['rasibox14'],
+          rasibox15: res['rasibox15'],
+          rasibox16: res['rasibox16'],
+          rasibox17: res['rasibox17'],
+          rasibox18: res['rasibox18'],
+          rasibox19: res['rasibox19'],
+          rasibox110: res['rasibox110'],
+          rasibox111: res['rasibox111'],
+          rasibox112: res['rasibox112'],
+    
+          rasibox21: res['rasibox21'],
+          rasibox22: res['rasibox22'],
+          rasibox23: res['rasibox23'],
+          rasibox24: res['rasibox24'],
+          rasibox25: res['rasibox25'],
+          rasibox26: res['rasibox26'],
+          rasibox27: res['rasibox27'],
+          rasibox28: res['rasibox28'],
+          rasibox29: res['rasibox29'],
+          rasibox210: res['rasibox210'],
+          rasibox211: res['rasibox211'],
+          rasibox212: res['rasibox212'],
+          
+          // Family details
+          father_name: res['father_name'],
+          father_occupation: res['father_occupation'],
+          mother_name: res['mother_name'],
+          mother_occupation: res['mother_occupation'],
+          contact_main: res['contact_main'],
+          contact_sup: res['contact_sup'],
+          sibiling_count: res['sibiling_count'],
+          family_status: res['family_status'],
+          properties: res['properties'],
+          other_details: res['other_details'],
+    
+          // Partner Expectations
+          expected_qualification: res['expected_qualification'],
+          expected_place: res['expected_place'],
+          expected_income: res['expected_income'],
+          expected_caste: res['expected_caste'],
+          expected_subcaste: res['expected_subcaste'],
+          expected_marital_status: res['expected_marital_status'],
+          age_difference: res['age_difference'],
+          expected_height: res['expected_height'],
+          expected_weight: res['expected_weight'],
+          expectations: res['expectations'],
+    
+        });
+
+      });
+    }
+  }
+
+
   onSubmit() {
     this.submitted = true;
 
@@ -1259,13 +1381,20 @@ export class RegisterComponent implements OnInit {
     this.detail['image1'] = this.storeImg1;
     this.detail['image2'] = this.storeImg2;
     if (this.regForm.invalid) { return; }
-    this.profileService.signUp(this.detail).subscribe((res) => {
-      console.log('registered');
-      this.registered = true;
-      alert('REGISTRATION SUCCESSFULLY COMPLETED!');
-      this.router.navigate(['/profiles'])
-      this.regForm.reset();
-    });
+    if (this.id != this.logId && !this.isUpdate) {
+      this.profileService.signUp(this.detail).subscribe((res) => {
+        console.log('registered');
+        this.registered = true;
+        alert('REGISTRATION SUCCESSFULLY COMPLETED!');
+        this.router.navigate(['/profiles'])
+        this.regForm.reset();
+      });
+    }
+    else {
+      this.profileService.updateAccount(this.id, this.detail).subscribe((res) => {
+        alert('PROFILE UPDATED SUCCESSFULLY!');
+      });
+    }
   }
 
 }

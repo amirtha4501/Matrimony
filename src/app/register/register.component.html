@@ -7,8 +7,10 @@
 
                     <div class="form-group container justify-content-center">
                         <div class="text-center p-3">
+                            <img src={{this.base64Img1}} alt="Red dot" />
                             <div *ngIf="imgURL">
                                 <img [src]="imgURL" class="card card-img-top rounded img-fluid mx-auto d-block">
+                                <!-- <img formControlName="image" class="card card-img-top rounded img-fluid mx-auto d-block"> -->
                             </div>
                             <div *ngIf="!imgURL">
                                 <label class="myLabel text-white btn p-1">
