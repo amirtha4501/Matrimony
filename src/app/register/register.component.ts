@@ -1082,10 +1082,90 @@ export class RegisterComponent implements OnInit {
   @Input() isUpdate: boolean;
   logId: number;
   
-  base64Img1: any;
-  base64Img2: any;
-  base64Img3: any;
+  // base64Img1: any;
+  // base64Img2: any;
+  // base64Img3: any;
+    uImgURL: any;
+    uImgURL1: any;
+    uImgURL2: any;
+    uImagePath: any;
+    uStoreImg: any;
+    uStoreImg1: any;
+    uStoreImg2: any;
 
+    upreview(files) {
+      if (files.length === 0)
+        return;
+   
+      var mimeType = files[0].type;
+      if (mimeType.match(/image\/*/) == null) {
+        this.message = "Only images are supported.";
+        return;
+      }
+   
+      var reader = new FileReader();
+      this.uImagePath = files;
+      reader.readAsDataURL(files[0]); 
+      reader.onload = (_event) => { 
+        this.imgURL = reader.result; 
+        this.uStoreImg = btoa(this.uImgURL);
+      }
+  
+    }
+  
+    upreview1(files) {
+      if (files.length === 0)
+        return;
+   
+      var mimeType = files[0].type;
+      if (mimeType.match(/image\/*/) == null) {
+        this.message = "Only images are supported.";
+        return;
+      }
+   
+      var reader = new FileReader();
+      this.uImagePath = files;
+      reader.readAsDataURL(files[0]); 
+      reader.onload = (_event) => { 
+        this.uImgURL1 = reader.result; 
+        this.uStoreImg1 = btoa(this.uImgURL1);
+      }
+    }
+  
+    upreview2(files) {
+      if (files.length === 0)
+        return;
+   
+      var mimeType = files[0].type;
+      if (mimeType.match(/image\/*/) == null) {
+        this.message = "Only images are supported.";
+        return;
+      }
+   
+      var reader = new FileReader();
+      this.uImagePath = files;
+      reader.readAsDataURL(files[0]); 
+      reader.onload = (_event) => { 
+        this.uImgURL2 = reader.result; 
+        this.uStoreImg2 = btoa(this.uImgURL2);
+      }
+    }
+  
+    uresetFileUploader() { 
+      this.uImgURL = null;
+      this.uImgURL1 = null;
+      this.uImgURL2 = null;  
+    }
+  
+    uresetFileUploader1() { 
+      this.uImgURL1 = null;
+      this.uImgURL2 = null;
+    }
+  
+    uresetFileUploader2() { 
+      this.uImgURL2 = null;
+    }
+  
 
   // image
 
@@ -1151,16 +1231,25 @@ export class RegisterComponent implements OnInit {
     this.imgURL = null;
     this.imgURL1 = null;
     this.imgURL2 = null;  
+
+    // this.base64Img1 = null;
+    // this.base64Img2 = null;
+    // this.base64Img3 = null;
   }
 
   resetFileUploader1() { 
     this.imgURL1 = null;
     this.imgURL2 = null;
+
+    // this.base64Img2 = null;
+    // this.base64Img3 = null;
   }
 
   resetFileUploader2() { 
     this.imgURL2 = null;
+    // this.base64Img3 = null;
   }
+
 
   constructor(
     private router: Router,
@@ -1168,11 +1257,20 @@ export class RegisterComponent implements OnInit {
     private profileService: ProfileService
   ) { 
     this.createRegForm(); 
+    const tok = localStorage.getItem('token');
+    if (tok) {
+      console.log('kjhgfds', tok)
+      this.updateProfile(tok);
+    }
   }
 
   ngOnInit(): void { 
     this.submitted = false;
-    this.updateProfile();
+    const tok = localStorage.getItem('token');
+    if (tok) {
+      console.log('kjhgfds', tok)
+      this.updateProfile(tok);
+    }
   }
 
   createRegForm() {
@@ -1266,25 +1364,16 @@ export class RegisterComponent implements OnInit {
   // convenience getter for easy access to form fields
   get f() { return this.regForm.controls; }
 
-  updateProfile() {
-    const token = atob(localStorage.getItem('token').split('.')[1])
+  updateProfile(tok) {
+    const token = atob(tok.split('.')[1])
     this.logId = JSON.parse(token).id;
     console.log(this.logId, 'parse');
 
     if (this.id == this.logId && this.isUpdate) {
       this.profileService.getProfileById(this.id).subscribe((res) => {
         console.log(res['name']);
-
-        this.base64Img1 = 'data:image/jpeg;base64, '+ res['image'];
-        console.log(this.base64Img1, 'base64')
-        // this.base64Img1 = res['image'];
-        this.base64Img2 = res['image1'];
-        this.base64Img3 = res['image2'];
-
+        
         this.regForm.patchValue({
-          // image: atob(res['image']),
-          // image1: res['image1'],
-          // image2: res['image2'],
           name: res['name'],
           age: res['age'],
           dob: res['dob'],
