@@ -1082,16 +1082,14 @@ export class RegisterComponent implements OnInit {
   @Input() isUpdate: boolean;
   logId: number;
   
-  // base64Img1: any;
-  // base64Img2: any;
-  // base64Img3: any;
-    uImgURL: any;
-    uImgURL1: any;
-    uImgURL2: any;
-    uImagePath: any;
-    uStoreImg: any;
-    uStoreImg1: any;
-    uStoreImg2: any;
+  uimgForm: FormGroup;
+  uImgURL: any;
+  uImgURL1: any;
+  uImgURL2: any;
+  uImagePath: any;
+  uStoreImg: any;
+  uStoreImg1: any;
+  uStoreImg2: any;
 
     upreview(files) {
       if (files.length === 0)
@@ -1107,7 +1105,7 @@ export class RegisterComponent implements OnInit {
       this.uImagePath = files;
       reader.readAsDataURL(files[0]); 
       reader.onload = (_event) => { 
-        this.imgURL = reader.result; 
+        this.uImgURL = reader.result; 
         this.uStoreImg = btoa(this.uImgURL);
       }
   
@@ -1155,15 +1153,25 @@ export class RegisterComponent implements OnInit {
       this.uImgURL = null;
       this.uImgURL1 = null;
       this.uImgURL2 = null;  
+
+      this.uStoreImg = null
+      this.uStoreImg1 = null
+      this.uStoreImg2 = null
     }
   
     uresetFileUploader1() { 
       this.uImgURL1 = null;
       this.uImgURL2 = null;
+
+      this.uStoreImg1 = null
+      this.uStoreImg2 = null
     }
   
     uresetFileUploader2() { 
       this.uImgURL2 = null;
+
+      this.uStoreImg1 = null
+      this.uStoreImg2 = null
     }
   
 
@@ -1372,7 +1380,11 @@ export class RegisterComponent implements OnInit {
     if (this.id == this.logId && this.isUpdate) {
       this.profileService.getProfileById(this.id).subscribe((res) => {
         console.log(res['name']);
-        
+
+        this.uImgURL = atob(res['image']);
+        this.uImgURL1 = atob(res['image1']);
+        this.uImgURL2 = atob(res['image2']);
+
         this.regForm.patchValue({
           name: res['name'],
           age: res['age'],
@@ -1480,6 +1492,9 @@ export class RegisterComponent implements OnInit {
       });
     }
     else {
+      this.detail['image'] = this.uStoreImg;
+      this.detail['image1'] = this.uStoreImg1;
+      this.detail['image2'] = this.uStoreImg2;
       this.profileService.updateAccount(this.id, this.detail).subscribe((res) => {
         alert('PROFILE UPDATED SUCCESSFULLY!');
       });
