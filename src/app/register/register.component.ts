@@ -1082,7 +1082,6 @@ export class RegisterComponent implements OnInit {
   @Input() isUpdate: boolean;
   logId: number;
   
-  uimgForm: FormGroup;
   uImgURL: any;
   uImgURL1: any;
   uImgURL2: any;

@@ -67,12 +67,12 @@
                         </div>
                     </div>
 
-                    <!-- <div *ngIf="this.isUpdate" class="form-group container justify-content-center">
+                    <div *ngIf="this.isUpdate" class="form-group container justify-content-center">
                         <div class="text-center p-3">
-                            <div *ngIf="uImgURL?.length > 10">
+                            <div *ngIf="uImgURL?.length > 5">
                                 <img [src]="uImgURL" class="card card-img-top rounded img-fluid mx-auto d-block">
                             </div>
-                            <div *ngIf="!uImgURL || uImgURL?.length < 10">
+                            <div *ngIf="5 > uImgURL?.length">
                                 <label class="myLabel text-white btn p-1">
                                     <input #file type="file" accept='image/*' (change)="upreview(file.files)" id="img" class="inputfile"/>
                                     <div>
@@ -81,18 +81,18 @@
                                     </div>
                                 </label>
                             </div>
-                            <div *ngIf="uImgURL?.length > 10">
+                            <div *ngIf="uImgURL?.length > 5">
                                 <label class="resetLabel text-white">
                                     <div (click)="uresetFileUploader()">Reset image</div>
                                 </label>
                             </div>
                         </div>
 
-                        <div *ngIf="uImgURL" class="text-center p-2">
-                            <div *ngIf="uImgURL1?.length > 10">
+                        <div *ngIf="uImgURL && uImgURL?.length > 5" class="text-center p-2">
+                            <div *ngIf="uImgURL1?.length > 5">
                                 <img [src]="uImgURL1" class="card card-img-top rounded img-fluid mx-auto d-block">
                             </div>
-                            <div *ngIf="!uImgURL1">
+                            <div *ngIf="5 > uImgURL1?.length">
                                 <label class="myLabel text-white btn p-1">
                                     <input #file type="file" accept='image/*' (change)="upreview1(file.files)" class="inputfile"/>
                                     <div>
@@ -101,18 +101,18 @@
                                     </div>
                                 </label>
                             </div>
-                            <div *ngIf="uImgURL1?.length > 10">
+                            <div *ngIf="uImgURL1?.length > 5">
                                 <label class="resetLabel text-white">
                                     <div (click)="uresetFileUploader1()">Reset image</div>
                                 </label>
                             </div>
                         </div>
                         
-                        <div *ngIf="uImgURL && uImgURL1" class="text-center p-3">
-                            <div *ngIf="uImgURL2?.length > 10">
+                        <div *ngIf="uImgURL && uImgURL1 && uImgURL1?.length > 5" class="text-center p-3">
+                            <div *ngIf="uImgURL2?.length > 5"> 
                                 <img [src]="uImgURL2" class="card card-img-top rounded img-fluid mx-auto d-block">
                             </div>
-                            <div *ngIf="!uImgURL2 || uImgURL2?.length < 10">
+                            <div *ngIf="5 > uImgURL2?.length">
                                 <label class="myLabel text-white btn p-1">
                                     <input #file type="file" accept='image/*' (change)="upreview2(file.files)" class="inputfile"/>
                                     <div>
@@ -121,75 +121,13 @@
                                     </div>
                                 </label>
                             </div>
-                            <div *ngIf="uImgURL2?.length > 10">
+                            <div *ngIf="uImgURL2?.length > 5">
                                 <label class="resetLabel text-white">
                                     <div (click)="uresetFileUploader2()">Reset image</div>
                                 </label>
                             </div>
                         </div>
-                    </div> -->
-
-                    <!-- <div *ngIf="this.isUpdate" class="form-group container justify-content-center">
-                        <div class="text-center p-3">
-                            <div *ngIf="this.base64Img1">
-                                <img [src]="this.base64Img1" class="card card-img-top rounded img-fluid mx-auto d-block">
-                            </div>
-                            <div *ngIf="!this.base64Img1">
-                                <label class="myLabel text-white btn p-1">
-                                    <input #file type="file" accept='image/*' (change)="preview(file.files)" id="img" class="inputfile"/>
-                                    <div>
-                                        <i class="fa fa-upload" aria-hidden="true"></i>
-                                        <span><strong>&nbsp;&nbsp;Upload photo 1</strong></span>
-                                    </div>
-                                </label>
-                            </div>
-                            <div *ngIf="this.base64Img1">
-                                <label class="resetLabel text-white">
-                                    <div (click)="resetFileUploader()">Reset image</div>
-                                </label>
-                            </div>
-                        </div>
-
-                        <div *ngIf="this.base64Img1 !== null" class="text-center p-2">
-                            <div *ngIf="this.base64Img2 !== null">
-                                <img *ngIf="this.base64Img2" [src]="this.base64Img2" class="card card-img-top rounded img-fluid mx-auto d-block">
-                            </div>
-                            <div *ngIf="!this.base64Img2">
-                                <label class="myLabel text-white btn p-1">
-                                    <input #file type="file" accept='image/*' (change)="preview1(file.files)" class="inputfile"/>
-                                    <div>
-                                        <i class="fa fa-upload" aria-hidden="true"></i>
-                                        <span><strong>&nbsp;&nbsp;Upload photo 2</strong></span>
-                                    </div>
-                                </label>
-                            </div>
-                            <div *ngIf="this.base64Img2">
-                                <label class="resetLabel text-white">
-                                    <div (click)="resetFileUploader1()">Reset image</div>
-                                </label>
-                            </div>
-                        </div>
-                        
-                        <div *ngIf="this.base64Img1 && this.base64Img2" class="text-center p-3">
-                            <div *ngIf="this.base64Img3">
-                                <img [src]="this.base64Img3" class="card card-img-top rounded img-fluid mx-auto d-block">
-                            </div>
-                            <div *ngIf="!this.base64Img3">
-                                <label class="myLabel text-white btn p-1">
-                                    <input #file type="file" accept='image/*' (change)="preview2(file.files)" class="inputfile"/>
-                                    <div>
-                                        <i class="fa fa-upload" aria-hidden="true"></i>
-                                        <span><strong>&nbsp;&nbsp;Upload photo 3</strong></span>
-                                    </div>
-                                </label>
-                            </div>
-                            <div *ngIf="this.base64Img3">
-                                <label class="resetLabel text-white">
-                                    <div (click)="resetFileUploader2()">Reset image</div>
-                                </label>
-                            </div>
-                        </div>
-                    </div> -->
+                    </div>
 
                     <div class="container col-12 text-secondary pt-4 pb-5">
                         <div class="form-group mb-2 row col-10 mx-auto">
