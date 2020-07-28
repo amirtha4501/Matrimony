@@ -1,61 +1,35 @@
-/* .img-responsive {
-    max-height: 65vh;
-  }
-
-.carousel-item {
-  	height: 100vh;
-  	background-size: cover;
-  	background-position: center center;
-}
-
-.carousel-item h1 {
-    margin: 0;
-    position: absolute;
-    color: white;
-    font-family: "trajan-color";
-    font-size: 100px;
-    line-height: 1.3;
-    font-weight: 400;
-} */
-
-.tech-slideshow {
-  height: 200px;
+.marquee {
+  background-image: linear-gradient(to right, rgb(2, 55, 228), rgb(67, 180, 245), rgb(2, 55, 228));
+  color: tomato;
   max-width: 800px;
-  margin: 0 auto;
-  position: relative;
-  overflow: hidden;
-  transform: translate3d(0, 0, 0);
-}
-
-.tech-slideshow > div {
   height: 200px;
-  width: 2526px;
-  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/collage.jpg);
-  position: absolute;
-  top: 0;
-  left: 0;
+  overflow: hidden;
+}
+.marquee-content {
+  list-style: none;
   height: 100%;
-  transform: translate3d(0, 0, 0);
+  display: flex;
+  animation: scrolling 20s linear infinite;
 }
-.tech-slideshow .mover-1 {
-  animation: moveSlideshow 12s linear infinite;
+@keyframes scrolling {
+  0% {transform: translate(90vw);}
+  100% {transform: translate(-90vw);}
 }
-.tech-slideshow .mover-2 {
-  opacity: 0;
-  transition: opacity 0.5s ease-out;
-  background-position: 0 -200px;
-  animation: moveSlideshow 15s linear infinite;
+.marquee-content li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  font-size: 5rem;
+  white-space: nowrap;
 }
-.tech-slideshow:hover .mover-2 {
-  opacity: 1;
+.marquee-content li img {
+  height: 12rem;
+  width: 12rem;
 }
-
-@keyframes moveSlideshow {
-  100% { 
-    transform: translateX(-66.6666%);  
-  }
+.marquee h1 {
+  position: absolute;
 }
-
 div {
-  border-radius: 15px;
+  border-radius: 8px;
 }
