@@ -14,15 +14,27 @@
                             <div class="carousel-inner">
                                 <div class="carousel-item active" *ngIf="profile.image; else elseImg">
                                     <img src={{profile.image}} class="card card-img-top rounded img-fluid" alt="No images available">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h3 class="watermark pb-5">RajaRoja Matrimony</h3>
+                                    </div>
                                 </div>
                                 <ng-template #elseImg>
                                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS3gBEL8xB2bqkGznLEE42ag_IQhAbckmKS7Q&usqp=CAU" class="card card-img-top rounded img-fluid" alt="No images available">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h3 class="watermark pb-5">RajaRoja Matrimony</h3>
+                                    </div>
                                 </ng-template>
                                 <div class="carousel-item" *ngIf="profile.image1">
                                     <img src={{profile.image1}} class="card card-img-top rounded img-fluid" alt="No image available">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h3 class="watermark pb-5">RajaRoja Matrimony</h3>
+                                    </div>
                                 </div>
                                 <div class="carousel-item" *ngIf="profile.image2">
                                     <img src={{profile.image2}} class="card card-img-top rounded img-fluid" alt="No image 3 available">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h3 class="watermark pb-5">RajaRoja Matrimony</h3>
+                                    </div>
                                 </div>
                             </div>
                             <a href="#slider" class="carousel-control-prev" data-slide="prev" *ngIf="profile.image && profile.image1">
@@ -37,6 +49,11 @@
                     </div>
 
                     <div class="row col-9 mt-5 mx-auto">
+                        <label class="col-form-label" for="id"><h5 class="text-secondary">Id</h5></label>
+                        <label class="col-form-label col-6 ml-auto col-6" for="id" *ngIf="profile.id">{{ profile['id'] }}</label>
+                    </div>
+
+                    <div class="row col-9 mx-auto">
                         <label class="col-form-label" for="name"><h5 class="text-secondary">Full name</h5></label>
                         <label class="col-form-label col-6 ml-auto col-6" for="name" *ngIf="profile.name else elseNil">{{ profile['name'] | titlecase}}</label>
                     </div>

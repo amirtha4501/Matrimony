@@ -42,3 +42,10 @@
 
 /* ================================================================================================================== */
 
+.watermark {
+    color: white;
+    color: rgba(253, 252, 252, 0.295);
+    transform: rotate(-35deg);
+    white-space: nowrap;
+    font-family: Arial, sans-serif;
+}
