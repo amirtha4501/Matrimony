@@ -38,17 +38,51 @@
             <li class="nav-item dropdown" *ngIf="isLogged">
                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Profile</a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item text-dark" (click)="viewMyProfile()" routerLink='/profiledetail/{{id}}' target="_blank">View Profile</a>
+                    <a class="dropdown-item text-dark" (click)="viewMyProfile()" routerLink='/profiledetail/{{id}}'>View Profile</a>
                     <a class="dropdown-item text-dark" routerLink='/update/{{id}}'>Edit Profile</a>
                     <a class="dropdown-item text-dark" (click)="onLogout()" routerLink='/home'>Log Out</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item dropdown-toggle text-dark pt-0 pb-0" id="settings" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Settings</a>
+                    <div class="dropdown-menu" aria-labelledby="settings">
+                        <a class="dropdown-item text-dark">My Account</a>
+                        <a class="dropdown-item text-dark" data-target="#delete-modal" data-toggle="modal">Delete Profile</a>
+                    </div>
                 </div>
             </li>
             <li class="nav-item" *ngIf="!isLogged"><a class="nav-link" routerLink='/register'>Register</a></li>
             <li class="nav-item" *ngIf="!isLogged"><a class="nav-link" data-target="#login-modal" data-toggle="modal">Login</a></li>
         </ul>
  
+        <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header del text-white p-2">
+                        <h5 class="modal-title">Delete Account</h5>            
+                    </div>
+                    <form novalidate [formGroup]="deleteForm" autocomplete="off">
+                        <div class="modal-body">
+                            <p>Are you absolutely sure?</p>
+                            <p>This action cannot be undone. This will permanently delete your account and also shortlists, viewed contact details etc.,</p>
+                            
+                            <div class="form-group">
+                                <label for="password" class="col-form-label">Enter password to delete account</label>
+                                <input formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" required>
+                                <div *ngIf="f.password.errors" class="invalid-feedback">
+                                    <div *ngIf="f.password.errors.required">Password is required</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-danger" (click)="onDelete()">Delete</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
         <form novalidate [formGroup]="loginForm" autocomplete="off">
-            <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header text-white">
@@ -68,6 +102,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
+                            <a href="" class="text-left">Forgot password?</a>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-primary" (click)='onSubmit()' routerLink="/home" data-dismiss="modal">Submit</button>
                         </div>

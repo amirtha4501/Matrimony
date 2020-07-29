@@ -11,6 +11,8 @@ export class HeaderComponent implements OnInit {
 
   detail = {}
   loginForm: FormGroup;
+  deleteForm: FormGroup;
+  submitted = false;
   error: any;
 
   isLogged = false;
@@ -21,6 +23,7 @@ export class HeaderComponent implements OnInit {
     private profileService: ProfileService
   ) { 
     this.createLoginForm();
+    this.createDeletionForm();
   }
 
   ngOnInit(): void {
@@ -45,6 +48,11 @@ export class HeaderComponent implements OnInit {
       password:[''],
     });
   }
+  createDeletionForm() {
+    this.deleteForm = this.fb.group({
+      password: ['', [Validators.required]]
+    })
+  }
 
   viewMyProfile() {
     this.profileService.getProfileById(this.id).subscribe((res) => {
@@ -57,6 +65,31 @@ export class HeaderComponent implements OnInit {
     this.ngOnInit();
     alert('Logged out!')
     console.log('Logged out');
+  }
+
+  get f() { return this.deleteForm.controls; }
+
+  onDelete() {
+    this.submitted = true;
+    const delValue = this.deleteForm.value;
+    console.log(delValue);
+    const delId = JSON.parse(localStorage.getItem('id'))
+    console.log(delId);
+    this.profileService.getProfileById(delId).subscribe(
+      res => {
+        this.deleteForm.reset();
+        if(res['password'] === delValue['password']) { 
+          this.profileService.deleteAccount(delId).subscribe(res => { console.log(res, 'res del'); });
+          localStorage.removeItem('token');
+          localStorage.removeItem('id');
+          this.ngOnInit();
+          alert("Profile deleted!"); 
+        }
+        else { if(delValue['password'] !== '') { alert("Deletion rejected"); } }
+      },
+      err => { alert("Deletion rejected with " + err.status + "error"); }
+    );
+    
   }
 
   onSubmit() {

@@ -268,6 +268,7 @@ export class ProfileService {
   }
 
   deleteAccount(id: number) {
-    return this.http.delete(``);
+    console.log(`${environment.api}/profiles/` + id);
+    return this.http.delete(`${environment.api}/profiles/` + id);
   }
 }

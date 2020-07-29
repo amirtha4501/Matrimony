@@ -5,13 +5,23 @@
   height: 200px;
   overflow: hidden;
 }
-.marquee-content {
+.male {
   list-style: none;
   height: 100%;
   display: flex;
-  animation: scrolling 20s linear infinite;
+  animation: malescrolling 30s linear infinite;
 }
-@keyframes scrolling {
+.female {
+  list-style: none;
+  height: 100%;
+  display: flex;
+  animation: femalescrolling 30s linear infinite;
+}
+@keyframes malescrolling {
+  0% {transform: translate(50vw);}
+  100% {transform: translate(-50vw);}
+}
+@keyframes femalescrolling {
   0% {transform: translate(90vw);}
   100% {transform: translate(-90vw);}
 }
@@ -27,7 +37,7 @@
   height: 12rem;
   width: 12rem;
 }
-.marquee h1 {
+.marquee h2 {
   position: absolute;
 }
 div {

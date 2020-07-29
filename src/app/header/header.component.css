@@ -77,6 +77,9 @@ nav h5 {
 .modal-header {
     background-image: linear-gradient(to right, rgb(2, 55, 228), rgb(67, 180, 245), rgb(2, 55, 228));
 }
+.del {
+    background-image: linear-gradient(to right, rgb(228, 2, 2), rgb(252, 113, 103), rgb(228, 2, 2));
+}
 
 .dropdown-toggle {
     cursor: pointer;
