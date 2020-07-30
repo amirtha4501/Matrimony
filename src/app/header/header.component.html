@@ -57,7 +57,10 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header del text-white p-2">
-                        <h5 class="modal-title">Delete Account</h5>            
+                        <h5 class="modal-title">Delete Account</h5>       
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span class="mr-2" aria-hidden="true">&times;</span>
+                        </button>     
                     </div>
                     <form novalidate [formGroup]="deleteForm" autocomplete="off">
                         <div class="modal-body">
@@ -88,12 +91,12 @@
                         <div class="modal-header text-white">
                             <h5 class="modal-title">Login</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
+                                <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
                             <div class="form-group">
-                                <label for="id" class="col-form-label">Member Id / Email Id</label>
+                                <label for="id" class="col-form-label">Member Id</label>
                                 <input type="text" formControlName="id" class="form-control">
                             </div>
                             <div class="form-group">
@@ -102,7 +105,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <a href="" class="text-left">Forgot password?</a>
+                            <a class="nav-link" data-target="#reset-modal" data-toggle="modal" data-dismiss="modal">Forgot password?</a>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-primary" (click)='onSubmit()' routerLink="/home" data-dismiss="modal">Submit</button>
                         </div>
@@ -111,5 +114,33 @@
             </div>
         </form>
           
+        <div class="modal fade" id="reset-modal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header text-white p-2">
+                        <h5 class="modal-title">Reset your password</h5>       
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span class="mr-2" aria-hidden="true">&times;</span>
+                        </button>     
+                    </div>
+                    <form novalidate [formGroup]="resetPassForm" autocomplete="off">
+                        <div class="modal-body">
+                            <p>Enter your primary contact number below. We'll look for your account and send you a password reset message.</p>
+                            <div class="form-group">
+                                <label for="primary_contact" class="col-form-label">Contact number</label>
+                                <input formControlName="contact_main" class="form-control" required>
+                                <!-- <div *ngIf="f.contact_main.errors" class="invalid-feedback">
+                                    <div *ngIf="f.contact_main.errors.required">Contact number is required to reset</div>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary" (click)='resetPassword()'>Send Password Reset</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
     </div>
 </nav>

@@ -266,17 +266,26 @@
                         <label class="col-form-label ml-auto col-6" for="mother_occupation"><label *ngIf="profile.mother_occupation; else elseNil">{{ profile['mother_occupation'] | titlecase}}</label></label>
                     </div>
                     
+
                     <div class="row col-9 mx-auto">
                         <label class="col-form-label" for="contact_main"><h5 class="text-secondary">Family contact</h5></label>
-                        <label class="col-form-label ml-auto col-6" for="contact_main"><label><a href="tel:profile.contact_main" class="text-decoration-none">{{ profile['contact_main'] | titlecase}}</a></label></label>
+                        <label class="col-form-label ml-auto col-6" for="contact_main">
+                            <label *ngIf="this.isLogged && profile.paid">
+                                <a *ngIf="!this.clicked" class="btn btn-warning text-white" (click)="viewContact()">View contact</a>
+                                <a *ngIf="this.clicked" href="tel:profile.contact_main" class="text-decoration-none">{{ profile['contact_main'] | titlecase}}</a>
+                            </label>
+                            <label *ngIf="!this.isLogged || !profile.paid">
+                                <a class="btn btn-warning text-white">View contact</a>
+                            </label>
+
+                        </label>
                     </div>
     
-                    <div *ngIf="profile.contact_sup" class="row col-9 mx-auto">
-                        <!-- <label class="col-form-label" for="contact_sup"><h5 class="text-secondary">Family contact</h5></label> -->
-                    
+                    <div *ngIf="profile.contact_sup && this.isLogged" class="row col-9 mx-auto">
                     <label class="col-form-label ml-auto col-6" for="contact_sup"><label><a href="tel:profile.contact_sup" class="text-decoration-none">{{ profile['contact_sup'] | titlecase}}</a></label></label>
                     </div>
     
+                    
                     <div class="row col-9 mx-auto">
                         <label class="col-form-label" for="sibiling_count"><h5 class="text-secondary">Sibiling count</h5></label>
                         <label class="col-form-label ml-auto col-6" for="sibiling_count"><label *ngIf="profile.sibiling_count; else elseNil">{{ profile['sibiling_count'] }}</label></label>

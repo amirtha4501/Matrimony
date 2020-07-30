@@ -12,6 +12,7 @@ export class HeaderComponent implements OnInit {
   detail = {}
   loginForm: FormGroup;
   deleteForm: FormGroup;
+  resetPassForm: FormGroup;
   submitted = false;
   error: any;
 
@@ -24,6 +25,7 @@ export class HeaderComponent implements OnInit {
   ) { 
     this.createLoginForm();
     this.createDeletionForm();
+    this.createResetPassForm();
   }
 
   ngOnInit(): void {
@@ -48,9 +50,16 @@ export class HeaderComponent implements OnInit {
       password:[''],
     });
   }
+
   createDeletionForm() {
     this.deleteForm = this.fb.group({
       password: ['', [Validators.required]]
+    })
+  }
+
+  createResetPassForm() {
+    this.resetPassForm = this.fb.group({
+      contact_main:['']
     })
   }
 
@@ -72,9 +81,7 @@ export class HeaderComponent implements OnInit {
   onDelete() {
     this.submitted = true;
     const delValue = this.deleteForm.value;
-    console.log(delValue);
     const delId = JSON.parse(localStorage.getItem('id'))
-    console.log(delId);
     this.profileService.getProfileById(delId).subscribe(
       res => {
         this.deleteForm.reset();
@@ -88,8 +95,12 @@ export class HeaderComponent implements OnInit {
         else { if(delValue['password'] !== '') { alert("Deletion rejected"); } }
       },
       err => { alert("Deletion rejected with " + err.status + "error"); }
-    );
-    
+    );  
+  }
+
+  resetPassword() {
+    const resetContact = this.resetPassForm.value;
+    alert("Dear user! \n Trouble in unlocking your account\n Contact our admin: 9344737090");
   }
 
   onSubmit() {

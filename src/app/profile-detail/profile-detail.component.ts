@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfileService } from '../services/profile.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { switchMap, map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-profile-detail',
@@ -12,9 +10,12 @@ import { Observable } from 'rxjs';
 export class ProfileDetailComponent implements OnInit {
 
   profile: any = {}
-  // id$: Observable<string>;
-  id: string;
+  profileId: string;
   imgCount: number = 0;
+  logId: number;
+  isLogged: boolean = false;
+  clicked: boolean = false;
+
   constructor(
     private profileService: ProfileService,
     private route: ActivatedRoute,
@@ -22,14 +23,24 @@ export class ProfileDetailComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // this.id$ = this.route.paramMap.pipe(map(paramMap => paramMap.get('id')));
-    this.id = this.route.snapshot.paramMap.get('id');
-    
-    console.log(this.id);
-    this.getProfileById(this.id);
+    this.clicked = true;
+    this.profileId = this.route.snapshot.paramMap.get('id');
+    console.log(this.profileId);
+    this.getProfileById(this.profileId);    
   }
 
   getProfileById(id) {
+    const tok = localStorage.getItem('token');
+    if (tok) {
+      const token = atob(tok.split('.')[1])
+      this.logId = JSON.parse(token).id;
+    }
+
+    if (this.logId) {
+      this.isLogged = true;
+    }
+
+
     this.profileService.getProfileById(id).subscribe(
       (profile) => {
         this.profile = profile;
@@ -45,12 +56,16 @@ export class ProfileDetailComponent implements OnInit {
           profile['image2'] = atob(profile['image2']);
           this.imgCount += 1;
         }
-        
       },
       (error) => { 
         if (error.status=='404') { alert('User not found') }      
       }
     )
+  }
+
+  viewContact() {
+    this.clicked = true; 
+    console.log('Store profile id', this.profileId);
   }
 
 }
