@@ -69,15 +69,15 @@
                             
                             <div class="form-group">
                                 <label for="password" class="col-form-label">Enter password to delete account</label>
-                                <input formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" required>
-                                <div *ngIf="f.password.errors" class="invalid-feedback">
-                                    <div *ngIf="f.password.errors.required">Password is required</div>
+                                <input formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && df.password.errors }" required>
+                                <div *ngIf="df.password.errors" class="invalid-feedback">
+                                    <div *ngIf="df.password.errors.required">Password is required</div>
                                 </div>
                             </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-danger" (click)="onDelete()">Delete</button>
+                            <button type="submit" class="btn btn-danger" (click)="onDelete()" data-dismiss="modal">Delete</button>
                         </div>
                     </form>
                 </div>
@@ -97,15 +97,19 @@
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="id" class="col-form-label">Member Id</label>
-                                <input type="text" formControlName="id" class="form-control">
+                                <input type="text" formControlName="id" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label for="password" class="col-form-label">Password</label>
-                                <input type="password" formControlName="password" class="form-control">
+                                <input type="password" formControlName="password" class="form-control" required>
+                            </div>
+                            <div class="text-center">
+                                <p>or</p>
+                                <a class="btn btn-success" routerLink="/register" data-dismiss="modal">Register</a>
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <a class="nav-link" data-target="#reset-modal" data-toggle="modal" data-dismiss="modal">Forgot password?</a>
+                            <a class="nav-link mr-auto" data-target="#reset-modal" data-toggle="modal" data-dismiss="modal">Forgot password?</a>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-primary" (click)='onSubmit()' routerLink="/home" data-dismiss="modal">Submit</button>
                         </div>
@@ -128,14 +132,14 @@
                             <p>Enter your primary contact number below. We'll look for your account and send you a password reset message.</p>
                             <div class="form-group">
                                 <label for="primary_contact" class="col-form-label">Contact number</label>
-                                <input formControlName="contact_main" class="form-control" required>
-                                <!-- <div *ngIf="f.contact_main.errors" class="invalid-feedback">
-                                    <div *ngIf="f.contact_main.errors.required">Contact number is required to reset</div>
-                                </div> -->
+                                <input formControlName="contact_main" class="form-control" [ngClass]="{ 'is-invalid': resetSubmitted && rf.contact_main.errors }" required>
+                                <div *ngIf="resetSubmitted && rf.contact_main.errors" class="invalid-feedback">
+                                    <div *ngIf="rf.contact_main.errors.required">Contact number is required to reset</div>
+                                </div>
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary" (click)='resetPassword()'>Send Password Reset</button>
+                            <button type="submit" class="btn btn-primary" (click)='resetPassword()' data-dismiss="modal">Send Password Reset</button>
                         </div>
                     </form>
                 </div>

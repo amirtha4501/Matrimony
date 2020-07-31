@@ -1,6 +1,4 @@
-<marquee behavior="scroll" direction="left">Hello world!</marquee>
-
-<div class="marquee col-8 mx-auto row justify-content-center align-items-center">
+<div class="marquee col-8 mx-auto row justify-content-center align-items-center mt-5">
     <h2 class="text-white text-center">RAJA ROJA MATRIMONY <br> BOYS</h2>
     <div class="marquee-content male">
         <li *ngFor="let profile of profiles; index as i"><img *ngIf="profile.gender === 'male' && profile.image && profile.image?.length > 5" src={{profile.image}}></li>

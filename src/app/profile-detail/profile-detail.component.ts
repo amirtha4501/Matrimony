@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfileService } from '../services/profile.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-profile-detail',
@@ -9,7 +10,8 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class ProfileDetailComponent implements OnInit {
 
-  profile: any = {}
+  profile: any = {};
+  userProfile: any = {};
   profileId: string;
   imgCount: number = 0;
   logId: number;
@@ -17,30 +19,36 @@ export class ProfileDetailComponent implements OnInit {
   clicked: boolean = false;
 
   constructor(
+    private fb: FormBuilder,
     private profileService: ProfileService,
     private route: ActivatedRoute,
     private router: Router,
   ) { }
 
   ngOnInit(): void {
-    this.clicked = true;
     this.profileId = this.route.snapshot.paramMap.get('id');
     console.log(this.profileId);
     this.getProfileById(this.profileId);    
   }
 
-  getProfileById(id) {
+  getProfileById(id) {  
+    // User profile
     const tok = localStorage.getItem('token');
     if (tok) {
       const token = atob(tok.split('.')[1])
       this.logId = JSON.parse(token).id;
     }
-
     if (this.logId) {
       this.isLogged = true;
+      this.profileService.getProfileById(this.logId).subscribe(
+        (userProfile) => {
+          this.userProfile = userProfile;
+          console.log(userProfile, "user profile")
+        }
+      );
     }
 
-
+    // View profile
     this.profileService.getProfileById(id).subscribe(
       (profile) => {
         this.profile = profile;

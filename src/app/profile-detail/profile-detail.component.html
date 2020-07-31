@@ -270,18 +270,24 @@
                     <div class="row col-9 mx-auto">
                         <label class="col-form-label" for="contact_main"><h5 class="text-secondary">Family contact</h5></label>
                         <label class="col-form-label ml-auto col-6" for="contact_main">
-                            <label *ngIf="this.isLogged && profile.paid">
+
+                            <label *ngIf="this.isLogged && userProfile.paid">
                                 <a *ngIf="!this.clicked" class="btn btn-warning text-white" (click)="viewContact()">View contact</a>
                                 <a *ngIf="this.clicked" href="tel:profile.contact_main" class="text-decoration-none">{{ profile['contact_main'] | titlecase}}</a>
                             </label>
-                            <label *ngIf="!this.isLogged || !profile.paid">
-                                <a class="btn btn-warning text-white">View contact</a>
-                            </label>
 
+                            <label *ngIf="this.isLogged && !userProfile.paid">
+                                <a *ngIf="!this.clicked" class="btn btn-warning text-white" (click)="viewContact()">View contact</a>
+                                <a *ngIf="this.clicked" routerLink='/payments' class="text-decoration-none btn btn-success text-white">Payment details</a>
+                            </label>
+                            
+                            <label *ngIf="!this.isLogged">
+                                <a class="btn btn-warning text-white" data-target="#login-modal" data-toggle="modal">View contact</a>
+                            </label>
                         </label>
                     </div>
     
-                    <div *ngIf="profile.contact_sup && this.isLogged" class="row col-9 mx-auto">
+                    <div *ngIf="profile.contact_sup && this.isLogged && userProfile.paid && this.clicked" class="row col-9 mx-auto">
                     <label class="col-form-label ml-auto col-6" for="contact_sup"><label><a href="tel:profile.contact_sup" class="text-decoration-none">{{ profile['contact_sup'] | titlecase}}</a></label></label>
                     </div>
     

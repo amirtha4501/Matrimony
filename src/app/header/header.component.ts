@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit {
   deleteForm: FormGroup;
   resetPassForm: FormGroup;
   submitted = false;
+  resetSubmitted = false;
   error: any;
 
   isLogged = false;
@@ -59,7 +60,7 @@ export class HeaderComponent implements OnInit {
 
   createResetPassForm() {
     this.resetPassForm = this.fb.group({
-      contact_main:['']
+      contact_main:['', [Validators.required]]
     })
   }
 
@@ -76,7 +77,8 @@ export class HeaderComponent implements OnInit {
     console.log('Logged out');
   }
 
-  get f() { return this.deleteForm.controls; }
+  get df() { return this.deleteForm.controls; }
+  get rf() { return this.resetPassForm.controls; }
 
   onDelete() {
     this.submitted = true;
@@ -92,20 +94,22 @@ export class HeaderComponent implements OnInit {
           this.ngOnInit();
           alert("Profile deleted!"); 
         }
-        else { if(delValue['password'] !== '') { alert("Deletion rejected"); } }
+        else { if(delValue['password'] !== '') { alert("Enter valid password to delete!"); } }
       },
-      err => { alert("Deletion rejected with " + err.status + "error"); }
+      err => { alert("Deletion rejected with " + err.status + " error"); }
     );  
   }
 
   resetPassword() {
     const resetContact = this.resetPassForm.value;
+    this.resetSubmitted = true;
     alert("Dear user! \n Trouble in unlocking your account\n Contact our admin: 9344737090");
   }
 
   onSubmit() {
     this.detail = this.loginForm.value;
     this.id = this.detail['id'];
+
     console.log(this.detail['id'], 'login id');
     this.profileService.signIn(this.detail).subscribe(
       res => {
