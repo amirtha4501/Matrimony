@@ -1481,21 +1481,24 @@ export class RegisterComponent implements OnInit {
     this.detail['image1'] = this.storeImg1;
     this.detail['image2'] = this.storeImg2;
     if (this.regForm.invalid) { return; }
-    if (this.id != this.logId && !this.isUpdate) {
+    if (!this.isUpdate) {
+      // if (this.id != this.logId && !this.isUpdate) {
       this.profileService.signUp(this.detail).subscribe((res) => {
         console.log('registered');
         this.registered = true;
         alert('REGISTRATION SUCCESSFULLY COMPLETED!');
-        this.router.navigate(['/profiles'])
+        this.router.navigate(['/profiles']);
         this.regForm.reset();
       });
     }
-    else {
+    if (this.id == this.logId && this.isUpdate) {
+    // else {
       this.detail['image'] = this.uStoreImg;
       this.detail['image1'] = this.uStoreImg1;
       this.detail['image2'] = this.uStoreImg2;
       this.profileService.updateAccount(this.id, this.detail).subscribe((res) => {
         alert('PROFILE UPDATED SUCCESSFULLY!');
+        this.router.navigate(['/profiles'])
       });
     }
   }
