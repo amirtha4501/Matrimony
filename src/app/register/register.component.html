@@ -1,9 +1,11 @@
 <form novalidate [formGroup]="regForm" (ngSubmit)="onSubmit()" class="form-inline" autocomplete="off">
-    <div class="container">
+    
+    <!-- desktop -->
+    <div class="desk container">
         <div class="row">
             <div class="col-12">
                 <fieldset class="border-custom card rounded mt-5">
-                    <h2 class="text-center card-header text-white">Personal details</h2>
+                    <h2 class="text-center card-header text-white">Personal desk details</h2>
 
                     <div *ngIf="!this.isUpdate" class="form-group container justify-content-center">
                         <div class="text-center p-3">
@@ -544,7 +546,7 @@
         </div>
     </div>
 
-    <div class="container">
+    <div class="desk container">
         <fieldset class="border-custom card rounded mt-5">
             <h2 class="text-center card-header text-white">Horoscope</h2>
             <div class="container row mx-auto mt-5 mb-5">
@@ -606,7 +608,7 @@
         </fieldset>
     </div>
 
-    <div class="container">
+    <div class="desk container">
         <div class="row">
             <div class="col-12">
                 <fieldset class="border-custom card rounded mt-5">       
@@ -679,7 +681,7 @@
         </div>
     </div>
 
-    <div class="container mb-5">
+    <div class="desk container mb-5">
         <div class="row">
             <div class="col-12">
                 <fieldset class="border-custom card rounded mt-5">
@@ -796,10 +798,808 @@
         </div>
     </div>
 
+    <!-- mobile -->
+    <div class="mob container">
+        <div class="row">
+            <div class="col-12">
+                <fieldset class="border-custom card rounded mt-5">
+                    <h2 class="text-center card-header text-white">Personal mob details</h2>
+
+                    <div *ngIf="!this.isUpdate" class="form-group container justify-content-center">
+                        <div class="text-center p-3">
+                            <div *ngIf="imgURL">
+                                <img [src]="imgURL" class="card card-img-top rounded img-fluid mx-auto d-block">
+                            </div>
+                            <div *ngIf="!imgURL">
+                                <label class="myLabel text-white btn p-1">
+                                    <input #file type="file" accept='image/*' (change)="preview(file.files)" id="img" class="inputfile"/>
+                                    <div>
+                                        <i class="fa fa-upload" aria-hidden="true"></i>
+                                        <span><strong>&nbsp;&nbsp;Upload photo 1</strong></span>
+                                    </div>
+                                </label>
+                            </div>
+                            <div *ngIf="imgURL">
+                                <label class="resetLabel text-white">
+                                    <div (click)="resetFileUploader()">Reset image</div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div *ngIf="imgURL" class="text-center p-2">
+                            <div *ngIf="imgURL1">
+                                <img [src]="imgURL1" class="card card-img-top rounded img-fluid mx-auto d-block">
+                            </div>
+                            <div *ngIf="!imgURL1">
+                                <label class="myLabel text-white btn p-1">
+                                    <input #file type="file" accept='image/*' (change)="preview1(file.files)" class="inputfile"/>
+                                    <div>
+                                        <i class="fa fa-upload" aria-hidden="true"></i>
+                                        <span><strong>&nbsp;&nbsp;Upload photo 2</strong></span>
+                                    </div>
+                                </label>
+                            </div>
+                            <div *ngIf="imgURL1">
+                                <label class="resetLabel text-white">
+                                    <div (click)="resetFileUploader1()">Reset image</div>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div *ngIf="imgURL && imgURL1" class="text-center p-3">
+                            <div *ngIf="imgURL2">
+                                <img [src]="imgURL2" class="card card-img-top rounded img-fluid mx-auto d-block">
+                            </div>
+                            <div *ngIf="!imgURL2">
+                                <label class="myLabel text-white btn p-1">
+                                    <input #file type="file" accept='image/*' (change)="preview2(file.files)" class="inputfile"/>
+                                    <div>
+                                        <i class="fa fa-upload" aria-hidden="true"></i>
+                                        <span><strong>&nbsp;&nbsp;Upload photo 3</strong></span>
+                                    </div>
+                                </label>
+                            </div>
+                            <div *ngIf="imgURL2">
+                                <label class="resetLabel text-white">
+                                    <div (click)="resetFileUploader2()">Reset image</div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div *ngIf="this.isUpdate" class="form-group container justify-content-center">
+                        <div class="text-center p-3">
+                            <div *ngIf="uImgURL?.length > 5">
+                                <img [src]="uImgURL" class="card card-img-top rounded img-fluid mx-auto d-block">
+                            </div>
+                            <div *ngIf="5 > uImgURL?.length">
+                                <label class="myLabel text-white btn p-1">
+                                    <input #file type="file" accept='image/*' (change)="upreview(file.files)" id="img" class="inputfile"/>
+                                    <div>
+                                        <i class="fa fa-upload" aria-hidden="true"></i>
+                                        <span><strong>&nbsp;&nbsp;Upload photo 1</strong></span>
+                                    </div>
+                                </label>
+                            </div>
+                            <div *ngIf="uImgURL?.length > 5">
+                                <label class="resetLabel text-white">
+                                    <div (click)="uresetFileUploader()">Reset image</div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div *ngIf="uImgURL && uImgURL?.length > 5" class="text-center p-2">
+                            <div *ngIf="uImgURL1?.length > 5">
+                                <img [src]="uImgURL1" class="card card-img-top rounded img-fluid mx-auto d-block">
+                            </div>
+                            <div *ngIf="5 > uImgURL1?.length">
+                                <label class="myLabel text-white btn p-1">
+                                    <input #file type="file" accept='image/*' (change)="upreview1(file.files)" class="inputfile"/>
+                                    <div>
+                                        <i class="fa fa-upload" aria-hidden="true"></i>
+                                        <span><strong>&nbsp;&nbsp;Upload photo 2</strong></span>
+                                    </div>
+                                </label>
+                            </div>
+                            <div *ngIf="uImgURL1?.length > 5">
+                                <label class="resetLabel text-white">
+                                    <div (click)="uresetFileUploader1()">Reset image</div>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div *ngIf="uImgURL && uImgURL1 && uImgURL1?.length > 5" class="text-center p-3">
+                            <div *ngIf="uImgURL2?.length > 5"> 
+                                <img [src]="uImgURL2" class="card card-img-top rounded img-fluid mx-auto d-block">
+                            </div>
+                            <div *ngIf="5 > uImgURL2?.length">
+                                <label class="myLabel text-white btn p-1">
+                                    <input #file type="file" accept='image/*' (change)="upreview2(file.files)" class="inputfile"/>
+                                    <div>
+                                        <i class="fa fa-upload" aria-hidden="true"></i>
+                                        <span><strong>&nbsp;&nbsp;Upload photo 3</strong></span>
+                                    </div>
+                                </label>
+                            </div>
+                            <div *ngIf="uImgURL2?.length > 5">
+                                <label class="resetLabel text-white">
+                                    <div (click)="uresetFileUploader2()">Reset image</div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container col-12 text-secondary pt-4 pb-5">
+                        <div class="form-group col-10 mx-auto">
+                            <label class="col-form-label" for="name"><h5>Full name</h5></label>
+                            <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" required> 
+                            <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                                <div *ngIf="f.name.errors.required">Name is required</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-10 mx-auto">
+                            <label class="col-form-label" for="email"><h5>Email</h5></label>
+                            <input type="email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group col-10 mx-auto">
+                            <label class="col-form-label" for="password"><h5>Password</h5></label>
+                            <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" required>
+                            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                <div *ngIf="f.password.errors.required">Password is required</div>
+                                <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                                <div *ngIf="f.password.errors.maxlength">Password must be at most 20 characters</div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group mb-3 row col-10 mx-auto">
+                            <label class="col-form-label"><h5>Gender</h5></label>
+                            <div class="form-check form-check-inline offset-md-3">
+                                <input class="form-check-input" value="male" type="radio" formControlName="gender" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }" required>
+                                <label class="form-check-label">Male</label>
+                            </div>
+                            <div class="form-check form-check-inline offset-md-2">
+                                <input class="form-check-input" value="female" type="radio"  formControlName="gender" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }" required>
+                                <label class="form-check-label">Female</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-10 mx-auto">
+                            <label class="col-form-label" for="age"><h5>Age</h5></label>
+                            <input type="number" formControlName="age" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.age.errors }" required>
+                            <div *ngIf="submitted && f.age.errors" class="invalid-feedback">
+                                <div *ngIf="f.age.errors.required">Age is required</div>
+                                <div *ngIf="f.age.errors.min">Age should be greater than 18</div>
+                                <div *ngIf="f.age.errors.max">Age is too old</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-10 mx-auto">
+                            <label class="col-form-label" for="dob"><h5>DOB</h5></label>
+                            <input type="date" formControlName="dob" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.dob.errors }" required>
+                            <div *ngIf="submitted && f.dob.errors" class="invalid-feedback">
+                                <div *ngIf="f.dob.errors.required">Date of birth is required</div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group col-10 mx-auto">
+                            <label class="col-form-label" for="birth_time"><h5>Birth time</h5></label>
+                            <input type="time" formControlName="birth_time" class="form-control">
+                        </div>
+                        
+                        <div class="form-group col-10 mx-auto">
+                            <label class="col-form-label" for="birth_place"><h5>Birth Place</h5></label>
+                            <input type="text" formControlName="birth_place" class="form-control">
+                        </div>
+                        
+                        <div class="form-group col-10 mx-auto">
+                            <label class="col-form-label" for="religion"><h5>Religion</h5></label>
+                            <input type="text" formControlName="religion" class="form-control" list="religion" [ngClass]="{ 'is-invalid': submitted && f.religion.errors }" required>
+                            <datalist id="religion">
+                                <option value="Hindu"></option>
+                                <option value="Christian"></option>
+                                <option value="Musleum"></option>
+                                <option value="Others"></option>
+                            </datalist>
+                            <div *ngIf="submitted && f.religion.errors" class="invalid-feedback">
+                                <div *ngIf="f.religion.errors.required">Religion is required</div>
+                            </div>
+                        </div>
+
+                        <div *ngIf="f.religion.value && f.religion.value!='Christian'" class="form-group col-10 mx-auto">
+                            <label class="col-form-label" for="caste"><h5>Caste</h5></label>
+                            <input type="text" formControlName="caste" class="form-control" list="caste">
+                            <datalist *ngIf="f.religion.value=='Hindu'" id="caste">
+                                <option value="{{ caste }}" *ngFor="let caste of hindu_castes"></option> 
+                            </datalist>
+                            <datalist *ngIf="f.religion.value=='Musleum'" id="caste">
+                                <option value="{{ caste }}" *ngFor="let caste of muslim_castes"></option> 
+                            </datalist>
+                        </div>
+
+                        <div *ngIf="f.religion.value && f.religion.value=='Christian'" class="form-group col-10 mx-auto">
+                            <label class="col-form-label" for="division"><h5>Division</h5></label>
+                            <input type="text" formControlName="division" class="form-control" list="division">
+                            <datalist id="division">
+                                <option value="{{ division }}" *ngFor="let division of christian_division"></option> 
+                            </datalist>
+                        </div>
+
+                        <div *ngIf="f.division.value" class="form-group col-10 mx-auto">
+                            <label class="col-form-label" for="caste"><h5>Caste</h5></label>
+                            <input type="text" formControlName="caste" class="form-control" list="caste">
+                            <datalist id="caste">
+                                <option value="{{ caste }}" *ngFor="let caste of christian_castes"></option> 
+                            </datalist>
+                        </div>
+                        
+                        <div *ngIf="f.caste.value" class="form-group col-10 mx-auto">
+                            <label class="col-form-label" for="subcaste"><h5>Sub caste</h5></label>
+                            <input type="text" formControlName="subcaste" class="form-control">
+                        </div>
+                        
+                        <div *ngIf="f.caste.value" class="form-group col-10 mx-auto">
+                            <label class="col-form-label" for="gothram"><h5>Gothram</h5></label>
+                            <input type="text" formControlName="gothram" class="form-control">
+                        </div>
+                        
+                        <div class="form-group col-10 mx-auto">
+                            <label class="col-form-label" for="star"><h5>Star</h5></label>
+                            <input type="text" formControlName="star" class="form-control" list="star">
+                            <datalist id="star">
+                                <option value="{{ star }}" *ngFor="let star of stars"></option> 
+                            </datalist>
+                        </div>
+            
+                        <div class="form-group col-10 mx-auto">
+                            <label class="col-form-label" for="rasi"><h5>Rasi</h5></label>
+                            <input type="text" formControlName="rasi" class="form-control" list="rasi">
+                            <datalist id="rasi">
+                                <option value="{{ rasi }}" *ngFor="let rasi of rasies"></option> 
+                            </datalist>
+                        </div>
+            
+                        <div class="form-group col-10 mx-auto">
+                            <label class="col-form-label" for="qualification"><h5>Qualification</h5></label>
+                            <input type="text" formControlName="qualification" class="form-control">
+                        </div>
+            
+                        <div class="form-group col-10 mx-auto">
+                            <label class="col-form-label" for="job"><h5>Job</h5></label>        
+                            <input type="text" formControlName="job" class="form-control" list="job">
+                            <datalist id="job">
+                                <option value="Manager"></option>
+                                <option value="Supervisor"></option>
+                                <option value="Officer"></option>
+                                <option value="Administrative Professional"></option>
+                                <option value="Executive"></option>
+                                <option value="Clerk"></option>
+                                <option value="Human Resources Professional"></option>
+                                <option value="Secretary / Front Office"></option>
+                                <option value="Agriculture &amp; Farming Professional"></option>
+                                <option value="Horticulturist"></option>
+                                <option value="Pilot"></option>
+                                <option value="Air Hostess / Flight Attendant"></option>
+                                <option value="Airline Professional"></option>
+                                <option value="Architect"></option>
+                                <option value="Interior Designer"></option>
+                                <option value="Chartered Accountant"></option>
+                                <option value="Company Secretary"></option>
+                                <option value="Accounts / Finance Professional"></option>
+                                <option value="Banking Professional"></option>
+                                <option value="Auditor"></option>
+                                <option value="Financial Accountant"></option>
+                                <option value="Financial Analyst / Planning"></option>
+                                <option value="Investment Professional"></option>
+                                <option value="Fashion Designer"></option>
+                                <option value="Beautician"></option>
+                                <option value="Hair Stylist"></option>
+                                <option value="Jewellery Designer"></option>
+                                <option value="Designer (Others)"></option>
+                                <option value="Makeup Artist"></option>
+                                <option value="BPO / KPO / ITES Professional"></option>
+                                <option value="Customer Service Professional"></option>
+                                <option value="Civil Services (IAS / IPS / IRS / IES / IFS)"></option>
+                                <option value="Analyst"></option>
+                                <option value="Consultant"></option>
+                                <option value="Corporate Communication"></option>
+                                <option value="Corporate Planning"></option>
+                                <option value="Marketing Professional"></option>
+                                <option value="Operations Management"></option>
+                                <option value="Sales Professional"></option>
+                                <option value="Senior Manager / Manager"></option>
+                                <option value="Subject Matter Expert"></option>
+                                <option value="Business Development Professional"></option>
+                                <option value="Content Writer"></option>
+                                <option value="Army"></option>
+                                <option value="Navy"></option>
+                                <option value="Defence Services (Others)"></option>
+                                <option value="Air Force"></option>
+                                <option value="Paramilitary"></option>
+                                <option value="Professor / Lecturer"></option>
+                                <option value="Teaching / Academician"></option>
+                                <option value="Education Professional"></option>
+                                <option value="Training Professional"></option>
+                                <option value="Research Assistant"></option>
+                                <option value="Research Scholar"></option>
+                                <option value="Civil Engineer"></option>
+                                <option value="Electronics / Telecom Engineer"></option>
+                                <option value="Mechanical / Production Engineer"></option>
+                                <option value="Quality Assurance Engineer - Non IT"></option>
+                                <option value="Engineer - Non IT"></option>
+                                <option value="Designer"></option>
+                                <option value="Product Manager - Non IT"></option>
+                                <option value="Project Manager - Non IT"></option>
+                                <option value="Hotel / Hospitality Professional"></option>
+                                <option value="Restaurant / Catering Professional"></option>
+                                <option value="Chef / Cook"></option>
+                                <option value="Software Professional"></option>
+                                <option value="Hardware Professional"></option>
+                                <option value="Product Manager"></option>
+                                <option value="Project Manager"></option>
+                                <option value="Program Manager"></option>
+                                <option value="Animator"></option>
+                                <option value="Cyber / Network Security"></option>
+                                <option value="UI / UX Designer"></option>
+                                <option value="Web / Graphic Designer"></option>
+                                <option value="Software Consultant"></option>
+                                <option value="Data Analyst"></option>
+                                <option value="Data Scientist"></option>
+                                <option value="Network Engineer"></option>
+                                <option value="Quality Assurance Engineer"></option>
+                                <option value="Lawyer &amp; Legal Professional"></option>
+                                <option value="Legal Assistant"></option>
+                                <option value="Law Enforcement Officer"></option>
+                                <option value="Police"></option>
+                                <option value="Doctor"></option>
+                                <option value="Healthcare Professional"></option>
+                                <option value="Paramedical Professional"></option>
+                                <option value="Nurse"></option>
+                                <option value="Pharmacist"></option>
+                                <option value="Physiotherapist"></option>
+                                <option value="Psychologist"></option>
+                                <option value="Veterinary Doctor"></option>
+                                <option value="Dentist"></option>
+                                <option value="Surgeon"></option>
+                                <option value="Therapist"></option>
+                                <option value="Medical Transcriptionist"></option>
+                                <option value="Dietician / Nutritionist"></option>
+                                <option value="Lab Technician"></option>
+                                <option value="Journalist"></option>
+                                <option value="Media Professional"></option>
+                                <option value="Entertainment Professional"></option>
+                                <option value="Event Management Professional"></option>
+                                <option value="Advertising / PR Professional"></option>
+                                <option value="Designer"></option>
+                                <option value="Actor / Model"></option>
+                                <option value="Artist"></option>
+                                <option value="Mariner / Merchant Navy"></option>
+                                <option value="Sailor"></option>
+                                <option value="Scientist / Researcher"></option>
+                                <option value="CXO / President, Director, Chairman"></option>
+                                <option value="VP / AVP / GM / DGM / AGM"></option>
+                                <option value="Technician"></option>
+                                <option value="Arts &amp; Craftsman"></option>
+                                <option value="Librarian"></option>
+                                <option value="Business Owner / Entrepreneur"></option>
+                                <option value="Retired"></option>
+                                <option value="Transportation / Logistics Professional"></option>
+                                <option value="Agent / Broker / Trader"></option>
+                                <option value="Contractor"></option>
+                                <option value="Fitness Professional"></option>
+                                <option value="Security Professional"></option>
+                                <option value="Social Worker /  Volunteer / NGO"></option>
+                                <option value="Sportsperson"></option>
+                                <option value="Travel Professional"></option>
+                                <option value="Singer"></option>
+                                <option value="Writer"></option>
+                                <option value="Politician"></option>
+                                <option value="Associate"></option>
+                                <option value="Builder"></option>
+                                <option value="Chemist"></option>
+                                <option value="CNC Operator"></option>
+                                <option value="Distributor"></option>
+                                <option value="Driver"></option>
+                                <option value="Freelancer"></option>
+                                <option value="Mechanic"></option>
+                                <option value="Medical Representative"></option>
+                                <option value="Musician"></option>
+                                <option value="Photo / Videographer"></option>
+                                <option value="Surveyor"></option>
+                                <option value="Tailor"></option>
+                                <option value="Others"></option>
+                            </datalist>
+                        </div>
+            
+                        <div *ngIf="f.job.value" class="form-group col-10 mx-auto">
+                            <label class="col-form-label" for="workplace"><h5>Work place</h5></label>
+                            <input type="text" formControlName="workplace" class="form-control">
+                        </div>
+            
+                        <div class="form-group col-10 mx-auto">
+                            <label class="col-form-label" for="income"><h5>Income</h5></label>
+                            <input type="text" formControlName="income" class="form-control" list="income">
+                            <datalist id="income">
+                                <option value="0 - 1 Lakh"></option>
+                                <option value="1 - 2 Lakhs"></option>
+                                <option value="2 - 3 Lakhs"></option>
+                                <option value="3 - 4 Lakhs"></option>
+                                <option value="4 - 5 Lakhs"></option>
+                                <option value="5 - 6 Lakhs"></option>
+                                <option value="6 - 7 Lakhs"></option>
+                                <option value="7 - 8 Lakhs"></option>
+                                <option value="8 - 9 Lakhs"></option>
+                                <option value="9 - 10 Lakhs"></option>
+                                <option value="10 - 12 Lakhs"></option>
+                                <option value="12 - 14 Lakhs"></option>
+                                <option value="14 - 16 Lakhs"></option>
+                                <option value="16 - 18 Lakhs"></option>
+                                <option value="18 - 20 Lakhs"></option>
+                                <option value="20 - 25 Lakhs"></option>
+                                <option value="25 - 30 Lakhs"></option>
+                                <option value="30 - 35 Lakhs"></option>
+                                <option value="35 - 40 Lakhs"></option>
+                                <option value="40 - 45 Lakhs"></option>
+                                <option value="45 - 50 Lakhs"></option>
+                                <option value="50 - 60 Lakhs"></option>
+                                <option value="60 - 70 Lakhs"></option>
+                                <option value="70 - 80 Lakhs"></option>
+                                <option value="80 - 90 Lakhs"></option>
+                                <option value="90 Lakhs - 1 Crore"></option>
+                                <option value="1 Crore and Above"></option>
+                            </datalist>
+                        </div>
+            
+                        <div class="form-group col-10 mx-auto">
+                            <label class="col-form-label" for="height"><h5>Height(ft)</h5></label>
+                            <input type="number" formControlName="height" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.height.errors }" required>
+                            <div *ngIf="submitted && f.height.errors" class="invalid-feedback">
+                                <div *ngIf="f.height.errors.required">Height is required</div>
+                                <div *ngIf="f.height.errors.min">Height must be greater than 4</div>
+                                <div *ngIf="f.height.errors.max">Height must be lesser than 9</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-10 mx-auto">    
+                            <label class="col-form-label" for="weight"><h5>Weight(kg)</h5></label>
+                            <input type="number" formControlName="weight" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.weight.errors }" required>
+                            <div *ngIf="submitted && f.weight.errors" class="invalid-feedback">
+                                <div *ngIf="f.weight.errors.required">Weight is required</div>
+                                <div *ngIf="f.weight.errors.min">Weight must be greater than 30</div>
+                                <div *ngIf="f.weight.errors.max">Weight must be lesser than 95</div>
+                            </div>
+                        </div>
+            
+                        <div class="form-group col-10 mx-auto">
+                            <label class="col-form-label" for="mother_tongue"><h5>Mother Tongue</h5></label>
+                            <input type="text" formControlName="mother_tongue" class="form-control" list="mother_tongue">
+                            <datalist id="mother_tongue">
+                                <option value="Tamil"></option>
+                                <option value="Telugu"></option>
+                                <option value="Malayalam"></option>
+                                <option value="Hindi"></option>
+                                <option value="Kannada"></option>
+                                <option value="Urdu"></option>
+                                <option value="Thulu"></option>
+                                <option value="Marati"></option>
+                            </datalist>
+                        </div>
+            
+                        <div class="form-group col-10 mx-auto">
+                            <label class="col-form-label" for="known_language"><h5>Known language</h5></label>
+                            <input type="text" formControlName="known_language" class="form-control" list="known_language">       
+                        </div>
+            
+                        <div class="form-group col-10 mx-auto">
+                            <label class="col-form-label"><h5>Marital status</h5></label>
+                            
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" value="unmarried" type="radio" formControlName="marital_status">
+                                <label class="form-check-label">Unmarried</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" value="married" type="radio" formControlName="marital_status">
+                                <label class="form-check-label">Married</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-10 mx-auto">
+                            <label class="col-form-label" for="talents"><h5>Talents</h5></label>
+                            <textarea formControlName="talents" cols="50" rows="4" class="form-control"></textarea>
+                        </div>
+                        
+                        <div class="form-group col-10 mx-auto">
+                            <label class="col-form-label" for="hobbies"><h5>Hobbies</h5></label>
+                            <textarea formControlName="hobbies" cols="50" rows="3" class="form-control"></textarea>
+                        </div>
+            
+                        <div class="form-group col-10 mx-auto">
+                            <label class="col-form-label"><h5>Vehicle driving</h5></label>
+                            <checkbox-group formControlName="vehicle_driving" class="form-check">
+                                <checkbox value="two_wheeler"> Two wheeler</checkbox>
+                                <checkbox value="four_wheeler"> Four wheeler</checkbox>
+                            </checkbox-group>
+                        </div>
+            
+                        <div class="form-group col-10 mx-auto">
+                            <label class="col-form-label"><h5>Disabilities</h5></label>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" value="normal" type="radio" formControlName="disabilities">
+                                <label class="form-check-label">Normal</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" value="physically challenged" type="radio"  formControlName="disabilities">
+                                <label class="form-check-label">Physically challenged</label>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+
+    <div class="mob container">
+        <fieldset class="border-custom card rounded mt-5">
+            <h2 class="text-center card-header text-white">Horoscope</h2>
+            <div class="container row mx-auto mt-5 mb-5">
+                <table class="form-group mb-2 mx-auto">
+                    <tbody>
+                        <tr>
+                            <td> <textarea type="text" cols="8" rows="4" formControlName="rasibox11" class="form-control"></textarea> </td>
+                            <td> <textarea type="text" cols="8" rows="4" formControlName="rasibox12" class="form-control"></textarea> </td>
+                            <td> <textarea type="text" cols="8" rows="4" formControlName="rasibox13" class="form-control"></textarea> </td>
+                            <td> <textarea type="text" cols="8" rows="4" formControlName="rasibox14" class="form-control"></textarea> </td>
+                        </tr>
+                        <tr>
+                            <td> <textarea type="text" cols="8" rows="4" formControlName="rasibox15" class="form-control"></textarea> </td>
+                            <td rowspan="2" colspan="2">
+                                <h2 class="text-center">RASI</h2>
+                            </td>
+                            <td> <textarea type="text" cols="8" rows="4" formControlName="rasibox16" class="form-control"></textarea> </td>
+                        </tr>
+                        <tr>
+                            <td> <textarea type="text" cols="8" rows="4" formControlName="rasibox17" class="form-control"></textarea> </td>
+                            <td> <textarea type="text" cols="8" rows="4" formControlName="rasibox18" class="form-control"></textarea> </td>
+                        </tr>
+                        <tr>
+                            <td> <textarea type="text" cols="8" rows="4" formControlName="rasibox19" class="form-control"></textarea> </td>
+                            <td> <textarea type="text" cols="8" rows="4" formControlName="rasibox110" class="form-control"></textarea> </td>
+                            <td> <textarea type="text" cols="8" rows="4" formControlName="rasibox111" class="form-control"></textarea> </td>
+                            <td> <textarea type="text" cols="8" rows="4" formControlName="rasibox112" class="form-control"></textarea> </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="form-group mb-2 mx-auto">
+                    <tbody>
+                        <tr>
+                            <td> <textarea type="text" cols="8" rows="4" formControlName="rasibox21" class="form-control"></textarea> </td>
+                            <td> <textarea type="text" cols="8" rows="4" formControlName="rasibox22" class="form-control"></textarea> </td>
+                            <td> <textarea type="text" cols="8" rows="4" formControlName="rasibox23" class="form-control"></textarea> </td>
+                            <td> <textarea type="text" cols="8" rows="4" formControlName="rasibox24" class="form-control"></textarea> </td>
+                        </tr>
+                        <tr>
+                            <td> <textarea type="text" cols="8" rows="4" formControlName="rasibox25" class="form-control"></textarea> </td>
+                            <td rowspan="2" colspan="2">
+                                <h2 class="text-center">AMSAM</h2>
+                            </td>
+                            <td> <textarea type="text" cols="8" rows="4" formControlName="rasibox26" class="form-control"></textarea> </td>
+                        </tr>
+                        <tr>
+                            <td> <textarea type="text" cols="8" rows="4" formControlName="rasibox27" class="form-control"></textarea> </td>
+                            <td> <textarea type="text" cols="8" rows="4" formControlName="rasibox28" class="form-control"></textarea> </td>
+                        </tr>
+                        <tr>
+                            <td> <textarea type="text" cols="8" rows="4" formControlName="rasibox29" class="form-control"></textarea> </td>
+                            <td> <textarea type="text" cols="8" rows="4" formControlName="rasibox210" class="form-control"></textarea> </td>
+                            <td> <textarea type="text" cols="8" rows="4" formControlName="rasibox211" class="form-control"></textarea> </td>
+                            <td> <textarea type="text" cols="8" rows="4" formControlName="rasibox212" class="form-control"></textarea> </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </fieldset>
+    </div>
+
+    <div class="mob container">
+        <div class="row">
+            <div class="col-12">
+                <fieldset class="border-custom card rounded mt-5">       
+                    <h2 class="text-center card-header text-white">Family details</h2>
+                    <div class="container text-secondary col-12">
+                        <div class="form-group mt-5 col-10 mx-auto">
+                            <label class="col-form-label" for="father_name"><h5>Father name</h5></label>
+                            <input type="text" formControlName="father_name" class="form-control">
+                        </div>
+
+                        <div class="form-group col-10 mx-auto">
+                            <label class="col-form-label" for="father_occupation"><h5>Father occupation</h5></label>
+                            <input type="text" formControlName="father_occupation" class="form-control">
+                        </div>
+
+                        <div class="form-group col-10 mx-auto">
+                            <label class="col-form-label" for="mother_name"><h5>Mother name</h5></label>
+                            <input type="text" formControlName="mother_name" class="form-control">
+                        </div>
+                        
+                        <div class="form-group col-10 mx-auto">
+                            <label class="col-form-label" for="mother_occupation"><h5>Mother occupation</h5></label>
+                            <input type="text" formControlName="mother_occupation" class="form-control">
+                        </div>
+                        
+                        <div class="form-group col-10 mx-auto">
+                            <label class="col-form-label" for="contact"><h5>Family contact</h5></label>
+                            <input type="text" formControlName="contact_main" class="form-control" placeholder="Primary" [ngClass]="{ 'is-invalid': submitted && f.contact_main.errors }" required>
+                            <div *ngIf="submitted && f.contact_main.errors" class="invalid-feedback">
+                                <div *ngIf="f.contact_main.errors.required">Primary contact is required</div>
+                            </div>
+                            <input type="tel" formControlName="contact_sup" class="form-control" placeholder="Optional">
+                        </div>
+
+                        <div class="form-group col-10 mx-auto">
+                            <label class="col-form-label" for="sibiling_count"><h5>Sibiling Count</h5></label>
+                            <input type="number" formControlName="sibiling_count" class="form-control">
+                        </div>
+
+                        <div class="form-group col-10 mx-auto">
+                            <label class="col-form-label"><h5>Family Status</h5></label>
+                            
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" value="middle class" type="radio" formControlName="family_status">
+                                <label class="form-check-label">Middle Class</label>
+                            </div>
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" value="rich" type="radio" formControlName="family_status">
+                                <label class="form-check-label">Rich</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" value="affluent" type="radio" formControlName="family_status">
+                                <label class="form-check-label">Affluent</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group mb-4 col-10 mx-auto">
+                            <label class="col-form-label" for="properties"><h5>Property</h5></label>
+                            <textarea class="form-control ml-auto" formControlName="properties" cols="50" rows="4" placeholder="e.g. 1 flat in Bangalore..."></textarea>
+                        </div>
+
+                        <div class="form-group mb-5 row col-10 mx-auto">
+                            <label class="col-form-label" for="other_details"><h5>Other details</h5></label>
+                            <textarea class="form-control ml-auto" formControlName="other_details" cols="50" rows="4" placeholder="Write something about you..."></textarea>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+
+    <div class="mob container mb-5">
+        <div class="row">
+            <div class="col-12">
+                <fieldset class="border-custom card rounded mt-5">
+                    <h2 class="text-center card-header text-white">Partner expectations</h2>
+                    <div class="container text-secondary col-12">
+                        
+                        <div class="form-group mt-5 col-10 mx-auto">
+                            <label class="col-form-label" for="expected_qualification"><h5>Qualification</h5></label>
+                            <input type="text" formControlName="expected_qualification" class="form-control">
+                        </div>
+            
+                        <div class="form-group col-10 mx-auto">
+                            <label class="col-form-label" for="expected_place"><h5>Settle Location</h5></label>
+                            <input type="text" formControlName="expected_place" class="form-control">
+                        </div>
+            
+                        <div class="form-group col-10 mx-auto">
+                            <label class="col-form-label" for="expected_income"><h5>Income</h5></label>
+                            <input type="text" formControlName="expected_income" class="form-control" list="expected_income">
+                            <datalist id="expected_income">
+                                <option value="0 - 1 Lakh"></option>
+                                <option value="1 - 2 Lakhs"></option>
+                                <option value="2 - 3 Lakhs"></option>
+                                <option value="3 - 4 Lakhs"></option>
+                                <option value="4 - 5 Lakhs"></option>
+                                <option value="5 - 6 Lakhs"></option>
+                                <option value="6 - 7 Lakhs"></option>
+                                <option value="7 - 8 Lakhs"></option>
+                                <option value="8 - 9 Lakhs"></option>
+                                <option value="9 - 10 Lakhs"></option>
+                                <option value="10 - 12 Lakhs"></option>
+                                <option value="12 - 14 Lakhs"></option>
+                                <option value="14 - 16 Lakhs"></option>
+                                <option value="16 - 18 Lakhs"></option>
+                                <option value="18 - 20 Lakhs"></option>
+                                <option value="20 - 25 Lakhs"></option>
+                                <option value="25 - 30 Lakhs"></option>
+                                <option value="30 - 35 Lakhs"></option>
+                                <option value="35 - 40 Lakhs"></option>
+                                <option value="40 - 45 Lakhs"></option>
+                                <option value="45 - 50 Lakhs"></option>
+                                <option value="50 - 60 Lakhs"></option>
+                                <option value="60 - 70 Lakhs"></option>
+                                <option value="70 - 80 Lakhs"></option>
+                                <option value="80 - 90 Lakhs"></option>
+                                <option value="90 Lakhs - 1 Crore"></option>
+                                <option value="1 Crore and Above"></option>
+                            </datalist>
+                        </div>
+            
+                        <div class="form-group col-10 mx-auto">
+                            <label class="col-form-label" for="expected_caste"><h5>Caste</h5></label>
+                            <input type="text" formControlName="expected_caste" class="form-control" list="expected_caste">
+                            <datalist id="expected_caste">
+                                <option value="brahmin">Brahmin</option>
+                                <option value="chettiyar">Chettiyar</option>
+                                <option value="gounder">Gounder</option>
+                                <option value="mudhaliyar">Mudhaliyar</option>
+                            </datalist>
+                        </div>
+            
+                        <div class="form-group col-10 mx-auto">
+                            <label class="col-form-label" for="expected_subcaste"><h5>Sub caste</h5></label>
+                            <input type="text" formControlName="expected_subcaste" class="form-control" list="expected_subcaste">
+                            <datalist id="expected_subcaste">
+                                    <option value="iyer">Iyer</option>
+                                    <option value="iyengar">Iyengar</option>
+                                    <option value="vellalar">Vellalar</option>
+                                    <option value="gaura">Gaura</option>
+                            </datalist>        
+                        </div>
+
+                        <div class="form-group col-10 mx-auto">
+                            <label class="col-form-label"><h5>Marital status</h5></label>
+                            <checkbox-group formControlName="expected_marital_status" class="form-check">
+                                <checkbox value="unmarried">Unmarried</checkbox>
+                                <checkbox value="married">Married</checkbox>
+                            </checkbox-group>
+                        </div>
+            
+                        <div class="form-group col-10 mx-auto">
+                            <label class="col-form-label"><h5>Age difference</h5></label>
+                            <checkbox-group formControlName="age_difference" class="form-check">
+                                <checkbox value="0-3 years">0-3</checkbox>
+                                <checkbox value="4-6 years">4-6</checkbox>
+                                <checkbox value="7-10 years">7-10</checkbox>
+                                <checkbox value="10 above">10 above</checkbox>
+                            </checkbox-group>
+                        </div>
+            
+                        <div class="form-group col-10 mx-auto">
+                            <label class="col-form-label" for="expected_height"><h5>Height(ft)</h5></label>
+                            <input type="text" formControlName="expected_height" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.expected_height.errors }"> 
+                            <div *ngIf="submitted && f.expected_height.errors" class="invalid-feedback">
+                                <div *ngIf="f.expected_height.errors.maxlength">Requirements should be less than 25 letters</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-10 mx-auto">    
+                            <label class="col-form-label" for="expected_weight"><h5>Weight(kg)</h5></label>
+                            <input type="text" formControlName="expected_weight" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.expected_weight.errors }">
+                            <div *ngIf="submitted && f.expected_weight.errors" class="invalid-feedback">
+                                <div *ngIf="f.expected_weight.errors.maxlength">Requirements should be less than 25 letters</div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group mt-3 col-10 mx-auto">
+                            <label class="col-form-label" for="expectations"><h5>Other expectations</h5></label>
+                            <textarea formControlName="expectations" cols="50" rows="4" class="form-control ml-auto" placeholder="Write your expectations of your partner..."></textarea>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+
     <div class="container text-center mb-5">
         <div class="text-center">
-            <button class="btn btn-lg submit-btn col-4" type="submit">Submit</button>
-            <button class="btn btn-lg cancel-btn col-4 offset-md-2" type="reset">Cancel</button>
+            <button class="btn btn-lg submit-btn col-4 mr-2" type="submit">Submit</button>
+            <button class="btn btn-lg cancel-btn col-4" type="reset">Cancel</button>
         </div>
     </div>
 </form>

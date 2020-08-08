@@ -117,6 +117,7 @@ export class HeaderComponent implements OnInit {
         this.isLogged = true;
         localStorage.setItem('id', JSON.stringify(this.id));
         localStorage.setItem('token', JSON.stringify(res));
+        alert('Hi' + ', you\'re logged in successfully!')
         this.loginForm.reset();
       },
       err => {

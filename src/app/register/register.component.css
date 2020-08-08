@@ -152,3 +152,16 @@ label.myLabel input[type="file"] {
         width: 200px;
     }
 }
+
+/* ================================================================================================================ */
+
+@media screen and (max-width: 750px) {
+    .desk {
+        display: none;
+    }
+}
+@media screen and (min-width: 750px) {
+    .mob {
+        display: none;
+    }
+}
