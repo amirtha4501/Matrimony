@@ -90,7 +90,7 @@ export class HeaderComponent implements OnInit {
       res => {
         this.deleteForm.reset();
         if(res['password'] === delValue['password']) { 
-          this.profileService.deleteAccount(delId).subscribe(res => { console.log(res, 'res del'); });
+          this.profileService.deleteAccount(delId).subscribe(res => { console.log(); });
           localStorage.removeItem('token');
           localStorage.removeItem('id');
           this.ngOnInit();
@@ -113,10 +113,8 @@ export class HeaderComponent implements OnInit {
     this.detail = this.loginForm.value;
     this.id = this.detail['id'];
 
-    console.log(this.detail['id'], 'login id');
     this.profileService.signIn(this.detail).subscribe(
       res => {
-        console.log(res);
         this.isLogged = true;
         localStorage.setItem('id', JSON.stringify(this.id));
         localStorage.setItem('token', JSON.stringify(res));

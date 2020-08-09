@@ -1266,7 +1266,6 @@ export class RegisterComponent implements OnInit {
     this.createRegForm(); 
     const tok = localStorage.getItem('token');
     if (tok) {
-      console.log('kjhgfds', tok)
       this.updateProfile(tok);
     }
   }
@@ -1275,7 +1274,6 @@ export class RegisterComponent implements OnInit {
     this.submitted = false;
     const tok = localStorage.getItem('token');
     if (tok) {
-      console.log('kjhgfds', tok)
       this.updateProfile(tok);
     }
   }
@@ -1374,11 +1372,9 @@ export class RegisterComponent implements OnInit {
   updateProfile(tok) {
     const token = atob(tok.split('.')[1])
     this.logId = JSON.parse(token).id;
-    console.log(this.logId, 'parse');
 
     if (this.id == this.logId && this.isUpdate) {
       this.profileService.getProfileById(this.id).subscribe((res) => {
-        console.log(res['name']);
 
         this.uImgURL = atob(res['image']);
         this.uImgURL1 = atob(res['image1']);
@@ -1476,15 +1472,12 @@ export class RegisterComponent implements OnInit {
     this.submitted = true;
 
     this.detail = this.regForm.value;
-    console.log(this.detail);
     this.detail['image'] = this.storeImg;
     this.detail['image1'] = this.storeImg1;
     this.detail['image2'] = this.storeImg2;
     if (this.regForm.invalid) { return; }
     if (!this.isUpdate) {
-      // if (this.id != this.logId && !this.isUpdate) {
       this.profileService.signUp(this.detail).subscribe((res) => {
-        console.log('registered');
         this.registered = true;
         this.regForm.reset();
         alert('REGISTRATION SUCCESSFULLY COMPLETED!');
@@ -1492,7 +1485,6 @@ export class RegisterComponent implements OnInit {
       });
     }
     if (this.id == this.logId && this.isUpdate) {
-    // else {
       this.detail['image'] = this.uStoreImg;
       this.detail['image1'] = this.uStoreImg1;
       this.detail['image2'] = this.uStoreImg2;

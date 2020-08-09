@@ -27,7 +27,6 @@ export class ProfileDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.profileId = this.route.snapshot.paramMap.get('id');
-    console.log(this.profileId);
     this.getProfileById(this.profileId);    
   }
 
@@ -43,7 +42,6 @@ export class ProfileDetailComponent implements OnInit {
       this.profileService.getProfileById(this.logId).subscribe(
         (userProfile) => {
           this.userProfile = userProfile;
-          console.log(userProfile, "user profile")
         }
       );
     }
@@ -73,7 +71,6 @@ export class ProfileDetailComponent implements OnInit {
 
   viewContact() {
     this.clicked = true; 
-    console.log('Store profile id', this.profileId);
   }
 
 }

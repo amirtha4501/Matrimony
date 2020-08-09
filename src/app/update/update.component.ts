@@ -24,7 +24,6 @@ export class UpdateComponent implements OnInit {
       .subscribe(
         (params: Params) => {
           this.id = +params['id'];
-          console.log(this.id);
         }
       );
   }
