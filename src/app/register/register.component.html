@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-12">
                 <fieldset class="border-custom card rounded mt-5">
-                    <h2 class="text-center card-header text-white">Personal desk details</h2>
+                    <h2 class="text-center card-header text-white">Personal details</h2>
 
                     <div *ngIf="!this.isUpdate" class="form-group container justify-content-center">
                         <div class="text-center p-3">
@@ -160,7 +160,7 @@
                         
                         <div class="form-group mb-3 row col-10 mx-auto">
                             <label class="col-form-label"><h5>Gender</h5></label>
-                            <div class="form-check form-check-inline offset-md-3">
+                            <div class="form-check form-check-inline offset-md-4">
                                 <input class="form-check-input" value="male" type="radio" formControlName="gender" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }" required>
                                 <label class="form-check-label">Male</label>
                             </div>
@@ -522,8 +522,8 @@
                         <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label mr-5 pr-4"><h5>Vehicle driving</h5></label>
                             <checkbox-group formControlName="vehicle_driving" class="form-check ml-5 pl-5">
-                                <checkbox value="two_wheeler">Two wheeler</checkbox>
-                                <checkbox value="four_wheeler">Four wheeler</checkbox>
+                                <checkbox class="ml-5 mr-5" value="two_wheeler"> Two wheeler&emsp;</checkbox>
+                                <checkbox class="p-1 ml-5" value="four_wheeler"> Four wheeler</checkbox>
                             </checkbox-group>
                         </div>
             
@@ -757,18 +757,18 @@
                         <div class="form-group mb-3 row col-10 mx-auto">
                             <label class="col-form-label mr-5 pr-5"><h5>Marital status</h5></label>
                             <checkbox-group formControlName="expected_marital_status" class="form-check ml-5 pl-5">
-                                <checkbox value="unmarried">Unmarried</checkbox>
-                                <checkbox value="married">Married</checkbox>
+                                <checkbox class="ml-4 mr-5" value="unmarried"> Unmarried</checkbox>
+                                <checkbox class="pl-1 mr-5" value="married"> Married</checkbox>
                             </checkbox-group>
                         </div>
             
                         <div class="form-group mb-2 row col-10 mx-auto">
                             <label class="col-form-label mr-5 pr-4"><h5>Age difference</h5></label>
                             <checkbox-group formControlName="age_difference" class="form-check ml-5 pl-5">
-                                <checkbox value="0-3 years">0-3</checkbox>
-                                <checkbox value="4-6 years">4-6</checkbox>
-                                <checkbox value="7-10 years">7-10</checkbox>
-                                <checkbox value="10 above">10 above</checkbox>
+                                <checkbox class="ml-5 mr-5" value="0-3 years"> 0-3</checkbox>
+                                <checkbox class="mr-5" value="4-6 years"> 4-6</checkbox>
+                                <checkbox class="mr-5" value="7-10 years"> 7-10</checkbox>
+                                <checkbox class="mr-5" value="10 above"> 10 above</checkbox>
                             </checkbox-group>
                         </div>
             
@@ -803,7 +803,7 @@
         <div class="row">
             <div class="col-12">
                 <fieldset class="border-custom card rounded mt-5">
-                    <h2 class="text-center card-header text-white">Personal mob details</h2>
+                    <h2 class="text-center card-header text-white">Personal details</h2>
 
                     <div *ngIf="!this.isUpdate" class="form-group container justify-content-center">
                         <div class="text-center p-3">
@@ -958,7 +958,7 @@
                         
                         <div class="form-group mb-3 row col-10 mx-auto">
                             <label class="col-form-label"><h5>Gender</h5></label>
-                            <div class="form-check form-check-inline offset-md-3">
+                            <div class="form-check form-check-inline offset-md-5">
                                 <input class="form-check-input" value="male" type="radio" formControlName="gender" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }" required>
                                 <label class="form-check-label">Male</label>
                             </div>
@@ -1555,18 +1555,18 @@
                         <div class="form-group col-10 mx-auto">
                             <label class="col-form-label"><h5>Marital status</h5></label>
                             <checkbox-group formControlName="expected_marital_status" class="form-check">
-                                <checkbox value="unmarried">Unmarried</checkbox>
-                                <checkbox value="married">Married</checkbox>
+                                <checkbox value="unmarried"> Unmarried</checkbox>
+                                <checkbox value="married"> Married</checkbox>
                             </checkbox-group>
                         </div>
             
                         <div class="form-group col-10 mx-auto">
                             <label class="col-form-label"><h5>Age difference</h5></label>
                             <checkbox-group formControlName="age_difference" class="form-check">
-                                <checkbox value="0-3 years">0-3</checkbox>
-                                <checkbox value="4-6 years">4-6</checkbox>
-                                <checkbox value="7-10 years">7-10</checkbox>
-                                <checkbox value="10 above">10 above</checkbox>
+                                <checkbox value="0-3 years"> 0-3</checkbox>
+                                <checkbox value="4-6 years"> 4-6</checkbox>
+                                <checkbox value="7-10 years"> 7-10</checkbox>
+                                <checkbox value="10 above"> 10 above</checkbox>
                             </checkbox-group>
                         </div>
             

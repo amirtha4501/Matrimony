@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { ProfileService } from '../services/profile.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -21,6 +22,7 @@ export class HeaderComponent implements OnInit {
   id: number;
 
   constructor(
+    private router: Router,
     private fb: FormBuilder,
     private profileService: ProfileService
   ) { 
@@ -93,6 +95,7 @@ export class HeaderComponent implements OnInit {
           localStorage.removeItem('id');
           this.ngOnInit();
           alert("Profile deleted!"); 
+          this.router.navigate(['/home']);
         }
         else { if(delValue['password'] !== '') { alert("Enter valid password to delete!"); } }
       },
@@ -117,8 +120,9 @@ export class HeaderComponent implements OnInit {
         this.isLogged = true;
         localStorage.setItem('id', JSON.stringify(this.id));
         localStorage.setItem('token', JSON.stringify(res));
-        alert('Hi' + ', you\'re logged in successfully!')
         this.loginForm.reset();
+        alert('Hi' + ', you\'re logged in successfully!');
+        this.router.navigate(['/profiles']);
       },
       err => {
         if (err.status == 401) {

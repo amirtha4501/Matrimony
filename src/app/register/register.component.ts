@@ -1486,9 +1486,9 @@ export class RegisterComponent implements OnInit {
       this.profileService.signUp(this.detail).subscribe((res) => {
         console.log('registered');
         this.registered = true;
+        this.regForm.reset();
         alert('REGISTRATION SUCCESSFULLY COMPLETED!');
         this.router.navigate(['/profiles']);
-        this.regForm.reset();
       });
     }
     if (this.id == this.logId && this.isUpdate) {

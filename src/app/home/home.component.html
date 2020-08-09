@@ -1,53 +1,54 @@
 <div class="marquee col-8 mx-auto row justify-content-center align-items-center mt-5">
     <h2 class="text-white text-center">RAJA ROJA MATRIMONY <br> BOYS</h2>
     <div class="marquee-content male">
-        <li *ngFor="let profile of profiles; index as i"><img *ngIf="profile.gender === 'male' && profile.image && profile.image?.length > 5" src={{profile.image}}></li>
+        <li *ngFor="let profile of profiles; index as i"><a [routerLink]="['/profiledetail', profile.id]"><img *ngIf="profile.gender === 'male' && profile.image && profile.image?.length > 5" src={{profile.image}}></a></li>
     </div>
 </div>
 <br><br>
 <div class="marquee col-8 mx-auto row justify-content-center align-items-center">
     <h2 class="text-white text-center">RAJA ROJA MATRIMONY <br> GIRLS</h2>
     <div class="marquee-content female">
-        <li *ngFor="let profile of profiles; index as i"><img *ngIf="profile.gender === 'female' && profile.image && profile.image?.length > 5" src={{profile.image}}></li>
+        <li *ngFor="let profile of profiles; index as i"><a [routerLink]="['/profiledetail', profile.id]"><img *ngIf="profile.gender === 'female' && profile.image && profile.image?.length > 5" src={{profile.image}}></a></li>
     </div>
 </div>
+
 
 <div class="container mt-3 mb-5 p-5">
     <div class="container-fluid pt-5 pb-5 bg-white">
         <ul>
             <li>
-                <p>ராஜா ரோஜா திருமண இணையம், ஜோதிடரால் நடத்தப்படுவதால் திருமண பொருத்தபலன்கள் துல்லியமாக கணக்கிட்டு சொல்லப்படுகிறது.</p>
+                <p class="text-break">ராஜா ரோஜா திருமண இணையம், ஜோதிடரால் நடத்தப்படுவதால் திருமண பொருத்தபலன்கள் துல்லியமாக கணக்கிட்டு சொல்லப்படுகிறது.</p>
             </li>
         
             <li>
-                <p>Off-line வசதி இருப்பதால் வரண்கள் வாட்ஸ்ஆப் மூலம் தங்களின் மொபைல்களுக்கு ப்ரத்யோகமாக அனுப்பி வைக்கப்படுகிறது.</p>
+                <p class="text-break">Off-line வசதி இருப்பதால் வரண்கள் வாட்ஸ்ஆப் மூலம் தங்களின் மொபைல்களுக்கு ப்ரத்யோகமாக அனுப்பி வைக்கப்படுகிறது.</p>
             </li>
         
             <li>
-                <p>Off-line வசதியை தேர்ந்தெடுத்தால், அந்த வரண்களை On-Line மூலம் பார்க்க இயலாது.
+                <p class="text-break">Off-line வசதியை தேர்ந்தெடுத்தால், அந்த வரண்களை On-Line மூலம் பார்க்க இயலாது.
                 Off-line கட்டணம் தனி.</p>
             </li>
         
             <li>
-                <p>இத்தளம், அனைவரும் வரண்களை பதிவு செய்ய ஏதுவாக எளிமையாக வடிவமைக்கப்பட்டுள்ளது. பதிவுசெய்வதில் சிரமம் இருப்பின்,  வரண்களின் விபரத்தை எங்களுக்கு வாட்ஸ்ஆப் மூலம் அனுப்பினால், நாங்களே பதிவு செய்து ID தருகிறோம்.</p>
+                <p class="text-break">இத்தளம், அனைவரும் வரண்களை பதிவு செய்ய ஏதுவாக எளிமையாக வடிவமைக்கப்பட்டுள்ளது. பதிவுசெய்வதில் சிரமம் இருப்பின்,  வரண்களின் விபரத்தை எங்களுக்கு வாட்ஸ்ஆப் மூலம் அனுப்பினால், நாங்களே பதிவு செய்து ID தருகிறோம்.</p>
             </li>
         
             <li>
-                <p>தோஷம் இருக்கும் வரண்களுக்கு அதிக கவனம் செலுத்தப்படும்.</p>
+                <p class="text-break">தோஷம் இருக்கும் வரண்களுக்கு அதிக கவனம் செலுத்தப்படும்.</p>
             </li>
         
             <li>
-                <p>வரண்களின் உண்மைத்தன்மையை உறுதி செய்யப்பட்ட பின்னரே பதிவிற்க்கான உறுப்பினர் ID வழங்கப்படும்.
+                <p class="text-break">வரண்களின் உண்மைத்தன்மையை உறுதி செய்யப்பட்ட பின்னரே பதிவிற்க்கான உறுப்பினர் ID வழங்கப்படும்.
                 வரண்கள், பதிவு செய்த 24 மணி நேரத்திற்க்குள் உறுப்பினர் ID வழங்கப்படும்.</p>
             </li>
 
             <li>
-                <p>திருமண இடைத்தரகர்கள் இத்தளத்தில் பதிவு செய்ய கூடாது.
+                <p class="text-break">திருமண இடைத்தரகர்கள் இத்தளத்தில் பதிவு செய்ய கூடாது.
                 ஒரு வரணுக்கு, ஒரு உறுப்பினர் ID மட்டுமே வழங்கப்படும்.</p>
             </li>
 
             <li>
-                <p>பெற்றோர்களின் சம்மதம் பதிவுக்கு மிக அவசியம்.</p>
+                <p class="text-break">பெற்றோர்களின் சம்மதம் பதிவுக்கு மிக அவசியம்.</p>
             </li> 
         </ul>
     </div>
