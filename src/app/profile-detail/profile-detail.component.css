@@ -49,3 +49,24 @@
     white-space: nowrap;
     font-family: Arial, sans-serif;
 }
+
+/* ================================================================================================================= */
+
+@media screen and (max-width: 600px) {
+    label, h5 {
+        font-size: .7rem;
+    }
+    label a {
+        font-size: .7rem;
+        white-space: nowrap;
+    }
+}
+@media screen and (max-width: 340px) {
+    label, h5 {
+        font-size: .5rem;
+    }
+    label a {
+        font-size: .5rem;
+        white-space: nowrap;
+    }
+}
